@@ -1,0 +1,100 @@
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  5 22 16 58 15
+ Program preprocess
+ --------------------------------------
+
+ set_nml_output Echo NML values to log file only
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_PANDA_OBS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  5 22 16 58 15
+ Program preprocess
+ --------------------------------------
+
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  5 22 17  3 34
+ Program preprocess
+ --------------------------------------
+
+ set_nml_output Echo NML values to log file only
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_PANDA_OBS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  5 22 17  3 34
+ Program preprocess
+ --------------------------------------
+
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  5 22 17  4 50
+ Program preprocess
+ --------------------------------------
+
+ set_nml_output Echo NML values to log file only
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_PANDA_OBS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  5 22 17  4 50
+ Program preprocess
+ --------------------------------------
+
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  5 22 17  8 29
+ Program preprocess
+ --------------------------------------
+
+ set_nml_output Echo NML values to log file only
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_PANDA_OBS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  5 22 17  8 29
+ Program preprocess
+ --------------------------------------
+

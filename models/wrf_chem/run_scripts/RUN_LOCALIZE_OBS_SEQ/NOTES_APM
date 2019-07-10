@@ -1,0 +1,35 @@
+Settings for VERTISxxx
+-2	-  no vertical location
+-1	-  surface value
+ 1	-  level
+ 2	-  pressure
+ 3	-  height
+ 4	-  scale height
+
+Setting for select_localization
+ 1	-  Gaspari-Cohn
+ 2	-  Boxcar
+ 3	-  Ramped Boxcar
+
+For rejection/localization try:
+VERTISxxx = 4
+vertical location = .35 of one scale height
+
+z_in = distance of target_loc from obs_loc (in scale height if negative then target_obs is above (higher than) obs_loc
+
+when obs_type=MOPITT_CO_RETRIEVAL
+if z_in < 0 use Gaspari-Cohn
+if z_in > 0 use Boxcar
+
+CHECK THE location_nml settings
+they probably should be
+nlon = 71
+nlat = 36
+vertical_normalization_scale_height = 10.0 (Glen resets this to 1.5)
+vertical_normalization_pressure = 666666.7
+
+NOTE: These may need to be changed in the namelist scripts and run scripts.
+
+
+
+   

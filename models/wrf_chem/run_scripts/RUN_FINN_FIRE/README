@@ -1,0 +1,16 @@
+# DART $Id: $
+
+IMPORTANT: The WRF-Chem build mechanism has been replaced by the DART mkmf mechanism.
+           All that is needed to build fire_emis is to run
+           quickbuild.csh   in the  RUN_FINN_FIRE/work directory.
+           The environment from the mkmf.template is used, so there is no further
+           customization needed. As per the WRF-Chem/DART developers policy, the
+           executable has a '.exe' extension, which is an addition to the 
+           native naming scheme.
+
+This code comes from the NCAR/ACOM FINN fire source code directory.
+
+For more information, see https://www2.acom.ucar.edu/wrf-chem/wrf-chem-tools-community
+
+The data files are archived in the INPUT DATA directory for WRF-Chem/DART.
+

@@ -1,0 +1,301 @@
+; Gabriele Pfister
+; Note: IASI profiles are from surface up
+;
+; This code reads the VMR.dat files and writes the IASIO3PROF_OBSSEQ_method2_'datestring'.dat files
+; Run this in IDL with ".run createOBSSEQ_IASI_O3_method2.pro_APM"
+;
+
+!quiet=1
+close,/all
+
+sza_day=90.
+sza_nit=180.
+day_lat_edge1=-70.
+day_lat_edge2=70.
+nit_lat_edge1=-60.
+nit_lat_edge2=60.
+
+nl=40
+apcov_tmp = fltarr(nl+1, nl+1)
+openr,1,'IASI_apcov.dat'
+readf,1,apcov_tmp
+close,1
+;print, size(apcov_tmp)
+;for i=0,nl do begin
+;   print, i,apcov_tmp(i,i)
+;endfor
+apcov=apcov_tmp[0:39, 0:39]   ; relative units
+;print,'Start apcov check'
+;for i=0,39 do begin
+;   for j=0,39 do begin
+;      if apcov(i,j) ne apcov(j,i) then begin
+;         print, 'apcov', i,j,apcov(i,j),apcov(j,i)
+;      endif
+;   endfor
+;endfor
+;
+for imm = 6,6  do begin
+   for idd = 1,1 do begin     
+      mmstring=strcompress(string(imm),/remove_all)
+      if imm le 9 then mmstring='0'+mmstring
+      ddstring=strcompress(string(idd),/remove_all)
+      if idd le 9 then ddstring='0'+ddstring
+      datestring='2008'+mmstring+ddstring
+      files = findfile ('/glade/p/acd/mizzi/AVE_TEST_DATA/IASI_O3_EPS_DATA/data_2008/F*_iasi_'+datestring+'_*VMR.dat', count=nfiles)
+      nmax=nfiles*500.
+      help, nmax
+      dfs_array = fltarr(2, nmax)
+      maxalt_array = fltarr(2, nmax)
+      maxprs_array = fltarr(2, nmax)
+      altlev_array = fltarr(2, nmax)
+      prslev_array = fltarr(2, nmax)
+      lat_array = fltarr(nmax)
+      lon_array = fltarr(nmax)
+      sec_array = fltarr(nmax)
+      vmr_array = fltarr(2,nmax)
+      ak_array  = fltarr(2,2,nmax)  ; min and max
+      nmax0=0L
+      if nfiles ge 1 then begin
+         openw,11,'/glade/scratch/mizzi/AVE_TEST_DATA/obs_IASI_O3/IASIO3PROF_OBSSEQ_method2_'+datestring+'.dat'
+         print, 'IASIO3PROF_OBSSEQ_method2_'+datestring+'.dat'
+         n=5000.
+         lon=fltarr(n)
+         lat=fltarr(n)
+         hms=fltarr(n)
+         z0=fltarr(n)
+         sza=fltarr(n)
+         rms=fltarr(n)
+         dofs=fltarr(n)
+         vecAKcol = fltarr(n,1600)
+         press=fltarr(n,41)
+         vmr=fltarr(n, 40)
+         col=fltarr(n, 40)
+         bias=fltarr(n)
+         apmtmp=fltarr(n)
+         apvmr = fltarr(n,40)
+         apcol = fltarr(n,40)
+         error = fltarr(n,40)
+         surfT = fltarr(n)
+         cloud = fltarr(n)
+         for ifile=0,nfiles-1 do begin
+;            print, 'APM: read file number',ifile
+            files2=strmid(files[ifile], 0, strlen(files[ifile])-10)+'.b_COLUMN.dat'
+            files3=strmid(files[ifile], 0, strlen(files[ifile])-10)+'.b_ERROR.dat'
+            count=0L
+            dummy=''
+            openr,1,files[ifile]
+;            print, 'APM: read file 1'
+            while not eof(1) do begin
+               readf,1, dummy
+               parts  = str_sep(dummy,',')
+               parts = strcompress(parts,/remove_all)
+               k=where(parts ne '')
+               parts=parts(k)
+               lon[count] = parts[0]
+               lat[count] = parts[1]
+               hms[count] = parts[2]
+               z0[count] = parts[3]
+               sza[count] = parts[9]
+               rms[count] = parts[4]
+               dofs[count] = parts[5]
+               cloud[count] = parts[10]
+               surfT[count] = parts[11]
+               press[count,*] = parts[12:52]
+               vmr[count,*] = parts[53:92]
+               apvmr[count,*] = parts[93:132]
+               count=count+1L
+            endwhile
+            close,1
+;
+            count2=0L
+            dummy=''
+            openr,1,files2
+;            print, 'APM: read file 2'
+            while not eof(1) do begin
+               readf,1, dummy
+               parts  = str_sep(dummy,',')
+               parts = strcompress(parts,/remove_all)
+;               if count2 eq 1 then begin
+;                  parts_save = str_sep(dummy,',')
+;               endif
+               k=where(parts ne '')
+               parts=parts(k)
+               bias[count2] = parts[5]
+               vecAKcol[count2,*] = parts[53:1652]
+               col[count2,*] = parts[1653:1692]
+               apcol[count2,*] = parts[1693:1732]
+               count2=count2+1L
+            endwhile
+;
+            close,1
+            count3=0L
+            openr,1,files3
+;            print, 'APM: read file 3'
+            while not eof(1) do begin
+               readf,1, dummy
+               parts  = str_sep(dummy,',')
+               parts = strcompress(parts,/remove_all)
+               k=where(parts ne '')
+               parts=parts(k)
+               error[count3,*] = parts[53:92]   ; [%]
+               count3=count3+1L
+            endwhile
+            close,1
+;
+; Column file can have double the entries, Catherine had a bug when
+; extracting the data.
+            if count ne count2 or count ne count3 then begin
+               if count ne count2/2. or count ne count3 then stop
+            endif
+            nprof = count-1
+;            print, 'APM: process results from read'
+            for iprof=0, nprof-1 do begin
+;
+; select good quality data over our domain
+;                  print, 'APM: bias,rms ',iprof,bias[iprof],rms[iprof]
+                  if bias[iprof] lt 3.0 and cloud[iprof] le 5 and rms[iprof] le 3.0e-8 and $
+                  (sza[iprof] lt sza_day and lat[iprof] gt day_lat_edge1 and lat[iprof] lt day_lat_edge2) or $
+                  (sza[iprof] ge sza_day and lat[iprof] gt nit_lat_edge1 and lat[iprof] lt nit_lat_edge2) and $
+                  lat[iprof] ge 7 and lat[iprof] le 54 and lon[iprof] ge -176 and lon[iprof] le -50 then begin
+;
+;                  if sza[iprof] le 80 and cloud[iprof] le 5 and $
+;                  lat[iprof] ge 7 and lat[iprof] le 54 and lon[iprof] ge -176 and lon[iprof] le -50 then begin
+;
+;                  print, 'APM: lat lon sza cloud ',lat[iprof],lon[iprof],sza[iprof],cloud[iprof]
+                  lev_use=findgen(nl)
+                  nlev_use=nl
+                  lev1=0
+                  not_a_lev= where(finite(press[iprof,*],/NAN))
+                  if not_a_lev[0] ne -1 then begin
+                     nlev_use=nl-n_elements(not_a_lev)
+                     lev1=max(not_a_lev)+1
+                  endif
+;                 
+                  retlev=reform(press[iprof,lev1:nl])
+                  altretlev_all = findgen(nl+1)
+                  altretlev_ag = altretlev_all[lev1:nl]-altretlev_all[lev1]
+                  altretlev = altretlev_all[lev1:nl]                 
+                  retlev2=fltarr(nlev_use)
+                  for ilay=0,nlev_use-1 do retlev2[ilay] = mean(retlev[ilay:ilay+1])
+                  altretlev2=fltarr(nlev_use)
+                  for ilay=0,nlev_use-1 do altretlev2[ilay] = mean(altretlev[ilay:ilay+1])
+                  altretlev2_ag=fltarr(nlev_use)
+                  for ilay=0,nlev_use-1 do altretlev2_ag[ilay] = mean(altretlev_ag[ilay:ilay+1])+z0[iprof]
+;           
+                  iasi_vmr=reform(vmr[iprof,lev1:nl-1])
+                  iasi_col=reform(col[iprof,lev1:nl-1])
+                  err = reform(error[iprof,lev1:nl-1])                 
+                  ap_vmr=reform(apvmr[iprof,lev1:nl-1])
+                  ap_col=reform(apcol[iprof,lev1:nl-1])
+                  AKcol=fltarr(nlev_use,nlev_use)
+                  AKvmr=fltarr(nlev_use,nlev_use)
+                  ind=0
+                  for li=0,nlev_use-1 do begin
+                     AKcol(0:nlev_use-1,li)=vecAKcol(iprof,ind:ind+nlev_use-1) ;
+                     ind=ind+nlev_use
+                  end
+;
+; Calculate air_column
+                  air_column=fltarr(nlev_use)
+                  for li=0,nlev_use-1 do begin
+                     air_column(li)=ap_col(li)/ap_vmr(li)
+                  end 
+;
+; Convert averaging kernel to VMR
+;                  for li=0,nlev_use-1 do begin
+;                     for lj=0,nlev_use-1 do begin
+;                        AKvmr(li,lj)=AKcol(li,lj)/air_column(li)*air_column(lj) ;
+;                     end
+;                  end 
+;                  
+                  ineg = where(finite(AKcol,/NAN))
+                  if ineg[0] ne -1 then begin
+                     print,'lat,lon,hms,iprof ',lat[iprof],lon[iprof],hms[iprof],iprof
+                     print, 'nlev_use,lev1 ',nlev_use,lev1
+                     for lj=0,nlev_use-1 do begin
+                        print, 'column', lj
+                        print, 'AKcol ',AKcol(0:nlev_use-1,lj)
+                     endfor
+                     print, 'iasi_col ',iasi_col(0:nlev_use-1)
+                     print, 'ap_col ',ap_col(0:nlev_use-1)
+                     stop
+                  endif 
+
+                  iasi_sec=(hms[iprof]/10000.)*3600  ; seconds
+                  prior =  reform(apcol[iprof,lev1:nl-1])/2.69e16 ; a priori profile
+                  apcov_col=reform(apcov[lev1:nl-1, lev1:nl-1])
+                  apcov_vmr=reform(apcov[lev1:nl-1, lev1:nl-1])
+;
+; Convert the error covariance
+                  for i=0,nlev_use-1 do begin
+                     for j=0,nlev_use-1 do begin
+                       apcov_col(i,j)=apcov_col(i,j)*ap_col(i)*ap_col(j)
+                     endfor
+                  endfor
+                  for i=0,nlev_use-1 do begin
+                     for j=0,nlev_use-1 do begin
+                       apcov_vmr(i,j)=apcov_vmr(i,j)*ap_vmr(i)*ap_vmr(j)
+                     endfor
+                  endfor
+;
+; looks like some retrievals at the lower range have VMR > 1000 ppb
+; (first occured on 11 June for 3 retrievals. screen those out                          
+                  okay=1
+;                  if max(iasi_vmr[0:10]) gt 500. then begin
+;                     print, 'VMR too high:', files[ifile], lon[iprof], lat[iprof], max(iasi_vmr[0:20])
+;                     okay=0
+;                  endif
+;                  print, 'APM: at write to file FLG =',okay
+                  if okay eq 1 then begin                    
+                     nll=nl-lev1
+                     nllp=nll+1
+                     I = Identity(nll)
+                     ImA = I - AKcol
+                     AmI = AKcol - I
+;                     print, 'dim I',size(I)
+;                     print, 'dim ImA',size(ImA)
+;                     print, 'dim AKcol',size(AKcol)
+;                     print, 'dim ap_col',size(ap_col)
+;                     print, 'dim apcov_col',size(apcov_use)
+                     ImAxa = ImA##ap_col
+                     Cm_col = ImA##apcov_col##(I + transpose(AmI))
+                     Cx_col = ImA##apcov_col
+;
+; location and time info and also retrieval level and number of levels
+; and dfs for surface -100 mb
+                     printf,11,'IASIO3PROF '+datestring
+                     printf,11,float(iasi_sec), lat[iprof], lon[iprof], sza[iprof], cloud[iprof], float(lev1), float(nlev_use)
+;
+; retrieval altitude mid-levels       
+                     printf, 11, altretlev_ag(0:nllp-1)
+; retrieval pressure mid-levels
+                     printf, 11, retlev(0:nllp-1)
+; AK matrix
+                     printf,11, AKcol(0:nll-1,0:nll-1)
+; a priori profile (column) 
+                     printf,11,ap_col(0:nll-1)
+; a priori profile (VMR) 
+                     printf,11,ap_vmr(0:nll-1)
+; IASI retrieval profile (column)
+                     printf,11,iasi_col(0:nll-1)
+; IASI retrieval profile (VMR)
+                     printf,11,iasi_vmr(0:nll-1)
+; prior error covariance (%)
+                     printf,11,apcov_col(0:nll-1,0:nll-1)
+; measurement error covariance (%)
+                     printf,11,Cm_col(0:nll-1,0:nll-1)
+; retrieval error covariance (%)
+                     printf,11,Cx_col(0:nll-1,0:nll-1)
+                  endif
+               endif
+;               print, 'APM: completed profile',iprof,nprof
+            endfor
+            nmax0 = nmax0+1L
+         endfor
+      endif
+      close,11
+   endfor
+endfor
+end
+
+

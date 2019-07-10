@@ -1,0 +1,7 @@
+models/wrf_chem/run_scripts/RUN_FINN_FIRE/attr_types.f90
+models/wrf_chem/run_scripts/RUN_FINN_FIRE/fire_emis.f90
+models/wrf_chem/run_scripts/RUN_FINN_FIRE/fire_file.f90
+models/wrf_chem/run_scripts/RUN_FINN_FIRE/fire_srf_types.f90
+models/wrf_chem/run_scripts/RUN_FINN_FIRE/fire_utils.f90
+models/wrf_chem/run_scripts/RUN_FINN_FIRE/glb_utils.f90
+models/wrf_chem/run_scripts/RUN_FINN_FIRE/wrf_utils.f90
