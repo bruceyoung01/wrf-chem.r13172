@@ -1,0 +1,61 @@
+&convert_airs_L2_nml
+   l2_files           = 'input.hdf',
+   l2_file_list       = '',
+   datadir            = '.',
+   outputdir          = '.',
+   lon1               =   0.0,
+   lon2               = 360.0,
+   lat1               = -90.0,
+   lat2               =  90.0,
+   min_MMR_threshold  = 1.0e-30,
+   top_pressure_level = 0.0001,
+   cross_track_thin   = 0,
+   along_track_thin   = 0,
+/
+
+&location_nml
+   horiz_dist_only                 = .true.,
+   vert_normalization_pressure     = 100000.0, 
+   vert_normalization_height       = 10000.0,
+   vert_normalization_level        = 20.0,
+   vert_normalization_scale_height = 5.0,
+   approximate_distance            = .false.,
+   nlon                            = 71,
+   nlat                            = 36,
+   output_box_info                 = .false.,
+   special_vert_normalization_obs_types     = ''
+   special_vert_normalization_pressures     = 100000.0
+   special_vert_normalization_heights       = 10000.0
+   special_vert_normalization_levels        = 20.0
+   special_vert_normalization_scale_heights = 5.0
+/
+
+
+&obs_sequence_nml
+   write_binary_obs_sequence = .false.
+   /
+
+&obs_kind_nml
+   assimilate_these_obs_types = 'null',
+   evaluate_these_obs_types   = 'null'  
+/
+
+&assim_model_nml
+   write_binary_restart_files = .true.,
+   netCDF_large_file_support  = .false.
+  /
+
+&model_nml
+   output_state_vector = .true., 
+   time_step_days      = 0,
+   time_step_seconds   = 3600  /
+
+&utilities_nml
+   TERMLEVEL      = 1,
+   logfilename    = 'dart_log.out',
+   nmlfilename    = 'dart_log.nml',
+   module_details = .true.,
+   print_debug    = .false.,
+   write_nml      = 'file'
+/
+

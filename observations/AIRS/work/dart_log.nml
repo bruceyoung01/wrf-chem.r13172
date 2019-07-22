@@ -1,8 +1,8 @@
  !Starting Program preprocess
 &UTILITIES_NML
- TERMLEVEL=          1,
+ TERMLEVEL=          2,
  LOGFILENAME="dart_log.out                                                                                                                                                                                                                                                    ",
- MODULE_DETAILS=F,
+ MODULE_DETAILS=T,
  NMLFILENAME="dart_log.nml                                                                                                                                                                                                                                                    ",
  PRINT_DEBUG=F,
  WRITE_NML="file                            ",
@@ -10,9 +10,9 @@
  !Finished Program preprocess
  !Starting Program preprocess
 &UTILITIES_NML
- TERMLEVEL=          1,
+ TERMLEVEL=          2,
  LOGFILENAME="dart_log.out                                                                                                                                                                                                                                                    ",
- MODULE_DETAILS=F,
+ MODULE_DETAILS=T,
  NMLFILENAME="dart_log.nml                                                                                                                                                                                                                                                    ",
  PRINT_DEBUG=F,
  WRITE_NML="file                            ",
@@ -20,9 +20,9 @@
  !Finished Program preprocess
  !Starting Program preprocess
 &UTILITIES_NML
- TERMLEVEL=          1,
+ TERMLEVEL=          2,
  LOGFILENAME="dart_log.out                                                                                                                                                                                                                                                    ",
- MODULE_DETAILS=F,
+ MODULE_DETAILS=T,
  NMLFILENAME="dart_log.nml                                                                                                                                                                                                                                                    ",
  PRINT_DEBUG=F,
  WRITE_NML="file                            ",
@@ -30,9 +30,9 @@
  !Finished Program preprocess
  !Starting Program preprocess
 &UTILITIES_NML
- TERMLEVEL=          1,
+ TERMLEVEL=          2,
  LOGFILENAME="dart_log.out                                                                                                                                                                                                                                                    ",
- MODULE_DETAILS=F,
+ MODULE_DETAILS=T,
  NMLFILENAME="dart_log.nml                                                                                                                                                                                                                                                    ",
  PRINT_DEBUG=F,
  WRITE_NML="file                            ",
@@ -40,9 +40,9 @@
  !Finished Program preprocess
  !Starting Program preprocess
 &UTILITIES_NML
- TERMLEVEL=          1,
+ TERMLEVEL=          2,
  LOGFILENAME="dart_log.out                                                                                                                                                                                                                                                    ",
- MODULE_DETAILS=F,
+ MODULE_DETAILS=T,
  NMLFILENAME="dart_log.nml                                                                                                                                                                                                                                                    ",
  PRINT_DEBUG=F,
  WRITE_NML="file                            ",
@@ -50,9 +50,9 @@
  !Finished Program preprocess
  !Starting Program preprocess
 &UTILITIES_NML
- TERMLEVEL=          1,
+ TERMLEVEL=          2,
  LOGFILENAME="dart_log.out                                                                                                                                                                                                                                                    ",
- MODULE_DETAILS=F,
+ MODULE_DETAILS=T,
  NMLFILENAME="dart_log.nml                                                                                                                                                                                                                                                    ",
  PRINT_DEBUG=F,
  WRITE_NML="file                            ",
@@ -60,9 +60,9 @@
  !Finished Program preprocess
  !Starting Program preprocess
 &UTILITIES_NML
- TERMLEVEL=          1,
+ TERMLEVEL=          2,
  LOGFILENAME="dart_log.out                                                                                                                                                                                                                                                    ",
- MODULE_DETAILS=F,
+ MODULE_DETAILS=T,
  NMLFILENAME="dart_log.nml                                                                                                                                                                                                                                                    ",
  PRINT_DEBUG=F,
  WRITE_NML="file                            ",
@@ -70,9 +70,9 @@
  !Finished Program preprocess
  !Starting Program preprocess
 &UTILITIES_NML
- TERMLEVEL=          1,
+ TERMLEVEL=          2,
  LOGFILENAME="dart_log.out                                                                                                                                                                                                                                                    ",
- MODULE_DETAILS=F,
+ MODULE_DETAILS=T,
  NMLFILENAME="dart_log.nml                                                                                                                                                                                                                                                    ",
  PRINT_DEBUG=F,
  WRITE_NML="file                            ",
@@ -80,9 +80,9 @@
  !Finished Program preprocess
  !Starting Program preprocess
 &UTILITIES_NML
- TERMLEVEL=          1,
+ TERMLEVEL=          2,
  LOGFILENAME="dart_log.out                                                                                                                                                                                                                                                    ",
- MODULE_DETAILS=F,
+ MODULE_DETAILS=T,
  NMLFILENAME="dart_log.nml                                                                                                                                                                                                                                                    ",
  PRINT_DEBUG=F,
  WRITE_NML="file                            ",
@@ -90,23 +90,51 @@
  !Finished Program preprocess
  !Starting Program preprocess
 &UTILITIES_NML
- TERMLEVEL=          1,
+ TERMLEVEL=          2,
  LOGFILENAME="dart_log.out                                                                                                                                                                                                                                                    ",
- MODULE_DETAILS=F,
+ MODULE_DETAILS=T,
  NMLFILENAME="dart_log.nml                                                                                                                                                                                                                                                    ",
  PRINT_DEBUG=F,
  WRITE_NML="file                            ",
  /
  !Finished Program preprocess
- !Starting Program create_obs_sequence
+ !Starting Program preprocess
 &UTILITIES_NML
- TERMLEVEL=          1,
+ TERMLEVEL=          2,
  LOGFILENAME="dart_log.out                                                                                                                                                                                                                                                    ",
- MODULE_DETAILS=F,
+ MODULE_DETAILS=T,
  NMLFILENAME="dart_log.nml                                                                                                                                                                                                                                                    ",
  PRINT_DEBUG=F,
  WRITE_NML="file                            ",
  /
-&OBS_SEQUENCE_NML
- WRITE_BINARY_OBS_SEQUENCE=F,
+ !Finished Program preprocess
+ !Starting Program preprocess
+&UTILITIES_NML
+ TERMLEVEL=          2,
+ LOGFILENAME="dart_log.out                                                                                                                                                                                                                                                    ",
+ MODULE_DETAILS=T,
+ NMLFILENAME="dart_log.nml                                                                                                                                                                                                                                                    ",
+ PRINT_DEBUG=F,
+ WRITE_NML="file                            ",
  /
+ !Finished Program preprocess
+ !Starting Program preprocess
+&UTILITIES_NML
+ TERMLEVEL=          2,
+ LOGFILENAME="dart_log.out                                                                                                                                                                                                                                                    ",
+ MODULE_DETAILS=T,
+ NMLFILENAME="dart_log.nml                                                                                                                                                                                                                                                    ",
+ PRINT_DEBUG=F,
+ WRITE_NML="file                            ",
+ /
+ !Finished Program preprocess
+ !Starting Program preprocess
+&UTILITIES_NML
+ TERMLEVEL=          2,
+ LOGFILENAME="dart_log.out                                                                                                                                                                                                                                                    ",
+ MODULE_DETAILS=T,
+ NMLFILENAME="dart_log.nml                                                                                                                                                                                                                                                    ",
+ PRINT_DEBUG=F,
+ WRITE_NML="file                            ",
+ /
+ !Finished Program preprocess

@@ -1,11 +1,25 @@
 
  --------------------------------------
  Starting ... at YYYY MM DD HH MM SS = 
-                 2019  5 22 14 48 31
+                 2019  7 18 11 36 15
  Program preprocess
  --------------------------------------
 
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  set_nml_output Echo NML values to log file only
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  Path names of default obs_def and obs_kind modules
  ../../../obs_def/DEFAULT_obs_def_mod.F90
  ../../../obs_kind/DEFAULT_obs_kind_mod.F90
@@ -13,24 +27,38 @@
  ../../../obs_def/obs_def_mod.f90
  ../../../obs_kind/obs_kind_mod.f90
  INPUT obs_def files follow:
- ../../../obs_def/obs_def_AIRNOW_OBS_mod.f90
+ ../../../obs_def/obs_def_AIRS_mod.f90
  INPUT model files follow:
  preprocess Finished successfully.
 
  --------------------------------------
  Finished ... at YYYY MM DD HH MM SS = 
-                 2019  5 22 14 48 31
+                 2019  7 18 11 36 15
  Program preprocess
  --------------------------------------
 
 
  --------------------------------------
  Starting ... at YYYY MM DD HH MM SS = 
-                 2019  5 22 15 13 25
+                 2019  7 18 13 26 45
  Program preprocess
  --------------------------------------
 
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  set_nml_output Echo NML values to log file only
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  Path names of default obs_def and obs_kind modules
  ../../../obs_def/DEFAULT_obs_def_mod.F90
  ../../../obs_kind/DEFAULT_obs_kind_mod.F90
@@ -38,24 +66,38 @@
  ../../../obs_def/obs_def_mod.f90
  ../../../obs_kind/obs_kind_mod.f90
  INPUT obs_def files follow:
- ../../../obs_def/obs_def_AIRNOW_OBS_mod.f90
+ ../../../obs_def/obs_def_AIRS_mod.f90
  INPUT model files follow:
  preprocess Finished successfully.
 
  --------------------------------------
  Finished ... at YYYY MM DD HH MM SS = 
-                 2019  5 22 15 13 25
+                 2019  7 18 13 26 45
  Program preprocess
  --------------------------------------
 
 
  --------------------------------------
  Starting ... at YYYY MM DD HH MM SS = 
-                 2019  5 22 16 48  9
+                 2019  7 18 13 28 37
  Program preprocess
  --------------------------------------
 
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  set_nml_output Echo NML values to log file only
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  Path names of default obs_def and obs_kind modules
  ../../../obs_def/DEFAULT_obs_def_mod.F90
  ../../../obs_kind/DEFAULT_obs_kind_mod.F90
@@ -63,24 +105,38 @@
  ../../../obs_def/obs_def_mod.f90
  ../../../obs_kind/obs_kind_mod.f90
  INPUT obs_def files follow:
- ../../../obs_def/obs_def_AIRNOW_OBS_mod.f90
+ ../../../obs_def/obs_def_AIRS_mod.f90
  INPUT model files follow:
  preprocess Finished successfully.
 
  --------------------------------------
  Finished ... at YYYY MM DD HH MM SS = 
-                 2019  5 22 16 48  9
+                 2019  7 18 13 28 37
  Program preprocess
  --------------------------------------
 
 
  --------------------------------------
  Starting ... at YYYY MM DD HH MM SS = 
-                 2019  5 22 16 50 23
+                 2019  7 18 13 53 52
  Program preprocess
  --------------------------------------
 
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  set_nml_output Echo NML values to log file only
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  Path names of default obs_def and obs_kind modules
  ../../../obs_def/DEFAULT_obs_def_mod.F90
  ../../../obs_kind/DEFAULT_obs_kind_mod.F90
@@ -88,24 +144,38 @@
  ../../../obs_def/obs_def_mod.f90
  ../../../obs_kind/obs_kind_mod.f90
  INPUT obs_def files follow:
- ../../../obs_def/obs_def_AIRNOW_OBS_mod.f90
+ ../../../obs_def/obs_def_AIRS_mod.f90
  INPUT model files follow:
  preprocess Finished successfully.
 
  --------------------------------------
  Finished ... at YYYY MM DD HH MM SS = 
-                 2019  5 22 16 50 23
+                 2019  7 18 13 53 52
  Program preprocess
  --------------------------------------
 
 
  --------------------------------------
  Starting ... at YYYY MM DD HH MM SS = 
-                 2019  5 22 16 54  8
+                 2019  7 18 14 14  8
  Program preprocess
  --------------------------------------
 
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  set_nml_output Echo NML values to log file only
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  Path names of default obs_def and obs_kind modules
  ../../../obs_def/DEFAULT_obs_def_mod.F90
  ../../../obs_kind/DEFAULT_obs_kind_mod.F90
@@ -113,24 +183,38 @@
  ../../../obs_def/obs_def_mod.f90
  ../../../obs_kind/obs_kind_mod.f90
  INPUT obs_def files follow:
- ../../../obs_def/obs_def_AIRNOW_OBS_mod.f90
+ ../../../obs_def/obs_def_AIRS_mod.f90
  INPUT model files follow:
  preprocess Finished successfully.
 
  --------------------------------------
  Finished ... at YYYY MM DD HH MM SS = 
-                 2019  5 22 16 54  8
+                 2019  7 18 14 14  8
  Program preprocess
  --------------------------------------
 
 
  --------------------------------------
  Starting ... at YYYY MM DD HH MM SS = 
-                 2019  5 22 16 56 26
+                 2019  7 18 14 15  4
  Program preprocess
  --------------------------------------
 
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  set_nml_output Echo NML values to log file only
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  Path names of default obs_def and obs_kind modules
  ../../../obs_def/DEFAULT_obs_def_mod.F90
  ../../../obs_kind/DEFAULT_obs_kind_mod.F90
@@ -138,24 +222,38 @@
  ../../../obs_def/obs_def_mod.f90
  ../../../obs_kind/obs_kind_mod.f90
  INPUT obs_def files follow:
- ../../../obs_def/obs_def_AIRNOW_OBS_mod.f90
+ ../../../obs_def/obs_def_AIRS_mod.f90
  INPUT model files follow:
  preprocess Finished successfully.
 
  --------------------------------------
  Finished ... at YYYY MM DD HH MM SS = 
-                 2019  5 22 16 56 26
+                 2019  7 18 14 15  4
  Program preprocess
  --------------------------------------
 
 
  --------------------------------------
  Starting ... at YYYY MM DD HH MM SS = 
-                 2019  5 22 17  6 38
+                 2019  7 18 14 15 50
  Program preprocess
  --------------------------------------
 
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  set_nml_output Echo NML values to log file only
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  Path names of default obs_def and obs_kind modules
  ../../../obs_def/DEFAULT_obs_def_mod.F90
  ../../../obs_kind/DEFAULT_obs_kind_mod.F90
@@ -163,24 +261,38 @@
  ../../../obs_def/obs_def_mod.f90
  ../../../obs_kind/obs_kind_mod.f90
  INPUT obs_def files follow:
- ../../../obs_def/obs_def_AIRNOW_OBS_mod.f90
+ ../../../obs_def/obs_def_AIRS_mod.f90
  INPUT model files follow:
  preprocess Finished successfully.
 
  --------------------------------------
  Finished ... at YYYY MM DD HH MM SS = 
-                 2019  5 22 17  6 38
+                 2019  7 18 14 15 50
  Program preprocess
  --------------------------------------
 
 
  --------------------------------------
  Starting ... at YYYY MM DD HH MM SS = 
-                 2019  7 22 13 39 18
+                 2019  7 18 14 16 45
  Program preprocess
  --------------------------------------
 
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  set_nml_output Echo NML values to log file only
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  Path names of default obs_def and obs_kind modules
  ../../../obs_def/DEFAULT_obs_def_mod.F90
  ../../../obs_kind/DEFAULT_obs_kind_mod.F90
@@ -188,24 +300,38 @@
  ../../../obs_def/obs_def_mod.f90
  ../../../obs_kind/obs_kind_mod.f90
  INPUT obs_def files follow:
- ../../../obs_def/obs_def_AIRNOW_OBS_mod.f90
+ ../../../obs_def/obs_def_AIRS_mod.f90
  INPUT model files follow:
  preprocess Finished successfully.
 
  --------------------------------------
  Finished ... at YYYY MM DD HH MM SS = 
-                 2019  7 22 13 39 18
+                 2019  7 18 14 16 45
  Program preprocess
  --------------------------------------
 
 
  --------------------------------------
  Starting ... at YYYY MM DD HH MM SS = 
-                 2019  7 22 13 40  8
+                 2019  7 18 14 21 53
  Program preprocess
  --------------------------------------
 
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  set_nml_output Echo NML values to log file only
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  Path names of default obs_def and obs_kind modules
  ../../../obs_def/DEFAULT_obs_def_mod.F90
  ../../../obs_kind/DEFAULT_obs_kind_mod.F90
@@ -213,24 +339,38 @@
  ../../../obs_def/obs_def_mod.f90
  ../../../obs_kind/obs_kind_mod.f90
  INPUT obs_def files follow:
- ../../../obs_def/obs_def_AIRNOW_OBS_mod.f90
+ ../../../obs_def/obs_def_AIRS_mod.f90
  INPUT model files follow:
  preprocess Finished successfully.
 
  --------------------------------------
  Finished ... at YYYY MM DD HH MM SS = 
-                 2019  7 22 13 40  8
+                 2019  7 18 14 21 53
  Program preprocess
  --------------------------------------
 
 
  --------------------------------------
  Starting ... at YYYY MM DD HH MM SS = 
-                 2019  7 22 13 40 37
+                 2019  7 18 14 30 30
  Program preprocess
  --------------------------------------
 
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  set_nml_output Echo NML values to log file only
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  Path names of default obs_def and obs_kind modules
  ../../../obs_def/DEFAULT_obs_def_mod.F90
  ../../../obs_kind/DEFAULT_obs_kind_mod.F90
@@ -238,21 +378,169 @@
  ../../../obs_def/obs_def_mod.f90
  ../../../obs_kind/obs_kind_mod.f90
  INPUT obs_def files follow:
- ../../../obs_def/obs_def_AIRNOW_OBS_mod.f90
+ ../../../obs_def/obs_def_AIRS_mod.f90
  INPUT model files follow:
  preprocess Finished successfully.
 
  --------------------------------------
  Finished ... at YYYY MM DD HH MM SS = 
-                 2019  7 22 13 40 37
+                 2019  7 18 14 30 30
  Program preprocess
  --------------------------------------
 
 
  --------------------------------------
  Starting ... at YYYY MM DD HH MM SS = 
-                 2019  7 22 13 40 47
- Program create_obs_sequence
+                 2019  7 18 14 33 36
+ Program preprocess
  --------------------------------------
 
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
  set_nml_output Echo NML values to log file only
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_AIRS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  7 18 14 33 36
+ Program preprocess
+ --------------------------------------
+
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  7 18 14 36 29
+ Program preprocess
+ --------------------------------------
+
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
+ set_nml_output Echo NML values to log file only
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_AIRS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  7 18 14 36 29
+ Program preprocess
+ --------------------------------------
+
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  7 18 14 59  8
+ Program preprocess
+ --------------------------------------
+
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
+ set_nml_output Echo NML values to log file only
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_AIRS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  7 18 14 59  8
+ Program preprocess
+ --------------------------------------
+
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  7 19  9 27 52
+ Program preprocess
+ --------------------------------------
+
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
+ set_nml_output Echo NML values to log file only
+
+ Registering module :
+ $URL$
+ $Revision$
+ $Date$
+ Registration complete.
+
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_AIRS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  7 19  9 27 52
+ Program preprocess
+ --------------------------------------
+

@@ -1,0 +1,4807 @@
+ Copyright (C) 1995-2017 - All Rights Reserved
+ University Corporation for Atmospheric Research
+ NCAR Command Language Version 6.4.0
+ The use of this software is governed by a License Agreement.
+ See http://www.ncl.ucar.edu/ for more details.
+
+Variable: f
+Type: file
+filename:	AIRS.2007.11.01.001.L2.RetStd.v5.2.2.0.G08078150655
+path:	AIRS.2007.11.01.001.L2.RetStd.v5.2.2.0.G08078150655.hdf
+   file global attributes:
+      HDFEOSVersion : HDFEOS_V2.12
+      StructMetadata_0 : GROUP=SwathStructure
+	GROUP=SWATH_1
+		SwathName="L2_Standard_atmospheric&surface_product"
+		GROUP=Dimension
+			OBJECT=Dimension_1
+				DimensionName="GeoXTrack"
+				Size=30
+			END_OBJECT=Dimension_1
+			OBJECT=Dimension_2
+				DimensionName="GeoTrack"
+				Size=45
+			END_OBJECT=Dimension_2
+			OBJECT=Dimension_3
+				DimensionName="StdPressureLev"
+				Size=28
+			END_OBJECT=Dimension_3
+			OBJECT=Dimension_4
+				DimensionName="StdPressureLay"
+				Size=28
+			END_OBJECT=Dimension_4
+			OBJECT=Dimension_5
+				DimensionName="AIRSXTrack"
+				Size=3
+			END_OBJECT=Dimension_5
+			OBJECT=Dimension_6
+				DimensionName="AIRSTrack"
+				Size=3
+			END_OBJECT=Dimension_6
+			OBJECT=Dimension_7
+				DimensionName="Cloud"
+				Size=2
+			END_OBJECT=Dimension_7
+			OBJECT=Dimension_8
+				DimensionName="ChanAMSUA"
+				Size=15
+			END_OBJECT=Dimension_8
+			OBJECT=Dimension_9
+				DimensionName="ChanHSB"
+				Size=5
+			END_OBJECT=Dimension_9
+			OBJECT=Dimension_10
+				DimensionName="MWHingeSurf"
+				Size=7
+			END_OBJECT=Dimension_10
+			OBJECT=Dimension_11
+				DimensionName="H2OFunc"
+				Size=11
+			END_OBJECT=Dimension_11
+			OBJECT=Dimension_12
+				DimensionName="O3Func"
+				Size=9
+			END_OBJECT=Dimension_12
+			OBJECT=Dimension_13
+				DimensionName="COFunc"
+				Size=9
+			END_OBJECT=Dimension_13
+			OBJECT=Dimension_14
+				DimensionName="CH4Func"
+				Size=7
+			END_OBJECT=Dimension_14
+			OBJECT=Dimension_15
+				DimensionName="HingeSurf"
+				Size=100
+			END_OBJECT=Dimension_15
+			OBJECT=Dimension_16
+				DimensionName="H2OPressureLev"
+				Size=15
+			END_OBJECT=Dimension_16
+			OBJECT=Dimension_17
+				DimensionName="H2OPressureLay"
+				Size=14
+			END_OBJECT=Dimension_17
+		END_GROUP=Dimension
+		GROUP=DimensionMap
+		END_GROUP=DimensionMap
+		GROUP=IndexDimensionMap
+		END_GROUP=IndexDimensionMap
+		GROUP=GeoField
+			OBJECT=GeoField_1
+				GeoFieldName="Latitude"
+				DataType=DFNT_FLOAT64
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=GeoField_1
+			OBJECT=GeoField_2
+				GeoFieldName="Longitude"
+				DataType=DFNT_FLOAT64
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=GeoField_2
+			OBJECT=GeoField_3
+				GeoFieldName="Time"
+				DataType=DFNT_FLOAT64
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=GeoField_3
+		END_GROUP=GeoField
+		GROUP=DataField
+			OBJECT=DataField_1
+				DataFieldName="RetQAFlag"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_1
+			OBJECT=DataField_2
+				DataFieldName="satheight"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack")
+			END_OBJECT=DataField_2
+			OBJECT=DataField_3
+				DataFieldName="satroll"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack")
+			END_OBJECT=DataField_3
+			OBJECT=DataField_4
+				DataFieldName="satpitch"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack")
+			END_OBJECT=DataField_4
+			OBJECT=DataField_5
+				DataFieldName="satyaw"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack")
+			END_OBJECT=DataField_5
+			OBJECT=DataField_6
+				DataFieldName="satgeoqa"
+				DataType=DFNT_UINT32
+				DimList=("GeoTrack")
+			END_OBJECT=DataField_6
+			OBJECT=DataField_7
+				DataFieldName="glintgeoqa"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack")
+			END_OBJECT=DataField_7
+			OBJECT=DataField_8
+				DataFieldName="moongeoqa"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack")
+			END_OBJECT=DataField_8
+			OBJECT=DataField_9
+				DataFieldName="ftptgeoqa"
+				DataType=DFNT_UINT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_9
+			OBJECT=DataField_10
+				DataFieldName="zengeoqa"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_10
+			OBJECT=DataField_11
+				DataFieldName="demgeoqa"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_11
+			OBJECT=DataField_12
+				DataFieldName="nadirTAI"
+				DataType=DFNT_FLOAT64
+				DimList=("GeoTrack")
+			END_OBJECT=DataField_12
+			OBJECT=DataField_13
+				DataFieldName="sat_lat"
+				DataType=DFNT_FLOAT64
+				DimList=("GeoTrack")
+			END_OBJECT=DataField_13
+			OBJECT=DataField_14
+				DataFieldName="sat_lon"
+				DataType=DFNT_FLOAT64
+				DimList=("GeoTrack")
+			END_OBJECT=DataField_14
+			OBJECT=DataField_15
+				DataFieldName="scan_node_type"
+				DataType=DFNT_INT8
+				DimList=("GeoTrack")
+			END_OBJECT=DataField_15
+			OBJECT=DataField_16
+				DataFieldName="satzen"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_16
+			OBJECT=DataField_17
+				DataFieldName="satazi"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_17
+			OBJECT=DataField_18
+				DataFieldName="solzen"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_18
+			OBJECT=DataField_19
+				DataFieldName="solazi"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_19
+			OBJECT=DataField_20
+				DataFieldName="glintlat"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack")
+			END_OBJECT=DataField_20
+			OBJECT=DataField_21
+				DataFieldName="glintlon"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack")
+			END_OBJECT=DataField_21
+			OBJECT=DataField_22
+				DataFieldName="sun_glint_distance"
+				DataType=DFNT_INT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_22
+			OBJECT=DataField_23
+				DataFieldName="topog"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_23
+			OBJECT=DataField_24
+				DataFieldName="topog_err"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_24
+			OBJECT=DataField_25
+				DataFieldName="landFrac"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_25
+			OBJECT=DataField_26
+				DataFieldName="landFrac_err"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_26
+			OBJECT=DataField_27
+				DataFieldName="pressStd"
+				DataType=DFNT_FLOAT32
+				DimList=("StdPressureLev")
+			END_OBJECT=DataField_27
+			OBJECT=DataField_28
+				DataFieldName="pressH2O"
+				DataType=DFNT_FLOAT32
+				DimList=("H2OPressureLev")
+			END_OBJECT=DataField_28
+			OBJECT=DataField_29
+				DataFieldName="MWHingeSurfFreqGHz"
+				DataType=DFNT_FLOAT32
+				DimList=("MWHingeSurf")
+			END_OBJECT=DataField_29
+			OBJECT=DataField_30
+				DataFieldName="latAIRS"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","AIRSTrack","AIRSXTrack")
+			END_OBJECT=DataField_30
+			OBJECT=DataField_31
+				DataFieldName="lonAIRS"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","AIRSTrack","AIRSXTrack")
+			END_OBJECT=DataField_31
+			OBJECT=DataField_32
+				DataFieldName="Qual_Guess_PSurf"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_32
+			OBJECT=DataField_33
+				DataFieldName="PSurfStd"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_33
+			OBJECT=DataField_34
+				DataFieldName="nSurfStd"
+				DataType=DFNT_INT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_34
+			OBJECT=DataField_35
+				DataFieldName="Press_mid_top_bndry"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_35
+			OBJECT=DataField_36
+				DataFieldName="nStd_mid_top_bndry"
+				DataType=DFNT_INT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_36
+			OBJECT=DataField_37
+				DataFieldName="Press_bot_mid_bndry"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_37
+			OBJECT=DataField_38
+				DataFieldName="nStd_bot_mid_bndry"
+				DataType=DFNT_INT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_38
+			OBJECT=DataField_39
+				DataFieldName="PBest"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_39
+			OBJECT=DataField_40
+				DataFieldName="PGood"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_40
+			OBJECT=DataField_41
+				DataFieldName="nBestStd"
+				DataType=DFNT_INT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_41
+			OBJECT=DataField_42
+				DataFieldName="nGoodStd"
+				DataType=DFNT_INT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_42
+			OBJECT=DataField_43
+				DataFieldName="Qual_Temp_Profile_Top"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_43
+			OBJECT=DataField_44
+				DataFieldName="Qual_Temp_Profile_Mid"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_44
+			OBJECT=DataField_45
+				DataFieldName="Qual_Temp_Profile_Bot"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_45
+			OBJECT=DataField_46
+				DataFieldName="TAirStd"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","StdPressureLev")
+			END_OBJECT=DataField_46
+			OBJECT=DataField_47
+				DataFieldName="TAirStdErr"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","StdPressureLev")
+			END_OBJECT=DataField_47
+			OBJECT=DataField_48
+				DataFieldName="TSurfAir"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_48
+			OBJECT=DataField_49
+				DataFieldName="TSurfAirErr"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_49
+			OBJECT=DataField_50
+				DataFieldName="Qual_Surf"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_50
+			OBJECT=DataField_51
+				DataFieldName="TSurfStd"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_51
+			OBJECT=DataField_52
+				DataFieldName="TSurfStdErr"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_52
+			OBJECT=DataField_53
+				DataFieldName="numHingeSurf"
+				DataType=DFNT_INT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_53
+			OBJECT=DataField_54
+				DataFieldName="freqEmis"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","HingeSurf")
+			END_OBJECT=DataField_54
+			OBJECT=DataField_55
+				DataFieldName="emisIRStd"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","HingeSurf")
+			END_OBJECT=DataField_55
+			OBJECT=DataField_56
+				DataFieldName="emisIRStdErr"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","HingeSurf")
+			END_OBJECT=DataField_56
+			OBJECT=DataField_57
+				DataFieldName="Qual_MW_Only_Temp_Strat"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_57
+			OBJECT=DataField_58
+				DataFieldName="Qual_MW_Only_Temp_Tropo"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_58
+			OBJECT=DataField_59
+				DataFieldName="TAirMWOnlyStd"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","StdPressureLev")
+			END_OBJECT=DataField_59
+			OBJECT=DataField_60
+				DataFieldName="MWSurfClass"
+				DataType=DFNT_INT8
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_60
+			OBJECT=DataField_61
+				DataFieldName="sfcTbMWStd"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","MWHingeSurf")
+			END_OBJECT=DataField_61
+			OBJECT=DataField_62
+				DataFieldName="EmisMWStd"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","MWHingeSurf")
+			END_OBJECT=DataField_62
+			OBJECT=DataField_63
+				DataFieldName="EmisMWStdErr"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","MWHingeSurf")
+			END_OBJECT=DataField_63
+			OBJECT=DataField_64
+				DataFieldName="Qual_MW_Only_H2O"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_64
+			OBJECT=DataField_65
+				DataFieldName="totH2OMWOnlyStd"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_65
+			OBJECT=DataField_66
+				DataFieldName="Qual_H2O"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_66
+			OBJECT=DataField_67
+				DataFieldName="H2OMMRStd"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","H2OPressureLay")
+			END_OBJECT=DataField_67
+			OBJECT=DataField_68
+				DataFieldName="H2OMMRStdErr"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","H2OPressureLay")
+			END_OBJECT=DataField_68
+			OBJECT=DataField_69
+				DataFieldName="totH2OStd"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_69
+			OBJECT=DataField_70
+				DataFieldName="totH2OStdErr"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_70
+			OBJECT=DataField_71
+				DataFieldName="H2OMMRSat"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","H2OPressureLay")
+			END_OBJECT=DataField_71
+			OBJECT=DataField_72
+				DataFieldName="H2OMMRSat_liquid"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","H2OPressureLay")
+			END_OBJECT=DataField_72
+			OBJECT=DataField_73
+				DataFieldName="num_H2O_Func"
+				DataType=DFNT_INT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_73
+			OBJECT=DataField_74
+				DataFieldName="H2O_verticality"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","H2OFunc")
+			END_OBJECT=DataField_74
+			OBJECT=DataField_75
+				DataFieldName="Qual_O3"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_75
+			OBJECT=DataField_76
+				DataFieldName="totO3Std"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_76
+			OBJECT=DataField_77
+				DataFieldName="totO3StdErr"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_77
+			OBJECT=DataField_78
+				DataFieldName="O3VMRStd"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","StdPressureLay")
+			END_OBJECT=DataField_78
+			OBJECT=DataField_79
+				DataFieldName="O3VMRStdErr"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","StdPressureLay")
+			END_OBJECT=DataField_79
+			OBJECT=DataField_80
+				DataFieldName="num_O3_Func"
+				DataType=DFNT_INT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_80
+			OBJECT=DataField_81
+				DataFieldName="O3_verticality"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","O3Func")
+			END_OBJECT=DataField_81
+			OBJECT=DataField_82
+				DataFieldName="Qual_CO"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_82
+			OBJECT=DataField_83
+				DataFieldName="CO_total_column"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_83
+			OBJECT=DataField_84
+				DataFieldName="num_CO_Func"
+				DataType=DFNT_INT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_84
+			OBJECT=DataField_85
+				DataFieldName="CO_trapezoid_layers"
+				DataType=DFNT_INT32
+				DimList=("COFunc")
+			END_OBJECT=DataField_85
+			OBJECT=DataField_86
+				DataFieldName="CO_eff_press"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","COFunc")
+			END_OBJECT=DataField_86
+			OBJECT=DataField_87
+				DataFieldName="CO_VMR_eff"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","COFunc")
+			END_OBJECT=DataField_87
+			OBJECT=DataField_88
+				DataFieldName="CO_VMR_eff_err"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","COFunc")
+			END_OBJECT=DataField_88
+			OBJECT=DataField_89
+				DataFieldName="CO_verticality"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","COFunc")
+			END_OBJECT=DataField_89
+			OBJECT=DataField_90
+				DataFieldName="CO_dof"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_90
+			OBJECT=DataField_91
+				DataFieldName="Qual_CH4"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_91
+			OBJECT=DataField_92
+				DataFieldName="CH4_total_column"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_92
+			OBJECT=DataField_93
+				DataFieldName="num_CH4_Func"
+				DataType=DFNT_INT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_93
+			OBJECT=DataField_94
+				DataFieldName="CH4_trapezoid_layers"
+				DataType=DFNT_INT32
+				DimList=("CH4Func")
+			END_OBJECT=DataField_94
+			OBJECT=DataField_95
+				DataFieldName="CH4_eff_press"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","CH4Func")
+			END_OBJECT=DataField_95
+			OBJECT=DataField_96
+				DataFieldName="CH4_VMR_eff"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","CH4Func")
+			END_OBJECT=DataField_96
+			OBJECT=DataField_97
+				DataFieldName="CH4_VMR_eff_err"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","CH4Func")
+			END_OBJECT=DataField_97
+			OBJECT=DataField_98
+				DataFieldName="CH4_verticality"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","CH4Func")
+			END_OBJECT=DataField_98
+			OBJECT=DataField_99
+				DataFieldName="CH4_dof"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_99
+			OBJECT=DataField_100
+				DataFieldName="PTropopause"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_100
+			OBJECT=DataField_101
+				DataFieldName="T_Tropopause"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_101
+			OBJECT=DataField_102
+				DataFieldName="GP_Tropopause"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_102
+			OBJECT=DataField_103
+				DataFieldName="GP_Height"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","StdPressureLev")
+			END_OBJECT=DataField_103
+			OBJECT=DataField_104
+				DataFieldName="GP_Height_MWOnly"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","StdPressureLev")
+			END_OBJECT=DataField_104
+			OBJECT=DataField_105
+				DataFieldName="GP_Surface"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_105
+			OBJECT=DataField_106
+				DataFieldName="Qual_Cloud_OLR"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_106
+			OBJECT=DataField_107
+				DataFieldName="numCloud"
+				DataType=DFNT_INT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_107
+			OBJECT=DataField_108
+				DataFieldName="TCldTopStd"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","Cloud")
+			END_OBJECT=DataField_108
+			OBJECT=DataField_109
+				DataFieldName="TCldTopStdErr"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","Cloud")
+			END_OBJECT=DataField_109
+			OBJECT=DataField_110
+				DataFieldName="PCldTopStd"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","Cloud")
+			END_OBJECT=DataField_110
+			OBJECT=DataField_111
+				DataFieldName="PCldTopStdErr"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","Cloud")
+			END_OBJECT=DataField_111
+			OBJECT=DataField_112
+				DataFieldName="CldFrcStd"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","AIRSTrack","AIRSXTrack","Cloud")
+			END_OBJECT=DataField_112
+			OBJECT=DataField_113
+				DataFieldName="CldFrcStdErr"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack","AIRSTrack","AIRSXTrack","Cloud")
+			END_OBJECT=DataField_113
+			OBJECT=DataField_114
+				DataFieldName="olr"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_114
+			OBJECT=DataField_115
+				DataFieldName="olr_err"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_115
+			OBJECT=DataField_116
+				DataFieldName="Qual_clrolr"
+				DataType=DFNT_UINT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_116
+			OBJECT=DataField_117
+				DataFieldName="clrolr"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_117
+			OBJECT=DataField_118
+				DataFieldName="clrolr_err"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_118
+			OBJECT=DataField_119
+				DataFieldName="dust_flag"
+				DataType=DFNT_INT16
+				DimList=("GeoTrack","GeoXTrack","AIRSTrack","AIRSXTrack")
+			END_OBJECT=DataField_119
+			OBJECT=DataField_120
+				DataFieldName="spectral_clear_indicator"
+				DataType=DFNT_INT16
+				DimList=("GeoTrack","GeoXTrack","AIRSTrack","AIRSXTrack")
+			END_OBJECT=DataField_120
+			OBJECT=DataField_121
+				DataFieldName="num_clear_spectral_indicator"
+				DataType=DFNT_INT16
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_121
+			OBJECT=DataField_122
+				DataFieldName="CC_noise_eff_amp_factor"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_122
+			OBJECT=DataField_123
+				DataFieldName="CC1_noise_eff_amp_factor"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_123
+			OBJECT=DataField_124
+				DataFieldName="totCldH2OStd"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_124
+			OBJECT=DataField_125
+				DataFieldName="totCldH2OStdErr"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_125
+			OBJECT=DataField_126
+				DataFieldName="CC1_Resid"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_126
+			OBJECT=DataField_127
+				DataFieldName="CCfinal_Resid"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_127
+			OBJECT=DataField_128
+				DataFieldName="CCfinal_Noise_Amp"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_128
+			OBJECT=DataField_129
+				DataFieldName="Tdiff_IR_MW_ret"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_129
+			OBJECT=DataField_130
+				DataFieldName="Tdiff_IR_4CC1"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_130
+			OBJECT=DataField_131
+				DataFieldName="TSurfdiff_IR_4CC1"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_131
+			OBJECT=DataField_132
+				DataFieldName="TSurfdiff_IR_4CC2"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_132
+			OBJECT=DataField_133
+				DataFieldName="AMSU_Chans_Resid"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_133
+			OBJECT=DataField_134
+				DataFieldName="TotCld_4_CCfinal"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_134
+			OBJECT=DataField_135
+				DataFieldName="Surf_Resid_Ratio"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_135
+			OBJECT=DataField_136
+				DataFieldName="Temp_Resid_Ratio"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_136
+			OBJECT=DataField_137
+				DataFieldName="Water_Resid_Ratio"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_137
+			OBJECT=DataField_138
+				DataFieldName="Cloud_Resid_Ratio"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_138
+			OBJECT=DataField_139
+				DataFieldName="O3_Resid_Ratio"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_139
+			OBJECT=DataField_140
+				DataFieldName="CO_Resid_Ratio"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_140
+			OBJECT=DataField_141
+				DataFieldName="CH4_Resid_Ratio"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_141
+			OBJECT=DataField_142
+				DataFieldName="MWCheck_Resid_Ratio"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_142
+			OBJECT=DataField_143
+				DataFieldName="O3_dof"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_143
+			OBJECT=DataField_144
+				DataFieldName="all_spots_avg"
+				DataType=DFNT_INT8
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_144
+			OBJECT=DataField_145
+				DataFieldName="MW_ret_used"
+				DataType=DFNT_INT8
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_145
+			OBJECT=DataField_146
+				DataFieldName="Initial_CC_score"
+				DataType=DFNT_FLOAT32
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_146
+			OBJECT=DataField_147
+				DataFieldName="retrieval_type"
+				DataType=DFNT_INT8
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_147
+			OBJECT=DataField_148
+				DataFieldName="Startup"
+				DataType=DFNT_INT8
+				DimList=("GeoTrack","GeoXTrack")
+			END_OBJECT=DataField_148
+		END_GROUP=DataField
+		GROUP=MergedFields
+		END_GROUP=MergedFields
+	END_GROUP=SWATH_1
+END_GROUP=SwathStructure
+GROUP=GridStructure
+END_GROUP=GridStructure
+GROUP=PointStructure
+END_GROUP=PointStructure
+END
+      coremetadata : 
+GROUP                  = INVENTORYMETADATA
+  GROUPTYPE            = MASTERGROUP
+
+  GROUP                  = ECSDATAGRANULE
+
+    OBJECT                 = LOCALGRANULEID
+      NUM_VAL              = 1
+      VALUE                = "AIRS.2007.11.01.001.L2.RetStd.v5.2.2.0.G08078150655.hdf"
+    END_OBJECT             = LOCALGRANULEID
+
+    OBJECT                 = PRODUCTIONDATETIME
+      NUM_VAL              = 1
+      VALUE                = "2008-03-18T19:06:55.000Z"
+    END_OBJECT             = PRODUCTIONDATETIME
+
+    OBJECT                 = DAYNIGHTFLAG
+      NUM_VAL              = 1
+      VALUE                = "Day"
+    END_OBJECT             = DAYNIGHTFLAG
+
+    OBJECT                 = LOCALVERSIONID
+      NUM_VAL              = 1
+      VALUE                = "Unspecified"
+    END_OBJECT             = LOCALVERSIONID
+
+  END_GROUP              = ECSDATAGRANULE
+
+  GROUP                  = MEASUREDPARAMETER
+
+    OBJECT                 = MEASUREDPARAMETERCONTAINER
+      CLASS                = "1"
+
+      GROUP                  = QAFLAGS
+        CLASS                = "1"
+
+        OBJECT                 = AUTOMATICQUALITYFLAGEXPLANATION
+          NUM_VAL              = 1
+          CLASS                = "1"
+          VALUE                = "Based on percentage of product that is good. Suspect used where true quality is not known."
+        END_OBJECT             = AUTOMATICQUALITYFLAGEXPLANATION
+
+        OBJECT                 = AUTOMATICQUALITYFLAG
+          NUM_VAL              = 1
+          CLASS                = "1"
+          VALUE                = "Passed"
+        END_OBJECT             = AUTOMATICQUALITYFLAG
+
+      END_GROUP              = QAFLAGS
+
+      GROUP                  = QASTATS
+        CLASS                = "1"
+
+        OBJECT                 = QAPERCENTMISSINGDATA
+          NUM_VAL              = 1
+          CLASS                = "1"
+          VALUE                = 0
+        END_OBJECT             = QAPERCENTMISSINGDATA
+
+        OBJECT                 = QAPERCENTCLOUDCOVER
+          NUM_VAL              = 1
+          CLASS                = "1"
+          VALUE                = 21
+        END_OBJECT             = QAPERCENTCLOUDCOVER
+
+      END_GROUP              = QASTATS
+
+      OBJECT                 = PARAMETERNAME
+        CLASS                = "1"
+        NUM_VAL              = 1
+        VALUE                = "Surface Skin Temperature"
+      END_OBJECT             = PARAMETERNAME
+
+    END_OBJECT             = MEASUREDPARAMETERCONTAINER
+
+    OBJECT                 = MEASUREDPARAMETERCONTAINER
+      CLASS                = "2"
+
+      GROUP                  = QAFLAGS
+        CLASS                = "2"
+
+        OBJECT                 = AUTOMATICQUALITYFLAGEXPLANATION
+          NUM_VAL              = 1
+          CLASS                = "2"
+          VALUE                = "Based on percentage of product that is good. Suspect used where true quality is not known."
+        END_OBJECT             = AUTOMATICQUALITYFLAGEXPLANATION
+
+        OBJECT                 = AUTOMATICQUALITYFLAG
+          NUM_VAL              = 1
+          CLASS                = "2"
+          VALUE                = "Passed"
+        END_OBJECT             = AUTOMATICQUALITYFLAG
+
+      END_GROUP              = QAFLAGS
+
+      GROUP                  = QASTATS
+        CLASS                = "2"
+
+        OBJECT                 = QAPERCENTMISSINGDATA
+          NUM_VAL              = 1
+          CLASS                = "2"
+          VALUE                = 0
+        END_OBJECT             = QAPERCENTMISSINGDATA
+
+        OBJECT                 = QAPERCENTCLOUDCOVER
+          NUM_VAL              = 1
+          CLASS                = "2"
+          VALUE                = 21
+        END_OBJECT             = QAPERCENTCLOUDCOVER
+
+      END_GROUP              = QASTATS
+
+      OBJECT                 = PARAMETERNAME
+        CLASS                = "2"
+        NUM_VAL              = 1
+        VALUE                = "Surface Air Temperature"
+      END_OBJECT             = PARAMETERNAME
+
+    END_OBJECT             = MEASUREDPARAMETERCONTAINER
+
+    OBJECT                 = MEASUREDPARAMETERCONTAINER
+      CLASS                = "3"
+
+      GROUP                  = QAFLAGS
+        CLASS                = "3"
+
+        OBJECT                 = AUTOMATICQUALITYFLAGEXPLANATION
+          NUM_VAL              = 1
+          CLASS                = "3"
+          VALUE                = "Based on percentage of product that is good. Suspect used where true quality is not known."
+        END_OBJECT             = AUTOMATICQUALITYFLAGEXPLANATION
+
+        OBJECT                 = AUTOMATICQUALITYFLAG
+          NUM_VAL              = 1
+          CLASS                = "3"
+          VALUE                = "Passed"
+        END_OBJECT             = AUTOMATICQUALITYFLAG
+
+      END_GROUP              = QAFLAGS
+
+      GROUP                  = QASTATS
+        CLASS                = "3"
+
+        OBJECT                 = QAPERCENTMISSINGDATA
+          NUM_VAL              = 1
+          CLASS                = "3"
+          VALUE                = 0
+        END_OBJECT             = QAPERCENTMISSINGDATA
+
+        OBJECT                 = QAPERCENTCLOUDCOVER
+          NUM_VAL              = 1
+          CLASS                = "3"
+          VALUE                = 21
+        END_OBJECT             = QAPERCENTCLOUDCOVER
+
+      END_GROUP              = QASTATS
+
+      OBJECT                 = PARAMETERNAME
+        CLASS                = "3"
+        NUM_VAL              = 1
+        VALUE                = "Atmospheric Temperature"
+      END_OBJECT             = PARAMETERNAME
+
+    END_OBJECT             = MEASUREDPARAMETERCONTAINER
+
+    OBJECT                 = MEASUREDPARAMETERCONTAINER
+      CLASS                = "4"
+
+      GROUP                  = QAFLAGS
+        CLASS                = "4"
+
+        OBJECT                 = AUTOMATICQUALITYFLAGEXPLANATION
+          NUM_VAL              = 1
+          CLASS                = "4"
+          VALUE                = "Based on percentage of product that is good. Suspect used where true quality is not known."
+        END_OBJECT             = AUTOMATICQUALITYFLAGEXPLANATION
+
+        OBJECT                 = AUTOMATICQUALITYFLAG
+          NUM_VAL              = 1
+          CLASS                = "4"
+          VALUE                = "Passed"
+        END_OBJECT             = AUTOMATICQUALITYFLAG
+
+      END_GROUP              = QAFLAGS
+
+      GROUP                  = QASTATS
+        CLASS                = "4"
+
+        OBJECT                 = QAPERCENTMISSINGDATA
+          NUM_VAL              = 1
+          CLASS                = "4"
+          VALUE                = 0
+        END_OBJECT             = QAPERCENTMISSINGDATA
+
+        OBJECT                 = QAPERCENTCLOUDCOVER
+          NUM_VAL              = 1
+          CLASS                = "4"
+          VALUE                = 21
+        END_OBJECT             = QAPERCENTCLOUDCOVER
+
+      END_GROUP              = QASTATS
+
+      OBJECT                 = PARAMETERNAME
+        CLASS                = "4"
+        NUM_VAL              = 1
+        VALUE                = "Water Vapor Mass Mixing Ratio"
+      END_OBJECT             = PARAMETERNAME
+
+    END_OBJECT             = MEASUREDPARAMETERCONTAINER
+
+    OBJECT                 = MEASUREDPARAMETERCONTAINER
+      CLASS                = "5"
+
+      GROUP                  = QAFLAGS
+        CLASS                = "5"
+
+        OBJECT                 = AUTOMATICQUALITYFLAGEXPLANATION
+          NUM_VAL              = 1
+          CLASS                = "5"
+          VALUE                = "Based on percentage of product that is good. Suspect used where true quality is not known."
+        END_OBJECT             = AUTOMATICQUALITYFLAGEXPLANATION
+
+        OBJECT                 = AUTOMATICQUALITYFLAG
+          NUM_VAL              = 1
+          CLASS                = "5"
+          VALUE                = "Passed"
+        END_OBJECT             = AUTOMATICQUALITYFLAG
+
+      END_GROUP              = QAFLAGS
+
+      GROUP                  = QASTATS
+        CLASS                = "5"
+
+        OBJECT                 = QAPERCENTMISSINGDATA
+          NUM_VAL              = 1
+          CLASS                = "5"
+          VALUE                = 0
+        END_OBJECT             = QAPERCENTMISSINGDATA
+
+        OBJECT                 = QAPERCENTCLOUDCOVER
+          NUM_VAL              = 1
+          CLASS                = "5"
+          VALUE                = 21
+        END_OBJECT             = QAPERCENTCLOUDCOVER
+
+      END_GROUP              = QASTATS
+
+      OBJECT                 = PARAMETERNAME
+        CLASS                = "5"
+        NUM_VAL              = 1
+        VALUE                = "Total Precipitable Water Vapor"
+      END_OBJECT             = PARAMETERNAME
+
+    END_OBJECT             = MEASUREDPARAMETERCONTAINER
+
+    OBJECT                 = MEASUREDPARAMETERCONTAINER
+      CLASS                = "6"
+
+      GROUP                  = QAFLAGS
+        CLASS                = "6"
+
+        OBJECT                 = AUTOMATICQUALITYFLAGEXPLANATION
+          NUM_VAL              = 1
+          CLASS                = "6"
+          VALUE                = "Based on percentage of product that is good. Suspect used where true quality is not known."
+        END_OBJECT             = AUTOMATICQUALITYFLAGEXPLANATION
+
+        OBJECT                 = AUTOMATICQUALITYFLAG
+          NUM_VAL              = 1
+          CLASS                = "6"
+          VALUE                = "Passed"
+        END_OBJECT             = AUTOMATICQUALITYFLAG
+
+      END_GROUP              = QAFLAGS
+
+      GROUP                  = QASTATS
+        CLASS                = "6"
+
+        OBJECT                 = QAPERCENTMISSINGDATA
+          NUM_VAL              = 1
+          CLASS                = "6"
+          VALUE                = 0
+        END_OBJECT             = QAPERCENTMISSINGDATA
+
+        OBJECT                 = QAPERCENTCLOUDCOVER
+          NUM_VAL              = 1
+          CLASS                = "6"
+          VALUE                = 21
+        END_OBJECT             = QAPERCENTCLOUDCOVER
+
+      END_GROUP              = QASTATS
+
+      OBJECT                 = PARAMETERNAME
+        CLASS                = "6"
+        NUM_VAL              = 1
+        VALUE                = "Ozone Volume Mixing Ratio"
+      END_OBJECT             = PARAMETERNAME
+
+    END_OBJECT             = MEASUREDPARAMETERCONTAINER
+
+    OBJECT                 = MEASUREDPARAMETERCONTAINER
+      CLASS                = "7"
+
+      GROUP                  = QAFLAGS
+        CLASS                = "7"
+
+        OBJECT                 = AUTOMATICQUALITYFLAGEXPLANATION
+          NUM_VAL              = 1
+          CLASS                = "7"
+          VALUE                = "Based on percentage of product that is good. Suspect used where true quality is not known."
+        END_OBJECT             = AUTOMATICQUALITYFLAGEXPLANATION
+
+        OBJECT                 = AUTOMATICQUALITYFLAG
+          NUM_VAL              = 1
+          CLASS                = "7"
+          VALUE                = "Passed"
+        END_OBJECT             = AUTOMATICQUALITYFLAG
+
+      END_GROUP              = QAFLAGS
+
+      GROUP                  = QASTATS
+        CLASS                = "7"
+
+        OBJECT                 = QAPERCENTMISSINGDATA
+          NUM_VAL              = 1
+          CLASS                = "7"
+          VALUE                = 0
+        END_OBJECT             = QAPERCENTMISSINGDATA
+
+        OBJECT                 = QAPERCENTCLOUDCOVER
+          NUM_VAL              = 1
+          CLASS                = "7"
+          VALUE                = 21
+        END_OBJECT             = QAPERCENTCLOUDCOVER
+
+      END_GROUP              = QASTATS
+
+      OBJECT                 = PARAMETERNAME
+        CLASS                = "7"
+        NUM_VAL              = 1
+        VALUE                = "Total Ozone Burden"
+      END_OBJECT             = PARAMETERNAME
+
+    END_OBJECT             = MEASUREDPARAMETERCONTAINER
+
+    OBJECT                 = MEASUREDPARAMETERCONTAINER
+      CLASS                = "8"
+
+      GROUP                  = QAFLAGS
+        CLASS                = "8"
+
+        OBJECT                 = AUTOMATICQUALITYFLAGEXPLANATION
+          NUM_VAL              = 1
+          CLASS                = "8"
+          VALUE                = "Based on percentage of product that is good. Suspect used where true quality is not known."
+        END_OBJECT             = AUTOMATICQUALITYFLAGEXPLANATION
+
+        OBJECT                 = AUTOMATICQUALITYFLAG
+          NUM_VAL              = 1
+          CLASS                = "8"
+          VALUE                = "Passed"
+        END_OBJECT             = AUTOMATICQUALITYFLAG
+
+      END_GROUP              = QAFLAGS
+
+      GROUP                  = QASTATS
+        CLASS                = "8"
+
+        OBJECT                 = QAPERCENTMISSINGDATA
+          NUM_VAL              = 1
+          CLASS                = "8"
+          VALUE                = 0
+        END_OBJECT             = QAPERCENTMISSINGDATA
+
+        OBJECT                 = QAPERCENTCLOUDCOVER
+          NUM_VAL              = 1
+          CLASS                = "8"
+          VALUE                = 21
+        END_OBJECT             = QAPERCENTCLOUDCOVER
+
+      END_GROUP              = QASTATS
+
+      OBJECT                 = PARAMETERNAME
+        CLASS                = "8"
+        NUM_VAL              = 1
+        VALUE                = "Spectral IR Surface Emissivities"
+      END_OBJECT             = PARAMETERNAME
+
+    END_OBJECT             = MEASUREDPARAMETERCONTAINER
+
+    OBJECT                 = MEASUREDPARAMETERCONTAINER
+      CLASS                = "9"
+
+      GROUP                  = QAFLAGS
+        CLASS                = "9"
+
+        OBJECT                 = AUTOMATICQUALITYFLAGEXPLANATION
+          NUM_VAL              = 1
+          CLASS                = "9"
+          VALUE                = "Based on percentage of product that is good. Suspect used where true quality is not known."
+        END_OBJECT             = AUTOMATICQUALITYFLAGEXPLANATION
+
+        OBJECT                 = AUTOMATICQUALITYFLAG
+          NUM_VAL              = 1
+          CLASS                = "9"
+          VALUE                = "Passed"
+        END_OBJECT             = AUTOMATICQUALITYFLAG
+
+      END_GROUP              = QAFLAGS
+
+      GROUP                  = QASTATS
+        CLASS                = "9"
+
+        OBJECT                 = QAPERCENTMISSINGDATA
+          NUM_VAL              = 1
+          CLASS                = "9"
+          VALUE                = 0
+        END_OBJECT             = QAPERCENTMISSINGDATA
+
+        OBJECT                 = QAPERCENTCLOUDCOVER
+          NUM_VAL              = 1
+          CLASS                = "9"
+          VALUE                = 21
+        END_OBJECT             = QAPERCENTCLOUDCOVER
+
+      END_GROUP              = QASTATS
+
+      OBJECT                 = PARAMETERNAME
+        CLASS                = "9"
+        NUM_VAL              = 1
+        VALUE                = "Spectral IR Surf Bidirect Reflectivity"
+      END_OBJECT             = PARAMETERNAME
+
+    END_OBJECT             = MEASUREDPARAMETERCONTAINER
+
+    OBJECT                 = MEASUREDPARAMETERCONTAINER
+      CLASS                = "10"
+
+      GROUP                  = QAFLAGS
+        CLASS                = "10"
+
+        OBJECT                 = AUTOMATICQUALITYFLAGEXPLANATION
+          NUM_VAL              = 1
+          CLASS                = "10"
+          VALUE                = "Based on percentage of product that is good. Suspect used where true quality is not known."
+        END_OBJECT             = AUTOMATICQUALITYFLAGEXPLANATION
+
+        OBJECT                 = AUTOMATICQUALITYFLAG
+          NUM_VAL              = 1
+          CLASS                = "10"
+          VALUE                = "Passed"
+        END_OBJECT             = AUTOMATICQUALITYFLAG
+
+      END_GROUP              = QAFLAGS
+
+      GROUP                  = QASTATS
+        CLASS                = "10"
+
+        OBJECT                 = QAPERCENTMISSINGDATA
+          NUM_VAL              = 1
+          CLASS                = "10"
+          VALUE                = 0
+        END_OBJECT             = QAPERCENTMISSINGDATA
+
+        OBJECT                 = QAPERCENTCLOUDCOVER
+          NUM_VAL              = 1
+          CLASS                = "10"
+          VALUE                = 21
+        END_OBJECT             = QAPERCENTCLOUDCOVER
+
+      END_GROUP              = QASTATS
+
+      OBJECT                 = PARAMETERNAME
+        CLASS                = "10"
+        NUM_VAL              = 1
+        VALUE                = "MW Surface Brightness"
+      END_OBJECT             = PARAMETERNAME
+
+    END_OBJECT             = MEASUREDPARAMETERCONTAINER
+
+    OBJECT                 = MEASUREDPARAMETERCONTAINER
+      CLASS                = "11"
+
+      GROUP                  = QAFLAGS
+        CLASS                = "11"
+
+        OBJECT                 = AUTOMATICQUALITYFLAGEXPLANATION
+          NUM_VAL              = 1
+          CLASS                = "11"
+          VALUE                = "Based on percentage of product that is good. Suspect used where true quality is not known."
+        END_OBJECT             = AUTOMATICQUALITYFLAGEXPLANATION
+
+        OBJECT                 = AUTOMATICQUALITYFLAG
+          NUM_VAL              = 1
+          CLASS                = "11"
+          VALUE                = "Passed"
+        END_OBJECT             = AUTOMATICQUALITYFLAG
+
+      END_GROUP              = QAFLAGS
+
+      GROUP                  = QASTATS
+        CLASS                = "11"
+
+        OBJECT                 = QAPERCENTMISSINGDATA
+          NUM_VAL              = 1
+          CLASS                = "11"
+          VALUE                = 0
+        END_OBJECT             = QAPERCENTMISSINGDATA
+
+        OBJECT                 = QAPERCENTCLOUDCOVER
+          NUM_VAL              = 1
+          CLASS                = "11"
+          VALUE                = 21
+        END_OBJECT             = QAPERCENTCLOUDCOVER
+
+      END_GROUP              = QASTATS
+
+      OBJECT                 = PARAMETERNAME
+        CLASS                = "11"
+        NUM_VAL              = 1
+        VALUE                = "MW Emissivity"
+      END_OBJECT             = PARAMETERNAME
+
+    END_OBJECT             = MEASUREDPARAMETERCONTAINER
+
+    OBJECT                 = MEASUREDPARAMETERCONTAINER
+      CLASS                = "12"
+
+      GROUP                  = QAFLAGS
+        CLASS                = "12"
+
+        OBJECT                 = AUTOMATICQUALITYFLAGEXPLANATION
+          NUM_VAL              = 1
+          CLASS                = "12"
+          VALUE                = "Based on percentage of product that is good. Suspect used where true quality is not known."
+        END_OBJECT             = AUTOMATICQUALITYFLAGEXPLANATION
+
+        OBJECT                 = AUTOMATICQUALITYFLAG
+          NUM_VAL              = 1
+          CLASS                = "12"
+          VALUE                = "Passed"
+        END_OBJECT             = AUTOMATICQUALITYFLAG
+
+      END_GROUP              = QAFLAGS
+
+      GROUP                  = QASTATS
+        CLASS                = "12"
+
+        OBJECT                 = QAPERCENTMISSINGDATA
+          NUM_VAL              = 1
+          CLASS                = "12"
+          VALUE                = 0
+        END_OBJECT             = QAPERCENTMISSINGDATA
+
+        OBJECT                 = QAPERCENTCLOUDCOVER
+          NUM_VAL              = 1
+          CLASS                = "12"
+          VALUE                = 21
+        END_OBJECT             = QAPERCENTCLOUDCOVER
+
+      END_GROUP              = QASTATS
+
+      OBJECT                 = PARAMETERNAME
+        CLASS                = "12"
+        NUM_VAL              = 1
+        VALUE                = "Total Cloud Water"
+      END_OBJECT             = PARAMETERNAME
+
+    END_OBJECT             = MEASUREDPARAMETERCONTAINER
+
+    OBJECT                 = MEASUREDPARAMETERCONTAINER
+      CLASS                = "13"
+
+      GROUP                  = QAFLAGS
+        CLASS                = "13"
+
+        OBJECT                 = AUTOMATICQUALITYFLAGEXPLANATION
+          NUM_VAL              = 1
+          CLASS                = "13"
+          VALUE                = "Based on percentage of product that is good. Suspect used where true quality is not known."
+        END_OBJECT             = AUTOMATICQUALITYFLAGEXPLANATION
+
+        OBJECT                 = AUTOMATICQUALITYFLAG
+          NUM_VAL              = 1
+          CLASS                = "13"
+          VALUE                = "Passed"
+        END_OBJECT             = AUTOMATICQUALITYFLAG
+
+      END_GROUP              = QAFLAGS
+
+      GROUP                  = QASTATS
+        CLASS                = "13"
+
+        OBJECT                 = QAPERCENTMISSINGDATA
+          NUM_VAL              = 1
+          CLASS                = "13"
+          VALUE                = 0
+        END_OBJECT             = QAPERCENTMISSINGDATA
+
+        OBJECT                 = QAPERCENTCLOUDCOVER
+          NUM_VAL              = 1
+          CLASS                = "13"
+          VALUE                = 21
+        END_OBJECT             = QAPERCENTCLOUDCOVER
+
+      END_GROUP              = QASTATS
+
+      OBJECT                 = PARAMETERNAME
+        CLASS                = "13"
+        NUM_VAL              = 1
+        VALUE                = "Cloud Top Temperature"
+      END_OBJECT             = PARAMETERNAME
+
+    END_OBJECT             = MEASUREDPARAMETERCONTAINER
+
+    OBJECT                 = MEASUREDPARAMETERCONTAINER
+      CLASS                = "14"
+
+      GROUP                  = QAFLAGS
+        CLASS                = "14"
+
+        OBJECT                 = AUTOMATICQUALITYFLAGEXPLANATION
+          NUM_VAL              = 1
+          CLASS                = "14"
+          VALUE                = "Based on percentage of product that is good. Suspect used where true quality is not known."
+        END_OBJECT             = AUTOMATICQUALITYFLAGEXPLANATION
+
+        OBJECT                 = AUTOMATICQUALITYFLAG
+          NUM_VAL              = 1
+          CLASS                = "14"
+          VALUE                = "Passed"
+        END_OBJECT             = AUTOMATICQUALITYFLAG
+
+      END_GROUP              = QAFLAGS
+
+      GROUP                  = QASTATS
+        CLASS                = "14"
+
+        OBJECT                 = QAPERCENTMISSINGDATA
+          NUM_VAL              = 1
+          CLASS                = "14"
+          VALUE                = 0
+        END_OBJECT             = QAPERCENTMISSINGDATA
+
+        OBJECT                 = QAPERCENTCLOUDCOVER
+          NUM_VAL              = 1
+          CLASS                = "14"
+          VALUE                = 21
+        END_OBJECT             = QAPERCENTCLOUDCOVER
+
+      END_GROUP              = QASTATS
+
+      OBJECT                 = PARAMETERNAME
+        CLASS                = "14"
+        NUM_VAL              = 1
+        VALUE                = "Cloud Top Pressure"
+      END_OBJECT             = PARAMETERNAME
+
+    END_OBJECT             = MEASUREDPARAMETERCONTAINER
+
+    OBJECT                 = MEASUREDPARAMETERCONTAINER
+      CLASS                = "15"
+
+      GROUP                  = QAFLAGS
+        CLASS                = "15"
+
+        OBJECT                 = AUTOMATICQUALITYFLAGEXPLANATION
+          NUM_VAL              = 1
+          CLASS                = "15"
+          VALUE                = "Based on percentage of product that is good. Suspect used where true quality is not known."
+        END_OBJECT             = AUTOMATICQUALITYFLAGEXPLANATION
+
+        OBJECT                 = AUTOMATICQUALITYFLAG
+          NUM_VAL              = 1
+          CLASS                = "15"
+          VALUE                = "Passed"
+        END_OBJECT             = AUTOMATICQUALITYFLAG
+
+      END_GROUP              = QAFLAGS
+
+      GROUP                  = QASTATS
+        CLASS                = "15"
+
+        OBJECT                 = QAPERCENTMISSINGDATA
+          NUM_VAL              = 1
+          CLASS                = "15"
+          VALUE                = 0
+        END_OBJECT             = QAPERCENTMISSINGDATA
+
+        OBJECT                 = QAPERCENTCLOUDCOVER
+          NUM_VAL              = 1
+          CLASS                = "15"
+          VALUE                = 21
+        END_OBJECT             = QAPERCENTCLOUDCOVER
+
+      END_GROUP              = QASTATS
+
+      OBJECT                 = PARAMETERNAME
+        CLASS                = "15"
+        NUM_VAL              = 1
+        VALUE                = "Effective Cloud Fraction"
+      END_OBJECT             = PARAMETERNAME
+
+    END_OBJECT             = MEASUREDPARAMETERCONTAINER
+
+    OBJECT                 = MEASUREDPARAMETERCONTAINER
+      CLASS                = "16"
+
+      GROUP                  = QAFLAGS
+        CLASS                = "16"
+
+        OBJECT                 = AUTOMATICQUALITYFLAGEXPLANATION
+          NUM_VAL              = 1
+          CLASS                = "16"
+          VALUE                = "Based on percentage of product that is good. Suspect used where true quality is not known."
+        END_OBJECT             = AUTOMATICQUALITYFLAGEXPLANATION
+
+        OBJECT                 = AUTOMATICQUALITYFLAG
+          NUM_VAL              = 1
+          CLASS                = "16"
+          VALUE                = "Passed"
+        END_OBJECT             = AUTOMATICQUALITYFLAG
+
+      END_GROUP              = QAFLAGS
+
+      GROUP                  = QASTATS
+        CLASS                = "16"
+
+        OBJECT                 = QAPERCENTMISSINGDATA
+          NUM_VAL              = 1
+          CLASS                = "16"
+          VALUE                = 0
+        END_OBJECT             = QAPERCENTMISSINGDATA
+
+        OBJECT                 = QAPERCENTCLOUDCOVER
+          NUM_VAL              = 1
+          CLASS                = "16"
+          VALUE                = 21
+        END_OBJECT             = QAPERCENTCLOUDCOVER
+
+      END_GROUP              = QASTATS
+
+      OBJECT                 = PARAMETERNAME
+        CLASS                = "16"
+        NUM_VAL              = 1
+        VALUE                = "Geopotential Heights"
+      END_OBJECT             = PARAMETERNAME
+
+    END_OBJECT             = MEASUREDPARAMETERCONTAINER
+
+    OBJECT                 = MEASUREDPARAMETERCONTAINER
+      CLASS                = "17"
+
+      GROUP                  = QAFLAGS
+        CLASS                = "17"
+
+        OBJECT                 = AUTOMATICQUALITYFLAGEXPLANATION
+          NUM_VAL              = 1
+          CLASS                = "17"
+          VALUE                = "Based on percentage of product that is good. Suspect used where true quality is not known."
+        END_OBJECT             = AUTOMATICQUALITYFLAGEXPLANATION
+
+        OBJECT                 = AUTOMATICQUALITYFLAG
+          NUM_VAL              = 1
+          CLASS                = "17"
+          VALUE                = "Passed"
+        END_OBJECT             = AUTOMATICQUALITYFLAG
+
+      END_GROUP              = QAFLAGS
+
+      GROUP                  = QASTATS
+        CLASS                = "17"
+
+        OBJECT                 = QAPERCENTMISSINGDATA
+          NUM_VAL              = 1
+          CLASS                = "17"
+          VALUE                = 0
+        END_OBJECT             = QAPERCENTMISSINGDATA
+
+        OBJECT                 = QAPERCENTCLOUDCOVER
+          NUM_VAL              = 1
+          CLASS                = "17"
+          VALUE                = 21
+        END_OBJECT             = QAPERCENTCLOUDCOVER
+
+      END_GROUP              = QASTATS
+
+      OBJECT                 = PARAMETERNAME
+        CLASS                = "17"
+        NUM_VAL              = 1
+        VALUE                = "Geopotential Height of Surface"
+      END_OBJECT             = PARAMETERNAME
+
+    END_OBJECT             = MEASUREDPARAMETERCONTAINER
+
+  END_GROUP              = MEASUREDPARAMETER
+
+  GROUP                  = ORBITCALCULATEDSPATIALDOMAIN
+
+    OBJECT                 = ORBITCALCULATEDSPATIALDOMAINCONTAINER
+      CLASS                = "1"
+
+      OBJECT                 = STARTORBITNUMBER
+        CLASS                = "1"
+        NUM_VAL              = 1
+        VALUE                = 29224
+      END_OBJECT             = STARTORBITNUMBER
+
+      OBJECT                 = EQUATORCROSSINGDATE
+        CLASS                = "1"
+        NUM_VAL              = 1
+        VALUE                = "2007-11-01"
+      END_OBJECT             = EQUATORCROSSINGDATE
+
+      OBJECT                 = EQUATORCROSSINGTIME
+        CLASS                = "1"
+        NUM_VAL              = 1
+        VALUE                = "00:50:06.224301Z"
+      END_OBJECT             = EQUATORCROSSINGTIME
+
+      OBJECT                 = EQUATORCROSSINGLONGITUDE
+        CLASS                = "1"
+        NUM_VAL              = 1
+        VALUE                = 11.1483430862427
+      END_OBJECT             = EQUATORCROSSINGLONGITUDE
+
+      OBJECT                 = STOPORBITNUMBER
+        CLASS                = "1"
+        NUM_VAL              = 1
+        VALUE                = 29224
+      END_OBJECT             = STOPORBITNUMBER
+
+    END_OBJECT             = ORBITCALCULATEDSPATIALDOMAINCONTAINER
+
+  END_GROUP              = ORBITCALCULATEDSPATIALDOMAIN
+
+  GROUP                  = COLLECTIONDESCRIPTIONCLASS
+
+    OBJECT                 = VERSIONID
+      NUM_VAL              = 1
+      VALUE                = 5
+    END_OBJECT             = VERSIONID
+
+    OBJECT                 = SHORTNAME
+      NUM_VAL              = 1
+      VALUE                = "AIRX2RET"
+    END_OBJECT             = SHORTNAME
+
+  END_GROUP              = COLLECTIONDESCRIPTIONCLASS
+
+  GROUP                  = INPUTGRANULE
+
+    OBJECT                 = INPUTPOINTER
+      NUM_VAL              = 100
+      VALUE                = ("ftp://airscal1-local/ftp/data/s4pa/Aqua_AIRS_Level1/AIRABRAD.005/2007/305/AIRS.2007.11.01.001.L1B.AMSU_Rad.v5.0.0.0.G07305135147.hdf", "
+          ftp://airscal1-local/ftp/data/s4pa/Aqua_AIRS_Level1/AIRIBRAD.005/2007/305/AIRS.2007.11.01.001.L1B.AIRS_Rad.v5.0.0.0.G07305144305.hdf", "ftp://airscal1-local/ftp/data/s4pa/Aqua_AIRS_Level1/AIRVBRAD.005/2007/305/AIRS.2007.11.01.001.L1B.VIS_Rad.v5.0.0.0.G07305143545.hdf", "
+          ftp://airscal1-local/ftp/data/s4pa/.5kNTX5B9SOGXxsFi/NOAA_Ancillary/AVI3_ANH/2007/304/gblav.PGrbF03.071031.18z.hdf", "ftp://airscal1-local/ftp/data/s4pa/.5kNTX5B9SOGXxsFi/NOAA_Ancillary/AVI6_ANH/2007/304/gblav.PGrbF06.071031.18z.hdf", "
+          ftp://airscal1-local/ftp/data/s4pa/.5kNTX5B9SOGXxsFi/NOAA_Ancillary/AVI9_ANH/2007/304/gblav.PGrbF09.071031.18z.hdf", "ftp://airscal1-local/ftp/data/s4pa/.5kNTX5B9SOGXxsFi/NOAA_Ancillary/AVI3_ANH/2007/305/gblav.PGrbF03.071101.00z.hdf", "
+          ftp://airscal1-local/ftp/data/s4pa/.5kNTX5B9SOGXxsFi/NOAA_Ancillary/AVI6_ANH/2007/305/gblav.PGrbF06.071101.00z.hdf", "ftp://airscal1-local/ftp/data/s4pa/.5kNTX5B9SOGXxsFi/NOAA_Ancillary/AVI9_ANH/2007/305/gblav.PGrbF09.071101.00z.hdf", "
+          ftp://airscal1-local/ftp/data/s4pa/.5kNTX5B9SOGXxsFi/NOAA_Ancillary/AVI3_ANH/2007/305/gblav.PGrbF03.071101.06z.hdf", "ftp://airscal1-local/ftp/data/s4pa/.5kNTX5B9SOGXxsFi/NOAA_Ancillary/AVI6_ANH/2007/305/gblav.PGrbF06.071101.06z.hdf", "
+          ftp://airscal1-local/ftp/data/s4pa/.5kNTX5B9SOGXxsFi/NOAA_Ancillary/AVI9_ANH/2007/305/gblav.PGrbF09.071101.06z.hdf", "ftp://airscal1-local/ftp/data/s4pa/.5kNTX5B9SOGXxsFi/NOAA_Ancillary/AVI3_ANH/2007/305/gblav.PGrbF03.071101.12z.hdf", "
+          ftp://airscal1-local/ftp/data/s4pa/.5kNTX5B9SOGXxsFi/NOAA_Ancillary/AVI6_ANH/2007/305/gblav.PGrbF06.071101.12z.hdf", "ftp://airscal1-local/ftp/data/s4pa/.5kNTX5B9SOGXxsFi/NOAA_Ancillary/AVI9_ANH/2007/305/gblav.PGrbF09.071101.12z.hdf", "
+          ftp://airscal1-local/ftp/data/s4pa/.5kNTX5B9SOGXxsFi/NOAA_Ancillary/AVI3_ANH/2007/305/gblav.PGrbF03.071101.18z.hdf", "ftp://airscal1-local/ftp/data/s4pa/.5kNTX5B9SOGXxsFi/NOAA_Ancillary/AVI6_ANH/2007/305/gblav.PGrbF06.071101.18z.hdf", "
+          ftp://airscal1-local/ftp/data/s4pa/.5kNTX5B9SOGXxsFi/NOAA_Ancillary/AVI9_ANH/2007/305/gblav.PGrbF09.071101.18z.hdf", "L2b.trcoef.airs.2002.08.30.v9.8.0.anc", "L2.trcoef.amsu.v4.0.1.anc", "L2.trcoef.hsb.v4.1.0.anc", "L2h.ncep_clim.v1.0.0.anc", "L2.uars_clim.v1.1.0.anc", "
+          L2h.angle_adj_coef.2002.05.04.v8.0.0.anc", "L2.F.error_est.v1.1.0.anc", "L2.tuning.amsu.v9.6.0.anc", "L2.tuning.hsb.v8.2.0.anc", "L2.tuning.airs.v9.6.0.anc", "L2.solar_rad.2002.08.30.v8.0.0.anc", "L2.cloud_avg.2002.08.30.v9.5.0.anc", "L2b.CCI_coefs.v5.0.0.anc", "
+          L2.M.cov100av.v1.0.0.anc", "L2.M.weight.hsb.v1.0.0.anc", "L2.chan_prop.2002.08.30.v9.5.1.anc", "L2.chan_prop.2002.09.17.v9.5.1.anc", "L2.chan_prop.2002.10.22.v9.5.1.anc", "L2.chan_prop.2003.01.10.v9.5.1.anc", "L2.chan_prop.2003.11.19.v9.5.1.anc", "
+          L2.chan_prop.2005.03.01.v9.5.1.anc", "L2.F.coef_olr.v1.0.0.anc", "L2.masuda.v2.0.0.anc", "L2.F.model_err.AH.v8.4.0.anc", "L2.F.ir-mwqc.coef_err_est.v2.1.3.anc", "L2.err_lim.v1.2.3.anc", "L2.I.eigvec_allang.solang.nf.v2.0.0.anc", "L2.I.rcoef.solang.v2.0.0.anc", "
+          L2.I.cld.regcoef.2002.08.30.v8.0.2.anc", "L2.I.cld.regcoef.2002.08.30.v8.0.4.anc", "L2.I.cld.regcoef.noam04.2002.08.30.v8.0.4.anc", "L2.I.freq.eigvec.2002.08.30.v8.0.1.anc", "L2.I.ang_pc.v2.0.0.anc", "L2.I.cldreg.eigvec_allang.2002.08.30.v8.0.1.anc", "
+          L2.namelist.2002.05.04.v6.20.1.anc", "MYD11C3.A2005001.004.2005036000636.gz.hdf", "MYD11C3.A2004032.004.2004133225103.gz.hdf", "MYD11C3.A2004061.004.2004103003331.gz.hdf", "MYD11C3.A2004092.004.2004134004005.gz.hdf", "MYD11C3.A2004122.004.2004156183333.gz.hdf", "
+          MYD11C3.A2004153.004.2004189104442.gz.hdf", "MYD11C3.A2004183.004.2004216145124.gz.hdf", "MYD11C3.A2004214.004.2004267192612.gz.hdf", "MYD11C3.A2004245.004.2004279142949.gz.hdf", "MYD11C3.A2004275.004.2004310031717.gz.hdf", "MYD11C3.A2004306.004.2004342124713.gz.hdf", "
+          MYD11C3.A2004336.004.2005008222314.gz.hdf")
+    END_OBJECT             = INPUTPOINTER
+
+  END_GROUP              = INPUTGRANULE
+
+  GROUP                  = SPATIALDOMAINCONTAINER
+
+    GROUP                  = HORIZONTALSPATIALDOMAINCONTAINER
+
+      GROUP                  = BOUNDINGRECTANGLE
+
+        OBJECT                 = EASTBOUNDINGCOORDINATE
+          NUM_VAL              = 1
+          VALUE                = -152.455780029297
+        END_OBJECT             = EASTBOUNDINGCOORDINATE
+
+        OBJECT                 = WESTBOUNDINGCOORDINATE
+          NUM_VAL              = 1
+          VALUE                = -175.134490966797
+        END_OBJECT             = WESTBOUNDINGCOORDINATE
+
+        OBJECT                 = SOUTHBOUNDINGCOORDINATE
+          NUM_VAL              = 1
+          VALUE                = 16.2319355010986
+        END_OBJECT             = SOUTHBOUNDINGCOORDINATE
+
+        OBJECT                 = NORTHBOUNDINGCOORDINATE
+          NUM_VAL              = 1
+          VALUE                = 39.8039016723633
+        END_OBJECT             = NORTHBOUNDINGCOORDINATE
+
+      END_GROUP              = BOUNDINGRECTANGLE
+
+      GROUP                  = ZONEIDENTIFIERCLASS
+
+        OBJECT                 = ZONEIDENTIFIER
+          NUM_VAL              = 1
+          VALUE                = "Other Grid System"
+        END_OBJECT             = ZONEIDENTIFIER
+
+      END_GROUP              = ZONEIDENTIFIERCLASS
+
+    END_GROUP              = HORIZONTALSPATIALDOMAINCONTAINER
+
+  END_GROUP              = SPATIALDOMAINCONTAINER
+
+  GROUP                  = RANGEDATETIME
+
+    OBJECT                 = RANGEENDINGDATE
+      NUM_VAL              = 1
+      VALUE                = "2007-11-01"
+    END_OBJECT             = RANGEENDINGDATE
+
+    OBJECT                 = RANGEENDINGTIME
+      NUM_VAL              = 1
+      VALUE                = "00:11:25.000000Z"
+    END_OBJECT             = RANGEENDINGTIME
+
+    OBJECT                 = RANGEBEGINNINGDATE
+      NUM_VAL              = 1
+      VALUE                = "2007-11-01"
+    END_OBJECT             = RANGEBEGINNINGDATE
+
+    OBJECT                 = RANGEBEGINNINGTIME
+      NUM_VAL              = 1
+      VALUE                = "00:05:25.000000Z"
+    END_OBJECT             = RANGEBEGINNINGTIME
+
+  END_GROUP              = RANGEDATETIME
+
+  GROUP                  = PGEVERSIONCLASS
+
+    OBJECT                 = PGEVERSION
+      NUM_VAL              = 1
+      VALUE                = "5.2.2.0"
+    END_OBJECT             = PGEVERSION
+
+  END_GROUP              = PGEVERSIONCLASS
+
+  GROUP                  = ASSOCIATEDPLATFORMINSTRUMENTSENSOR
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "1"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "1"
+        NUM_VAL              = 1
+        VALUE                = "HSB Channel 1"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "1"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "1"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "1"
+        NUM_VAL              = 1
+        VALUE                = "HSB"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "2"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "2"
+        NUM_VAL              = 1
+        VALUE                = "HSB Channel 2"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "2"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "2"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "2"
+        NUM_VAL              = 1
+        VALUE                = "HSB"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "3"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "3"
+        NUM_VAL              = 1
+        VALUE                = "HSB Channel 3"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "3"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "3"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "3"
+        NUM_VAL              = 1
+        VALUE                = "HSB"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "4"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "4"
+        NUM_VAL              = 1
+        VALUE                = "HSB Channel 4"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "4"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "4"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "4"
+        NUM_VAL              = 1
+        VALUE                = "HSB"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "5"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "5"
+        NUM_VAL              = 1
+        VALUE                = "HSB Channel 5"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "5"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "5"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "5"
+        NUM_VAL              = 1
+        VALUE                = "HSB"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "6"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "6"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A Channel 3"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "6"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "6"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "6"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "7"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "7"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A Channel 4"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "7"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "7"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "7"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "8"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "8"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A Channel 5"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "8"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "8"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "8"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "9"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "9"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A Channel 6"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "9"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "9"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "9"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "10"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "10"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A Channel 7"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "10"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "10"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "10"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "11"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "11"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A Channel 8"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "11"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "11"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "11"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "12"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "12"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A Channel 9"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "12"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "12"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "12"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "13"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "13"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A Channel 10"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "13"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "13"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "13"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "14"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "14"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A Channel 11"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "14"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "14"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "14"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "15"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "15"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A Channel 12"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "15"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "15"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "15"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "16"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "16"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A Channel 13"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "16"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "16"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "16"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "17"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "17"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A Channel 14"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "17"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "17"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "17"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "18"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "18"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A Channel 15"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "18"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "18"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "18"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "19"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "19"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A Channel 1"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "19"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "19"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "19"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "20"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "20"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A Channel 2"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "20"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "20"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "20"
+        NUM_VAL              = 1
+        VALUE                = "AMSU-A"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "21"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "21"
+        NUM_VAL              = 1
+        VALUE                = "M1a Detector Array"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "21"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "21"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "21"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "22"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "22"
+        NUM_VAL              = 1
+        VALUE                = "M1b Detector Array"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "22"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "22"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "22"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "23"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "23"
+        NUM_VAL              = 1
+        VALUE                = "M2a Detector Array"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "23"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "23"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "23"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "24"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "24"
+        NUM_VAL              = 1
+        VALUE                = "M2b Detector Array"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "24"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "24"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "24"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "25"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "25"
+        NUM_VAL              = 1
+        VALUE                = "M3 Detector Array"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "25"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "25"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "25"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "26"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "26"
+        NUM_VAL              = 1
+        VALUE                = "M4a Detector Array"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "26"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "26"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "26"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "27"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "27"
+        NUM_VAL              = 1
+        VALUE                = "M4b Detector Array"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "27"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "27"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "27"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "28"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "28"
+      coremetadata_1 : 
+        NUM_VAL              = 1
+        VALUE                = "M4c Detector Array"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "28"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "28"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "28"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "29"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "29"
+        NUM_VAL              = 1
+        VALUE                = "M4d Detector Array"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "29"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "29"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "29"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "30"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "30"
+        NUM_VAL              = 1
+        VALUE                = "M5 Detector Array"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "30"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "30"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "30"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "31"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "31"
+        NUM_VAL              = 1
+        VALUE                = "M6 Detector Array"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "31"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "31"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "31"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "32"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "32"
+        NUM_VAL              = 1
+        VALUE                = "M7 Detector Array"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "32"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "32"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "32"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "33"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "33"
+        NUM_VAL              = 1
+        VALUE                = "M8 Detector Array"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "33"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "33"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "33"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "34"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "34"
+        NUM_VAL              = 1
+        VALUE                = "M9 Detector Array"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "34"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "34"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "34"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "35"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "35"
+        NUM_VAL              = 1
+        VALUE                = "M10 Detector Array"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "35"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "35"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "35"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "36"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "36"
+        NUM_VAL              = 1
+        VALUE                = "M11 Detector Array"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "36"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "36"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "36"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "37"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "37"
+        NUM_VAL              = 1
+        VALUE                = "M12 Detector Array"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "37"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "37"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "37"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "38"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "38"
+        NUM_VAL              = 1
+        VALUE                = "VNIR Channel 1"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "38"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "38"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "38"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "39"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "39"
+        NUM_VAL              = 1
+        VALUE                = "VNIR Channel 2"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "39"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "39"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "39"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "40"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "40"
+        NUM_VAL              = 1
+        VALUE                = "VNIR Channel 3"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "40"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "40"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "40"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+    OBJECT                 = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+      CLASS                = "41"
+
+      OBJECT                 = ASSOCIATEDSENSORSHORTNAME
+        CLASS                = "41"
+        NUM_VAL              = 1
+        VALUE                = "VNIR Channel 4"
+      END_OBJECT             = ASSOCIATEDSENSORSHORTNAME
+
+      OBJECT                 = ASSOCIATEDPLATFORMSHORTNAME
+        CLASS                = "41"
+        NUM_VAL              = 1
+        VALUE                = "Aqua"
+      END_OBJECT             = ASSOCIATEDPLATFORMSHORTNAME
+
+      OBJECT                 = OPERATIONMODE
+        CLASS                = "41"
+        NUM_VAL              = 1
+        VALUE                = "Normal"
+      END_OBJECT             = OPERATIONMODE
+
+      OBJECT                 = ASSOCIATEDINSTRUMENTSHORTNAME
+        CLASS                = "41"
+        NUM_VAL              = 1
+        VALUE                = "AIRS"
+      END_OBJECT             = ASSOCIATEDINSTRUMENTSHORTNAME
+
+    END_OBJECT             = ASSOCIATEDPLATFORMINSTRUMENTSENSORCONTAINER
+
+  END_GROUP              = ASSOCIATEDPLATFORMINSTRUMENTSENSOR
+
+  GROUP                  = ADDITIONALATTRIBUTES
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "1"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "1"
+        NUM_VAL              = 1
+        VALUE                = "NumBadData"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "1"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "1"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "2"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "2"
+        NUM_VAL              = 1
+        VALUE                = "NumSpecialData"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "2"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "2"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "3"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "3"
+        NUM_VAL              = 1
+        VALUE                = "NumProcessData"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "3"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "3"
+          VALUE                = "1350"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "4"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "4"
+        NUM_VAL              = 1
+        VALUE                = "NumMissingData"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "4"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "4"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "5"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "5"
+        NUM_VAL              = 1
+        VALUE                = "NumTotalData"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "5"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "5"
+          VALUE                = "1350"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "6"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "6"
+        NUM_VAL              = 1
+        VALUE                = "NumLandSurface"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "6"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "6"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "7"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "7"
+        NUM_VAL              = 1
+        VALUE                = "NumOceanSurface"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "7"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "7"
+          VALUE                = "1339"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "8"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "8"
+        NUM_VAL              = 1
+        VALUE                = "NumFpe"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "8"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "8"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "9"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "9"
+        NUM_VAL              = 1
+        VALUE                = "ScanLineCount"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "9"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "9"
+          VALUE                = "45"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "10"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "10"
+        NUM_VAL              = 1
+        VALUE                = "AIRSGranuleNumber"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "10"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "10"
+          VALUE                = "1"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "11"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "11"
+        NUM_VAL              = 1
+        VALUE                = "OrbitPath"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "11"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "11"
+          VALUE                = "169"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "12"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "12"
+        NUM_VAL              = 1
+        VALUE                = "SP_STARTING_PATH"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "12"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "12"
+          VALUE                = "169"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "13"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "13"
+        NUM_VAL              = 1
+        VALUE                = "SP_STARTING_ROW"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "13"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "13"
+          VALUE                = "198"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "14"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "14"
+        NUM_VAL              = 1
+        VALUE                = "SP_ENDING_ROW"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "14"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "14"
+          VALUE                = "213"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "15"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "15"
+        NUM_VAL              = 1
+        VALUE                = "NumGeoQA"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "15"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "15"
+          VALUE                = "1"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "16"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "16"
+        NUM_VAL              = 1
+        VALUE                = "NumSunGlint"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "16"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "16"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "17"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "17"
+        NUM_VAL              = 1
+        VALUE                = "LonGranuleCen"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "17"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "17"
+          VALUE                = "-163"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "18"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "18"
+        NUM_VAL              = 1
+        VALUE                = "LatGranuleCen"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "18"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "18"
+          VALUE                = "28"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "19"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "19"
+        NUM_VAL              = 1
+        VALUE                = "LocTimeGranuleCen"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "19"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "19"
+          VALUE                = "813"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "20"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "20"
+        NUM_VAL              = 1
+        VALUE                = "NodeType"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "20"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "20"
+          VALUE                = "Ascending"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "21"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "21"
+        NUM_VAL              = 1
+        VALUE                = "VersionRetrieval"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "21"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "21"
+          VALUE                = "5.2.2.0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "22"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "22"
+        NUM_VAL              = 1
+        VALUE                = "NumBadL1B"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "22"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "22"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "23"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "23"
+        NUM_VAL              = 1
+        VALUE                = "NumBadL1BAMSU"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "23"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "23"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "24"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "24"
+        NUM_VAL              = 1
+        VALUE                = "NumBadL1BHSB"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "24"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "24"
+          VALUE                = "1350"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "25"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "25"
+        NUM_VAL              = 1
+        VALUE                = "NumBadL1BAIRS"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "25"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "25"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "26"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "26"
+        NUM_VAL              = 1
+        VALUE                = "NumBadL1BVIS"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "26"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "26"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "27"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "27"
+        NUM_VAL              = 1
+        VALUE                = "NumNoPsurfGuess"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "27"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "27"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "28"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "28"
+        NUM_VAL              = 1
+        VALUE                = "NumNoTuning"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "28"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "28"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "29"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "29"
+        NUM_VAL              = 1
+        VALUE                = "NumNoAngCorr"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "29"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "29"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "30"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "30"
+        NUM_VAL              = 1
+        VALUE                = "NumPrecipMW"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "30"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "30"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "31"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "31"
+        NUM_VAL              = 1
+        VALUE                = "NumCloudIceMW"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "31"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "31"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "32"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "32"
+        NUM_VAL              = 1
+        VALUE                = "NumClearMW"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "32"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "32"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "33"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "33"
+        NUM_VAL              = 1
+        VALUE                = "NumClearIR"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "33"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "33"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "34"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "34"
+        NUM_VAL              = 1
+        VALUE                = "NumMWStratIrRetOnly"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "34"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "34"
+          VALUE                = "20"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "35"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "35"
+        NUM_VAL              = 1
+        VALUE                = "NumRetInvalid"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "35"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "35"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "36"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "36"
+        NUM_VAL              = 1
+        VALUE                = "MoonInViewMWCount"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "36"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "36"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "37"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "37"
+        NUM_VAL              = 1
+        VALUE                = "NumNoHSB"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "37"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "37"
+          VALUE                = "1350"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "38"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "38"
+        NUM_VAL              = 1
+        VALUE                = "NumNoAMSUA"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "38"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "38"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "39"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "39"
+        NUM_VAL              = 1
+        VALUE                = "NumNoAIRS"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "39"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "39"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "40"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "40"
+        NUM_VAL              = 1
+        VALUE                = "NumNoVis"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "40"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "40"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "41"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "41"
+        NUM_VAL              = 1
+        VALUE                = "DCRCount"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "41"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "41"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "42"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "42"
+        NUM_VAL              = 1
+        VALUE                = "PopCount"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "42"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "42"
+          VALUE                = "212"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "43"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "43"
+        NUM_VAL              = 1
+        VALUE                = "PhotoCalibrationOn"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "43"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "43"
+          VALUE                = "FALSE"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "44"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "44"
+        NUM_VAL              = 1
+        VALUE                = "AIRSMode"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "44"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "44"
+          VALUE                = "Operate"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "45"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "45"
+        NUM_VAL              = 1
+        VALUE                = "PercentHighContrast"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "45"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "45"
+          VALUE                = "82.84"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "46"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "46"
+        NUM_VAL              = 1
+        VALUE                = "NumBadIRScans"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "46"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "46"
+          VALUE                = "106"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "47"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "47"
+        NUM_VAL              = 1
+        VALUE                = "NumBadIROffsetChans"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "47"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "47"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "48"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "48"
+        NUM_VAL              = 1
+        VALUE                = "NumBadIRGainChans"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "48"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "48"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "49"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "49"
+        NUM_VAL              = 1
+        VALUE                = "NumBadIRSpecChans"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "49"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "49"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "50"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "50"
+        NUM_VAL              = 1
+        VALUE                = "NumIRPopChans"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "50"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "50"
+          VALUE                = "18"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "51"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "51"
+        NUM_VAL              = 1
+        VALUE                = "NumBadIRSceneChans"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "51"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "51"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "52"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "52"
+        NUM_VAL              = 1
+        VALUE                = "NumHighNoiseIRChans"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "52"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "52"
+          VALUE                = "23"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "53"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "53"
+        NUM_VAL              = 1
+        VALUE                = "NumBadAIRSTelemChans"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "53"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "53"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "54"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "54"
+        NUM_VAL              = 1
+        VALUE                = "NumSO2FOVs"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "54"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "54"
+          VALUE                = "0"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "55"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "55"
+        NUM_VAL              = 1
+        VALUE                = "ProductGenerationFacility"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "55"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "55"
+          VALUE                = "G"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "56"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "56"
+        NUM_VAL              = 1
+        VALUE                = "AIRSRunTag"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "56"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "56"
+          VALUE                = "08078150655"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+    OBJECT                 = ADDITIONALATTRIBUTESCONTAINER
+      CLASS                = "57"
+
+      OBJECT                 = ADDITIONALATTRIBUTENAME
+        CLASS                = "57"
+        NUM_VAL              = 1
+        VALUE                = "ProductGenerationHostInformation"
+      END_OBJECT             = ADDITIONALATTRIBUTENAME
+
+      GROUP                  = INFORMATIONCONTENT
+        CLASS                = "57"
+
+        OBJECT                 = PARAMETERVALUE
+          NUM_VAL              = 1
+          CLASS                = "57"
+          VALUE                = "airsraw1 Linux 2.6.9-67.ELsmp #1_SMP_Wed_Nov_7_13:56:44_EST_2007 x86_64"
+        END_OBJECT             = PARAMETERVALUE
+
+      END_GROUP              = INFORMATIONCONTENT
+
+    END_OBJECT             = ADDITIONALATTRIBUTESCONTAINER
+
+  END_GROUP              = ADDITIONALATTRIBUTES
+
+END_GROUP              = INVENTORYMETADATA
+
+END
+   dimensions:
+      GeoTrack_L2_Standard_atmospheric_surface_product = 45
+      GeoXTrack_L2_Standard_atmospheric_surface_product = 30
+      AIRSTrack_L2_Standard_atmospheric_surface_product = 3
+      AIRSXTrack_L2_Standard_atmospheric_surface_product = 3
+      StdPressureLev_L2_Standard_atmospheric_surface_product = 28
+      HingeSurf_L2_Standard_atmospheric_surface_product = 100
+      MWHingeSurf_L2_Standard_atmospheric_surface_product = 7
+      H2OPressureLay_L2_Standard_atmospheric_surface_product = 14
+      H2OFunc_L2_Standard_atmospheric_surface_product = 11
+      StdPressureLay_L2_Standard_atmospheric_surface_product = 28
+      O3Func_L2_Standard_atmospheric_surface_product = 9
+      COFunc_L2_Standard_atmospheric_surface_product = 9
+      CH4Func_L2_Standard_atmospheric_surface_product = 7
+      Cloud_L2_Standard_atmospheric_surface_product = 2
+   variables:
+      double Latitude ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	Latitude
+
+      double Longitude ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	Longitude
+
+      double Time ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	Time
+
+      ushort RetQAFlag ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	65534
+         hdf_name :	RetQAFlag
+
+      uint ftptgeoqa ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	4294967295
+         hdf_name :	ftptgeoqa
+
+      ushort zengeoqa ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	65534
+         hdf_name :	zengeoqa
+
+      ushort demgeoqa ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	65534
+         hdf_name :	demgeoqa
+
+      float satzen ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	satzen
+
+      float satazi ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	satazi
+
+      float solzen ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	solzen
+
+      float solazi ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	solazi
+
+      short sun_glint_distance ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	sun_glint_distance
+
+      float topog ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	topog
+
+      float topog_err ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	topog_err
+
+      float landFrac ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	landFrac
+
+      float landFrac_err ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	landFrac_err
+
+      float latAIRS ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, AIRSTrack_L2_Standard_atmospheric_surface_product, AIRSXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	latAIRS
+
+      float lonAIRS ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, AIRSTrack_L2_Standard_atmospheric_surface_product, AIRSXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	lonAIRS
+
+      ushort Qual_Guess_PSurf ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	65534
+         hdf_name :	Qual_Guess_PSurf
+
+      float PSurfStd ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	PSurfStd
+
+      integer nSurfStd ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	nSurfStd
+
+      float Press_mid_top_bndry ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	Press_mid_top_bndry
+
+      short nStd_mid_top_bndry ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	nStd_mid_top_bndry
+
+      float Press_bot_mid_bndry ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	Press_bot_mid_bndry
+
+      short nStd_bot_mid_bndry ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	nStd_bot_mid_bndry
+
+      float PBest ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	PBest
+
+      float PGood ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	PGood
+
+      short nBestStd ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	nBestStd
+
+      short nGoodStd ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	nGoodStd
+
+      ushort Qual_Temp_Profile_Top ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	65534
+         hdf_name :	Qual_Temp_Profile_Top
+
+      ushort Qual_Temp_Profile_Mid ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	65534
+         hdf_name :	Qual_Temp_Profile_Mid
+
+      ushort Qual_Temp_Profile_Bot ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	65534
+         hdf_name :	Qual_Temp_Profile_Bot
+
+      float TAirStd ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, StdPressureLev_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	TAirStd
+
+      float TAirStdErr ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, StdPressureLev_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	TAirStdErr
+
+      float TSurfAir ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	TSurfAir
+
+      float TSurfAirErr ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	TSurfAirErr
+
+      ushort Qual_Surf ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	65534
+         hdf_name :	Qual_Surf
+
+      float TSurfStd ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	TSurfStd
+
+      float TSurfStdErr ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	TSurfStdErr
+
+      short numHingeSurf ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	numHingeSurf
+
+      float freqEmis ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, HingeSurf_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	freqEmis
+
+      float emisIRStd ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, HingeSurf_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	emisIRStd
+
+      float emisIRStdErr ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, HingeSurf_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	emisIRStdErr
+
+      ushort Qual_MW_Only_Temp_Strat ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	65534
+         hdf_name :	Qual_MW_Only_Temp_Strat
+
+      ushort Qual_MW_Only_Temp_Tropo ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	65534
+         hdf_name :	Qual_MW_Only_Temp_Tropo
+
+      float TAirMWOnlyStd ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, StdPressureLev_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	TAirMWOnlyStd
+
+      byte MWSurfClass ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         hdf_name :	MWSurfClass
+
+      float sfcTbMWStd ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, MWHingeSurf_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	sfcTbMWStd
+
+      float EmisMWStd ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, MWHingeSurf_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	EmisMWStd
+
+      float EmisMWStdErr ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, MWHingeSurf_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	EmisMWStdErr
+
+      ushort Qual_MW_Only_H2O ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	65534
+         hdf_name :	Qual_MW_Only_H2O
+
+      float totH2OMWOnlyStd ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	totH2OMWOnlyStd
+
+      ushort Qual_H2O ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	65534
+         hdf_name :	Qual_H2O
+
+      float H2OMMRStd ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, H2OPressureLay_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	H2OMMRStd
+
+      float H2OMMRStdErr ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, H2OPressureLay_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	H2OMMRStdErr
+
+      float totH2OStd ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	totH2OStd
+
+      float totH2OStdErr ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	totH2OStdErr
+
+      float H2OMMRSat ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, H2OPressureLay_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	H2OMMRSat
+
+      float H2OMMRSat_liquid ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, H2OPressureLay_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	H2OMMRSat_liquid
+
+      short num_H2O_Func ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	num_H2O_Func
+
+      float H2O_verticality ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, H2OFunc_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	H2O_verticality
+
+      ushort Qual_O3 ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	65534
+         hdf_name :	Qual_O3
+
+      float totO3Std ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	totO3Std
+
+      float totO3StdErr ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	totO3StdErr
+
+      float O3VMRStd ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, StdPressureLay_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	O3VMRStd
+
+      float O3VMRStdErr ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, StdPressureLay_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	O3VMRStdErr
+
+      short num_O3_Func ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	num_O3_Func
+
+      float O3_verticality ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, O3Func_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	O3_verticality
+
+      ushort Qual_CO ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	65534
+         hdf_name :	Qual_CO
+
+      float CO_total_column ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CO_total_column
+
+      short num_CO_Func ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	num_CO_Func
+
+      float CO_eff_press ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, COFunc_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CO_eff_press
+
+      float CO_VMR_eff ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, COFunc_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CO_VMR_eff
+
+      float CO_VMR_eff_err ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, COFunc_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CO_VMR_eff_err
+
+      float CO_verticality ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, COFunc_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CO_verticality
+
+      float CO_dof ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CO_dof
+
+      ushort Qual_CH4 ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	65534
+         hdf_name :	Qual_CH4
+
+      float CH4_total_column ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CH4_total_column
+
+      short num_CH4_Func ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	num_CH4_Func
+
+      float CH4_eff_press ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, CH4Func_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CH4_eff_press
+
+      float CH4_VMR_eff ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, CH4Func_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CH4_VMR_eff
+
+      float CH4_VMR_eff_err ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, CH4Func_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CH4_VMR_eff_err
+
+      float CH4_verticality ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, CH4Func_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CH4_verticality
+
+      float CH4_dof ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CH4_dof
+
+      float PTropopause ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	PTropopause
+
+      float T_Tropopause ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	T_Tropopause
+
+      float GP_Tropopause ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	GP_Tropopause
+
+      float GP_Height ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, StdPressureLev_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	GP_Height
+
+      float GP_Height_MWOnly ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, StdPressureLev_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	GP_Height_MWOnly
+
+      float GP_Surface ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	GP_Surface
+
+      ushort Qual_Cloud_OLR ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	65534
+         hdf_name :	Qual_Cloud_OLR
+
+      integer numCloud ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	numCloud
+
+      float TCldTopStd ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, Cloud_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	TCldTopStd
+
+      float TCldTopStdErr ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, Cloud_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	TCldTopStdErr
+
+      float PCldTopStd ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, Cloud_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	PCldTopStd
+
+      float PCldTopStdErr ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, Cloud_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	PCldTopStdErr
+
+      float CldFrcStd ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, AIRSTrack_L2_Standard_atmospheric_surface_product, AIRSXTrack_L2_Standard_atmospheric_surface_product, Cloud_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CldFrcStd
+
+      float CldFrcStdErr ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, AIRSTrack_L2_Standard_atmospheric_surface_product, AIRSXTrack_L2_Standard_atmospheric_surface_product, Cloud_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CldFrcStdErr
+
+      float olr ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	olr
+
+      float olr_err ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	olr_err
+
+      ushort Qual_clrolr ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	65534
+         hdf_name :	Qual_clrolr
+
+      float clrolr ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	clrolr
+
+      float clrolr_err ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	clrolr_err
+
+      short dust_flag ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, AIRSTrack_L2_Standard_atmospheric_surface_product, AIRSXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	dust_flag
+
+      short spectral_clear_indicator ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product, AIRSTrack_L2_Standard_atmospheric_surface_product, AIRSXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	spectral_clear_indicator
+
+      short num_clear_spectral_indicator ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	num_clear_spectral_indicator
+
+      float CC_noise_eff_amp_factor ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CC_noise_eff_amp_factor
+
+      float CC1_noise_eff_amp_factor ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CC1_noise_eff_amp_factor
+
+      float totCldH2OStd ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	totCldH2OStd
+
+      float totCldH2OStdErr ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	totCldH2OStdErr
+
+      float CC1_Resid ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CC1_Resid
+
+      float CCfinal_Resid ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CCfinal_Resid
+
+      float CCfinal_Noise_Amp ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CCfinal_Noise_Amp
+
+      float Tdiff_IR_MW_ret ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	Tdiff_IR_MW_ret
+
+      float Tdiff_IR_4CC1 ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	Tdiff_IR_4CC1
+
+      float TSurfdiff_IR_4CC1 ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	TSurfdiff_IR_4CC1
+
+      float TSurfdiff_IR_4CC2 ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	TSurfdiff_IR_4CC2
+
+      float AMSU_Chans_Resid ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	AMSU_Chans_Resid
+
+      float TotCld_4_CCfinal ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	TotCld_4_CCfinal
+
+      float Surf_Resid_Ratio ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	Surf_Resid_Ratio
+
+      float Temp_Resid_Ratio ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	Temp_Resid_Ratio
+
+      float Water_Resid_Ratio ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	Water_Resid_Ratio
+
+      float Cloud_Resid_Ratio ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	Cloud_Resid_Ratio
+
+      float O3_Resid_Ratio ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	O3_Resid_Ratio
+
+      float CO_Resid_Ratio ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CO_Resid_Ratio
+
+      float CH4_Resid_Ratio ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	CH4_Resid_Ratio
+
+      float MWCheck_Resid_Ratio ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	MWCheck_Resid_Ratio
+
+      float O3_dof ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	O3_dof
+
+      byte all_spots_avg ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         hdf_name :	all_spots_avg
+
+      byte MW_ret_used ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         hdf_name :	MW_ret_used
+
+      float Initial_CC_score ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         _FillValue :	-9999
+         hdf_name :	Initial_CC_score
+
+      byte retrieval_type ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         hdf_name :	retrieval_type
+
+      byte Startup ( GeoTrack_L2_Standard_atmospheric_surface_product, GeoXTrack_L2_Standard_atmospheric_surface_product )
+         hdf_name :	Startup
+
+Coordinates:
+ 
+ 
