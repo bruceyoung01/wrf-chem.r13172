@@ -2319,14 +2319,33 @@ function days_in_month_gregorian(time)
 
 type(time_type), intent(in) :: time
 integer                     :: days_in_month_gregorian
+integer                     :: year, month, day, hour, minute, second
 
 if ( .not. module_initialized ) call time_manager_init
 
-call error_handler(E_ERR,'days_in_month_gregorian','not implemented',source,revision,revdate)
-days_in_month_gregorian = -1
+!call error_handler(E_ERR,'days_in_month_gregorian','not implemented',source,revision,revdate)
+!days_in_month_gregorian = -1
+
+!----------------------------------------------------------------------
+! Add by Zhifeng Yang (07/24/2019)
+call get_date_gregorian(Time, year, month, day, hour, minute, second)
+days_in_month_gregorian = days_per_month(month)
+if(leap_year_gregorian_int(year) .and. month == 2) days_in_month_gregorian = 29
+!----------------------------------------------------------------------
 
 end function days_in_month_gregorian
 
+!--------------------------------------------------------------------------
+
+function leap_year_gregorian_int(year)
+logical :: leap_year_gregorian_int
+integer, intent(in) :: year
+
+leap_year_gregorian_int = mod(year,4) == 0
+leap_year_gregorian_int = leap_year_gregorian_int .and. .not.mod(year,100) == 0
+leap_year_gregorian_int = leap_year_gregorian_int .or. mod(year,400) == 0
+
+end function leap_year_gregorian_int
 
 
 function days_in_month_julian(time)
