@@ -81,11 +81,12 @@ LD = gfortran
 # are found for the netcdf files that match this compiler.
 #
 # NETCDF = /opt/local
+HDF = /home/vy57456/zzbatmos_user/application/gfortran/hdf5-1.10.4
 NETCDF = /home/vy57456/zzbatmos_user/application/gfortran/netcdf-4.6.1
-
+HDFEOS = /umbc/xfs1/zzbatmos/users/vy57456/application/gfortran/HDF-EOS5.1.16
 
 INCS = -I$(NETCDF)/include
-LIBS = -L$(NETCDF)/lib -lnetcdff -lnetcdf
+LIBS = -L$(NETCDF)/lib -L$(HDF)/lib -L$(HDFEOS)/lib -lnetcdff -lnetcdf
 #FFLAGS  = -O2 -ffree-line-length-none $(INCS)
 FFLAGS = -g -O2 -mcmodel=large -ffree-line-length-none -fbounds-check \
          -fbacktrace -ffpe-trap=invalid,zero,overflow $(INCS)

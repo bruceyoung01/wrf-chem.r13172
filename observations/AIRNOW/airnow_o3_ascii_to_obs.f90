@@ -134,14 +134,14 @@
       namelist /create_airnow_obs_nml/year0,month0,day0,hour0,beg_year,beg_mon,beg_day, &
       beg_hour,beg_min,beg_sec,end_year,end_mon,end_day,end_hour,end_min,end_sec, &
       file_in,lat_mn,lat_mx,lon_mn,lon_mx,use_log_co,use_log_o3
-
+!
 !============================================================
 !obs sequence extra variables
 !============================================================
 
       pi=4.*atan(1.0)
       fac=1.0
-      err_frac=0.4
+      err_frac=0.25
       obs_qc(1)=0.
 
       save_greg_sec=-9999                                                 
@@ -248,15 +248,17 @@
             minute(indx)=minute_temp
             obs_val(indx)=obs_val_temp*fac
 ! physical space error
-!            obs_err(indx)=obs_val_temp*fac*err_frac
-            obs_err(indx)=(exp(err_frac)-1.)*obs_val_temp*fac
+            obs_err(indx)=obs_val_temp*fac*err_frac
+!            obs_err(indx)=(exp(err_frac)-1.)*obs_val_temp*fac
             if (use_log_o3) then
 !               o3_log_max=log(obs_val(indx)+obs_err(indx))
 !               o3_log_min=log(obs_val(indx)-obs_err(indx))
 !               obs_err(indx)=o3_log_max-log(obs_val(indx))
 ! log space error
-               obs_err(indx)=err_frac
-               obs_val(indx)=log(obs_val(indx))
+!               obs_err(indx)=err_frac
+!               obs_val(indx)=log(obs_val(indx))
+                print *, 'APM: ERROR not set log scale for AIRNOW O3'
+                stop
             endif
             data_greg_sec(indx)=data_greg_sec_temp
          endif
