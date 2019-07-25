@@ -3,23 +3,34 @@
 ! University Corporation for Atmospheric Research
 ! Licensed under the GPL -- www.gpl.org/licenses/gpl/html
 !
-! $ID: create_tolnet_o3_sequence.f90 v01 11:30 07/22/2019 exp$
+! $ID: create_tolnet_o3_obs_sequence.f90 v01 11:30 07/22/2019 exp$
 !
 !**********************************************************************
-! program create_tolnet_o3_sequence reads TOLNET ozone lidar vertical 
-! profile data and rewrites the data into obs_seq file which DART can 
-! read.
+! program create_tolnet_o3_obs_sequence reads TOLNET ozone lidar vertical 
+! profile data (in text format) and rewrites the data into obs_seq file 
+! which DART can read.
 !
 ! flow chart:
 ! =====================================================================
-! (1 )
+! (1 ) use modules from DART;
+! (2 ) define parameters, variables for local use, variables used to 
+!      read variables used for observation sequence file;
+! (3 ) do year, month, day loops to read lidar data day by day;
+! (4 ) read info from the text file line by line, until read before the 
+!      first profile data;
+! (5 ) do iprofile loop to read data profile by profile;
+! (6 ) first read them as character;
+! (7 ) convert characters to integer, or real;
+! (8 ) put data into obs_seq file;
+! (9 ) end iprofile;
+! (10) end day, month, and year.
 !
 ! notes:
 ! =====================================================================
 ! (1 ) this program is based on the create_airnow_o3_sequence.f90 
 !      written by Arthur Mizzi. (Zhifeng Yang, 07/22/2019)
 !**********************************************************************
-   program create_tolnet_o3_sequence
+      program create_tolnet_o3_obs_sequence
 !
 ! <next few lines under version control, do not edit>
 ! $URL$
@@ -40,6 +51,8 @@
                                        register_module,         &
 ! initialize_utilities: open log file for writing
                                        initialize_utilities,    &
+                                       open_file,               &
+                                       close_file,              &
 ! find_namelist_in_file: find out specific nml name in the 
 !                        namelist file
                                        find_namelist_in_file,   &
@@ -86,7 +99,8 @@
       use time_manager_mod,only :  set_date,                    &
                                    set_calendar_type,           &
                                    time_type,                   &
-                                   get_time
+                                   get_time,                    &
+                                   days_in_month
 
       use obs_kind_mod,    only :  TOLNET_O3,                   &
                                    get_kind_from_menu
@@ -95,7 +109,7 @@
                                    init_random_seq,             &
                                    random_uniform
 
-      use sort_mod,        only :  indec_sort
+      use sort_mod,        only :  index_sort
 
       implicit none
 
@@ -112,32 +126,34 @@
       type (obs_def_type     )          :: obs_def
       type (location_type    )          :: obs_location
       type (time_type        )          :: obs_time
+      type (time_type        )          :: itime
 
-      integer, parameter                :: max_num_obs = 2000000
-      integer, parameter                :: indx_max    = max_num_obs
-      integer, parameter                :: num_copies  = 1
-      integer, parameter                :: num_qc      = 1
+      integer,   parameter              :: max_num_obs = 2000000
+      integer,   parameter              :: indx_max    = max_num_obs
+      integer,   parameter              :: num_copies  = 1
+      integer,   parameter              :: num_qc      = 1
+      real (r8), parameter              :: opposite_sign = -1.0
 ! Set to .true. to print debug info
       logical, parameter                :: debug       = .true.
 ! convert iyear, imonth, and iday to character
       character (len = 64 )             :: cdate
       character (len = 128)             :: tolnet_file
-      integer                           :: icopy, iunit, status
-      integer                           :: indx, ierr, nndx
-      integer                           :: iyear, imonth, iday, itime
+      integer                           :: ierr, icopy, iunit, status
+      integer                           :: iyear, imonth, iday
       integer                           :: year0, month0, day0
-      integer                           :: hour0, min0
-      integer                           :: year1, month1, day1
-      integer                           :: hour1, min1
+      integer                           :: hour0, min0, sec0
       integer                           :: calendar_type
       integer                           :: ndays_in_month
       integer                           :: beg_year, beg_mon, beg_day
-      integer                           :: beg_hour, beg_min
+      integer                           :: beg_hour, beg_min, beg_sec
       integer                           :: end_year, end_mon, end_day
-      integer                           :: end_hour, end_min
+      integer                           :: end_hour, end_min, end_sec
+      integer                           :: calc_greg_sec
       integer                           :: anal_greg_sec
       integer                           :: beg_greg_sec
       integer                           :: end_greg_sec
+      real (r8)                         :: lat_mn, lat_mx
+      real (r8)                         :: lon_mn, lon_mx
 
 !----------------------------------------------------------------------
 ! parameter variables need to read from text file
@@ -187,15 +203,14 @@
       character (len = 64)              :: calt_tmp, co3nd_tmp,       &
                                            co3nduncert_tmp,           &
                                            co3ndresol_tmp,            &
-                                           cqc_tmp, cchange_tmp,      &
+                                           cqc_tmp, cchrange_tmp,     &
                                            co3mr_tmp, co3mruncert_tmp,&
                                            cpress_tmp,                &
                                            cpressuncert_tmp,          &
                                            ctemp_tmp, ctempuncert_tmp,&
-                                           cirnd_tmp, cairnduncert_tmp
+                                           cairnd_tmp, cairnduncert_tmp
 
 ! altitude
-      character (len = 64)              :: aalt
       character (len = 64), allocatable :: calt (:)
 
 ! ozone number density
@@ -223,22 +238,22 @@
       real (r8)                         :: alt_tmp, o3nd_tmp,         &
                                            o3nduncert_tmp,            &
                                            o3ndresol_tmp,             &
-                                           qc_tmp, change_tmp,        &
+                                           qc_tmp, chrange_tmp,       &
                                            o3mr_tmp, o3mruncert_tmp,  &
                                            press_tmp,                 &
                                            pressuncert_tmp,           &
                                            temp_tmp, tempuncert_tmp,  &
-                                           irnd_tmp, airnduncert_tmp
+                                           airnd_tmp, airnduncert_tmp
 
 ! altitude
-      real (r8)                         :: aalt
       real (r8),            allocatable :: alt (:)
 
 ! ozone number density
       real (r8),            allocatable :: o3nd (:), o3nduncert (:)
+      real (r8),            allocatable :: o3ndresol (:)
 
 ! precision and channel range
-      real (r8),            allocatable :: qc (:), change (:)
+      real (r8),            allocatable :: qc (:), chrange (:)
 
 ! ozone mixing ratio
       real (r8),            allocatable :: o3mr (:), o3mruncert (:)
@@ -257,15 +272,18 @@
 !----------------------------------------------------------------------
       character (len = 128)             :: copy_meta_data
       character (len = 128)             :: qc_meta_data = 'TOLNET QC index'
-      character (len = 128)             :: file_name    = 'tolnet_obs_seq'
+      character (len = 128)             :: file_name_pre= 'obs_seq_tolnet_o3_'
       character (len = 128)             :: file_prefix, file_postfix
+      character (len = 128)             :: file_name
 
       integer                           :: qc_count, qstatus
       integer                           :: seconds, days, which_vert
       integer                           :: obs_kind, obs_key
 
       real (r8)                         :: latitude, longitude, level
-      real                              :: o3_log_max, o3_log_min
+      real (r8)                         :: o3_log_max, o3_log_min
+      real (r8)                         :: err_perc, err_frac
+      real (r8)                         :: obs_err_var
       real (r8), dimension (num_qc    ) :: obs_qc
       real (r8), dimension (num_copies) :: obs_val_out
       
@@ -280,14 +298,26 @@
 
       namelist /create_tolnet_obs_nml/                                &
                year0,    month0,  day0,    hour0,    min0,            &
-               beg_year, beg_mon, beg_day, beg_hour, beg_min,         &
-               end_year, end_mon, end_day, end_hour, end_min,         &
-               file_in, lat_mn,   lat_mx,  lon_mn,   lon_mx,          &
-               use_log_o3
+               beg_year, beg_mon, beg_day, beg_hour, beg_min, beg_sec,&
+               end_year, end_mon, end_day, end_hour, end_min, end_sec,&
+               file_prefix, file_postfix,                             &
+               lat_mn,   lat_mx,  lon_mn,   lon_mx, use_log_o3
 
 !======================================================================
 ! initialization
 !======================================================================
+
+! err_perc: if the o3 mixing ratio uncertainty (o3mruncert = NaN) is
+!           missing, assign o3mruncert = o3mr*err_perc
+! err_frac: a fraction number used to tune the o3 mixing ratio (o3mr) 
+!           error if DART assimilation result is not good. OR
+!           introduce error fraction for adjusting error later on
+! qc_count: number of available observation values
+! obs_qc  : 
+      err_perc   = 0.25
+      err_frac   = 1.00
+      qc_count   = 0
+      obs_qc     = 0.0
 
 ! Record the current time, date, etc. to the logfile.
 
@@ -298,7 +328,7 @@
       call static_init_obs_sequence ()
 
 ! Initialize an obs_sequence structure
-      call init_obs_sequence (seq, num_copier, num_qc, max_num_obs)
+      call init_obs_sequence (seq, num_copies, num_qc, max_num_obs)
       calendar_type = 3
       call set_calendar_type (calendar_type)
 
@@ -318,7 +348,7 @@
          call set_copy_meta_data (seq, icopy, copy_meta_data)
       enddo
 ! grab quality control info
-      call seq_qc_meta_data (seq, 1, qc_meta_data)
+      call set_qc_meta_data (seq, 1, qc_meta_data)
 
 !======================================================================
 ! read TOLNET text file for one profile as an example. Latter on add 
@@ -358,19 +388,6 @@
       print *, 'lon_mx        ', lon_mx
       print *, ' '
 
-! Calculate gregorian calendars
-! anal_greg_sec:
-! beg_greg_sec :
-! end_greg_sec :
-      anal_greg_sec = calc_greg_sec (year0, month0, day0,             &
-                                     hour0, min0,   sec0,             &
-                                     days_in_month)
-      beg_greg_sec  = calc_greg_sec (beg_year, beg_mon, beg_day,      &
-                                     beg_hour, beg_min, beg_sec,      &
-                                     days_in_month)
-      end_greg_sec  = calc_greg_sec (end_year, end_mon, end_day,      &
-                                     end_hour, end_min, end_sec,      &
-                                     days_in_month)
 !======================================================================
 ! Start to read ozone lidar data in the text file format.
 !======================================================================
@@ -378,7 +395,7 @@
 ! do iyear, imonth, and iday loops
       do iyear = beg_year, end_year
 
-         do imonth = beg_month, end_month
+         do imonth = beg_mon, end_mon
 ! put date into a DART time format to calculate days_in_month
             itime          = set_date (iyear, imonth, 1)
             ndays_in_month = days_in_month (itime)
@@ -419,18 +436,22 @@
 
 ! read longitude (DegE), latitude (DegN), and elevation (m): line 24
                read (iunit, *) lon, lat, ele
+! since lon is positive value in west longitude, get the opposite sign
+               lon = sign (lon, opposite_sign)
                if (debug) print *, 'lon, lat, ele = ', lon, lat, ele
 
 !----------------------------------------------------------------------
 ! double check whether the site is located within the study region
                if (lat_mn .le. lat .and. lat_mx .ge. lat .and.        &
                    lon_mn .le. lon .and. lon_mx .ge. lon) then 
-                  indx = indx + 1
+                  continue
+               endif
 ! skip the last line of general comment line and '#begin profile'
                read (iunit, *) !line 25
 
 ! do iprofile loop
                do iprofile = 1, nprofile
+
                   read (iunit, *) !line 26 + iprofile*
                                   !(nline_header_profile + nprofile)
 
@@ -488,12 +509,12 @@
                   read (ctime_mean (4:5 ), *) minute_mean
                   read (ctime_mean (7:8 ), *) second_mean
                   print '(a17, i4.4, a1, 4(i2.2, a1), i2.2)',         &
-                        'Now working on = ' year_mean,        '-',    &
-                                            month_mean,       '-',    &
-                                            day_mean,         ' ',    &
-                                            hour_mean,        ':',    &
-                                            minute_mean,      ':',    &
-                                            second_mean
+                        'Now working on = ', year_mean,        '-',   &
+                                             month_mean,       '-',   &
+                                             day_mean,         ' ',   &
+                                             hour_mean,        ':',   &
+                                             minute_mean,      ':',   &
+                                             second_mean
 
 ! skip line 35-40
                   do iline = 1, 6
@@ -502,7 +523,7 @@
 
 ! read all the measurements now
                   do iline_profile = 1, nline_profile
-                     read (iunit, *, iostat = rcio)                   &
+                     read (iunit, *, iostat = ierr)                   &
                      calt_tmp, co3nd_tmp,                             &
                      co3nduncert_tmp,                                 &
                      co3ndresol_tmp,                                  &
@@ -512,10 +533,10 @@
                      ctemp_tmp, ctempuncert_tmp,                      &
                      cairnd_tmp, cairnduncert_tmp
 
-                     if (rcio /= 0) then
+                     if (ierr /= 0) then
                         if (debug) print *, 'got bad read code '   // &
                                             'getting rest of ozone'// &
-                                            'obs, rcio = ', rcio
+                                            'obs, ierr = ', ierr
                         exit
                      endif
 
@@ -527,7 +548,7 @@
                      read (co3nd_tmp, *) o3nd_tmp
                      o3nd         (iline_profile) = o3nd_tmp
 
-                     if (trim(co3nnresol_tmp) .ne. 'NaN')             &
+                     if (trim(co3ndresol_tmp) .ne. 'NaN')             &
                      read (co3ndresol_tmp, *) o3ndresol_tmp
                      o3ndresol    (iline_profile) = o3ndresol_tmp
 
@@ -543,9 +564,12 @@
                      read (co3mr_tmp, *) o3mr_tmp
                      o3mr         (iline_profile) = o3mr_tmp
 
-                     if (trim(co3mruncert_tmp) .ne. 'NaN')            &
-                     read (co3mruncert_tmp, *) o3mruncert_tmp
-                     o3mruncert   (iline_profile) = o3mruncert_tmp
+                     if (trim(co3mruncert_tmp) .ne. 'NaN') then
+                        read (co3mruncert_tmp, *) o3mruncert_tmp
+                        o3mruncert (iline_profile) = o3mruncert_tmp
+                     else
+                        o3mruncert (iline_profile) = o3mr_tmp*err_frac
+                     endif
 
                      if (trim(cpress_tmp) .ne. 'NaN')                 &
                      read (cpress_tmp, *) press_tmp
@@ -568,10 +592,10 @@
                      airnd        (iline_profile) = airnd_tmp
 
                      if (trim(cairnduncert_tmp) .ne. 'NaN')           &
-                     read (cairncuncert_tmp, *) airnduncert_tmp
+                     read (cairnduncert_tmp, *) airnduncert_tmp
                      airnduncert  (iline_profile) = airnduncert_tmp
 
-                     if (debug) print '(a4, 14(e5.6, 1x))',           &
+                     if (debug) print '(a4, 14(e15.6, 1x))',           &
                                       'DA = ',                        &
                                    alt        (iline_profile),        &
                                    o3nd       (iline_profile),        &
@@ -592,9 +616,11 @@
 ! put data in obs_seq file
 !======================================================================
 
+! increase qc_count index
+                     qc_count = qc_count + 1
 ! location
                      obs_val_out (1: num_copies) = o3mr (iline_profile)
-                     level                       = iline_profile
+                     level                       = alt  (iline_profile)
                      latitude                    = lat
                      if (lon < 0.0) then
                         longitude = lon + 360.0
@@ -603,16 +629,9 @@
                      endif
 
 ! time
-                     year1  = year_mean
-                     month1 = month_mean
-                     day1   = day_mean
-                     hour1  = hour_mean
-                     min1   = minute_mean
-                     sec1   = second_mean
-! print out to double check
-                     print *, year1, month1, day1, hour1, min1, sec1
-                     obs_time = set_date (year1, month1, day1,        &
-                                          hour1, min1, sec1)
+                     obs_time = set_date (year_mean, month_mean,      &
+                                          day_mean,  hour_mean,       &
+                                          minute_mean, second_mean)
                      call get_time (obs_time, seconds, days)
 
 !??????????????????????????????????????????????????????????????????????
@@ -622,7 +641,7 @@
 ! which_vert:VERTISSURFACE = -1 ;
 ! which_vert:VERTISLEVEL = 1 ;
 ! which_vert:VERTISPRESSURE = 2 ;
-! which_vert:VERTISHEIGHT = 3 ;
+! which_vert:VERTISHEIGHT = 3 ; in meter
 ! which_vert:VERTISSCALEHEIGHT = 4 ;
 ! source:
 ! https://www.image.ucar.edu/DAReS/DART/Manhattan/assimilation_code/  &
@@ -631,19 +650,23 @@
                      which_vert   = 3
                      obs_location = set_location (longitude, latitude,&
                                                   level, which_vert)
-                     obs_err_var  = o3mruncert(iline_profile)**2
+                     obs_err_var  = (o3mruncert(iline_profile)*err_frac)**2
                      obs_kind     = TOLNET_O3
 
-! call subroutines
+! call subroutines to assign data info (kind, location, time, variance, 
+! quality control count) to obs_def type
                      call set_obs_def_kind          (obs_def, obs_kind      )
                      call set_obs_def_location      (obs_def, obs_location  )
                      call set_obs_def_time          (obs_def, obs_time      )
                      call set_obs_def_error_variance(obs_def, obs_err_var   )
                      call set_obs_def_key           (obs_def, qc_count      )
+! call subroutines to assign observation value, quality control, and 
+! obs_def to obs type
                      call set_obs_values            (obs,     obs_val_out, 1)
                      call set_qc                    (obs,     obs_qc, num_qc)
                      call set_obs_def               (obs,     obs_def       )
 
+! assign obs to seq
                      if (qc_count == 1) then
                         call insert_obs_in_seq (seq, obs)
                      else
@@ -656,9 +679,10 @@
 
 !----------------------------------------------------------------------
 ! Write the sequence to a file
-                  file_name = trim(filename)//cyear_mean//cmonth_mean// &
-                              cday_mean//chour_mean//cminute_mean//     &
-                              csecond_mean
+                  file_name = trim(file_name_pre)//trim(cyear_mean)// &
+                              trim(cmonth_mean)//trim(cday_mean)//    &
+                              trim(chour_mean)//trim(cminute_mean)//  &
+                              trim(csecond_mean)
 
                   call write_obs_seq (seq, file_name)
 
@@ -672,9 +696,9 @@
                                   pos = 'end')
 
                   deallocate(alt        )
-                  deallocate(o3rd       )
-                  deallocate(o3ndunvert )
-                  deallocate(33ndresol  )
+                  deallocate(o3nd       )
+                  deallocate(o3nduncert )
+                  deallocate(o3ndresol  )
                   deallocate(qc         )
                   deallocate(chrange    )
                   deallocate(o3mr       )
@@ -691,22 +715,27 @@
          enddo  !imonth
       enddo  !iyear
 
+      end program create_tolnet_o3_obs_sequence
 
+      integer function calc_greg_sec(year,month,day,hour,minute,sec,days_in_month)
+         implicit none
+         integer                  :: i,j,k,year,month,day,hour,minute,sec
+         integer, dimension(12)   :: days_in_month
+!
+! assume time goes from 00:00:00 to 23:59:59  
+         calc_greg_sec=0
+         do i=1,month-1
+            calc_greg_sec=calc_greg_sec+days_in_month(i)*24*60*60
+         enddo
+         do i=1,day-1
+            calc_greg_sec=calc_greg_sec+24*60*60
+         enddo
+         do i=1,hour
+            calc_greg_sec=calc_greg_sec+60*60
+         enddo
+         do i=1,minute
+            calc_greg_sec=calc_greg_sec+60
+         enddo
+         calc_greg_sec=calc_greg_sec+sec
+      end function calc_greg_sec
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-end program create_tolnet_o3_obs_sequence
