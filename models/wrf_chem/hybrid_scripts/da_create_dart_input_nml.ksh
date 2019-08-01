@@ -51,6 +51,8 @@ cat > input.nml << EOF
                                 'IASI_CO_RETRIEVAL',
                                 'IASI_O3_RETRIEVAL',
                                 'MOPITT_CO_RETRIEVAL',
+                                'AIRNOW_O3',
+                                'TOLNET_O3',
 /
  &location_nml
    horiz_dist_only                 = .true.,

@@ -56,8 +56,10 @@
 # http://gcc.gnu.org/onlinedocs/gfortran/GFORTRAN_005fCONVERT_005fUNIT.html#GFORTRAN_005fCONVERT_005fUNIT
 #
 
-MPIFC = /usr/ebuild/software/OpenMPI/3.1.1-GCC-7.3.0-2.30/bin/mpif90
-MPILD = /usr/ebuild/software/OpenMPI/3.1.1-GCC-7.3.0-2.30/bin/mpif90
+MPIFC = /umbc/xfs1/zzbatmos/users/vy57456/application/gfortran/mpich-3.2.1/bin/mpif90
+MPILD = /umbc/xfs1/zzbatmos/users/vy57456/application/gfortran/mpich-3.2.1/bin/mpif90
+#MPIFC = /usr/ebuild/software/OpenMPI/3.1.1-GCC-7.3.0-2.30/bin/mpif90
+#MPILD = /usr/ebuild/software/OpenMPI/3.1.1-GCC-7.3.0-2.30/bin/mpif90
 FC = gfortran
 LD = gfortran
 

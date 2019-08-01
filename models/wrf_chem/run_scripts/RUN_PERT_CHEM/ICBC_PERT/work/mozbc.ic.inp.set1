@@ -1,0 +1,74 @@
+&control
+do_bc     = .false.
+do_ic     = .true.
+domain    = 1
+dir_wrf   = '/home/vy57456/zzbatmos_user/data/dart/CAFIRE/real_CAFIRE_RADM2/2015061018/wrfchem_chem_icbc/'
+dir_moz   = '/home/vy57456/zzbatmos_user/data/dart/CAFIRE/CAFIRE_REAL_TIME_DATA/mozart_forecasts'
+fn_moz    = '/h0005.nc'
+def_missing_var    = .true.
+met_file_prefix    = 'met_em'
+met_file_suffix    = '.nc'
+met_file_separator = '.'
+ spc_map =
+      'o3 -> 1.12*O3',
+      'no -> 1.12*NO',
+      'no2 -> 1.12*NO2',
+      'no3 -> 1.12*NO3',
+      'nh3 -> 1.12*NH3',
+      'hno3 -> 1.12*HNO3',
+      'hno4 -> 1.12*HO2NO2',
+      'n2o5 -> 1.12*N2O5',
+      'ho2 -> 1.12*HO2',
+      'h2o2 -> 1.12*H2O2',
+      'ch4 -> 1.12*CH4',
+      'co -> 1.12*CO',
+      'ch3o2 -> 1.12*CH3O2',
+      'ch3ooh -> 1.12*CH3OOH',
+      'hcho -> 1.12*CH2O',
+      'ch3oh -> 1.12*CH3OH',
+      'c2h4 -> 1.12*C2H4',
+      'ald -> 1.12*CH3CHO',
+      'ch3cooh -> 1.12*CH3COOH',
+      'acet -> 1.12*CH3COCH3',
+      'mgly -> 1.12*CH3COCHO',
+      'pan -> 1.12*PAN',
+      'mpan -> 1.12*MPAN',
+      'macr -> 1.12*MACR',
+      'mvk -> 1.12*MVK',
+      'c2h6 -> 1.12*C2H6',
+      'c3h6 -> 1.12*C3H6',
+      'c3h8 -> 1.12*C3H8',
+      'c2h5oh -> 1.12*C2H5OH',
+      'c10h16 -> 1.12*C10H16',
+      'onit -> 1.12*ONIT',
+      'onitr -> 1.12*ONITR',
+      'isopr -> 1.12*ISOP',
+      'isopn -> 1.12*ISOPNO3',
+      'acetol -> 1.12*HYAC',
+      'glyald -> 1.12*GLYALD',
+      'hydrald -> 1.12*HYDRALD',
+      'mek -> 1.12*MEK',
+      'bigene -> 1.12*BIGENE',
+      'open -> 1.12*BIGALD',
+      'bigalk -> 1.12*BIGALK',
+      'tol -> 1.12*TOLUENE',
+      'cres -> 1.12*CRESOL',
+      'dms -> 1.12*DMS',
+      'so2 -> 1.12*SO2',
+      'sulf -> 1.12*SO4',
+     'BC1 -> 0.46*CB1;1.e9',
+     'BC2 -> 0.46*CB2;1.e9',
+     'OC1 -> 0.46*OC1;1.e9',
+     'OC2 -> 0.46*OC2;1.e9',
+     'SEAS_1 -> 2.23*SA1;1.e9',
+     'SEAS_2 -> 2.23*SA2;1.e9',
+     'SEAS_3 -> 2.23*SA3;1.e9',
+     'SEAS_4 -> 2.23*SA4;1.e9'
+     'DUST_1 -> 1.31*[DUST1];1.e9',
+     'DUST_2 -> 1.05*[DUST2];1.e9',
+     'DUST_3 -> 0.26*[DUST2]+1.05*[DUST3];1.e9',
+     'DUST_4 -> 0.26*[DUST3]+0.66*[DUST4];1.e9',
+     'DUST_5 -> 0.66*[DUST4];1.e9',
+     'h2 = .55',
+     'n2o = .33'
+/

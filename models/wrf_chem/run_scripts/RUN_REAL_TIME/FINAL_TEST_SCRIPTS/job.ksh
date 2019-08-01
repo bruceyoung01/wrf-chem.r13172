@@ -1,14 +1,14 @@
 #!/bin/bash
-#SBATCH --job-name=dart                          # job name
-#SBATCH --output=dart.out                      # output filename
-#SBATCH --error=dart.err                      # error filename
+#SBATCH --job-name=CAFIRE_radm2                          # job name
+#SBATCH --output=CAFIRE_radm2.out                      # output filename
+#SBATCH --error=CAFIRE_radm2.err                      # error filename
 #SBATCH --partition=high_mem
 #SBATCH --qos=long+
 #SBATCH --time=120:00:00                              # wallclock time (minutes)
 ##SBATCH --constraint=hpcf2013
 #SBATCH --mem=max
 #
-./real_time_PANDA_RETR_RELEASE_TEST_taki.ksh  > index_new.html 2>&1
+./real_time_CAFIRE_RETR_taki_tolnet_radm2.ksh  > index_CAFIRE_radm2.html 2>&1
 #
 export RC=$?
 if [[ -f SUCCESS ]]; then rm -rf SUCCESS; fi

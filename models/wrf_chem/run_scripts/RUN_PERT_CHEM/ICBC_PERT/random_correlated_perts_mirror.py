@@ -26,7 +26,8 @@ else:
 filew = open(run_dir+"/set0", "r")
 for i in range(nens):
    filer = open(run_dir+"/set"+str(i+1),"w")
-   filer.write('spc_map =\n')
+   filer.write(' \n')
+   filer.write(' spc_map =\n')
 #
 # calculate perturbation
    icnt=0
@@ -73,7 +74,7 @@ for i in range(nens):
             filer.write('     '+moz+' -> '+'%.2f'%float(coef2)+'*'+wrf_dec1[1]+'+'+'%.2f'%float(coef3)+'*'+wrf_dec2[1]+'\n')
          else:
             print '     '+moz+' -> '+'%.2f'%float(coef)+'*'+wrf
-            filer.write('     '+moz+' -> '+'%.2f'%float(coef)+'*'+wrf+'\n')
+            filer.write('      '+moz+' -> '+'%.2f'%float(coef)+'*'+wrf+'\n')
    filer.write('/')
    filer.close()
 filew.close()

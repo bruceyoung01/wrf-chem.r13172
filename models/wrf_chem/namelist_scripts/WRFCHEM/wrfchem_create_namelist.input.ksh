@@ -89,6 +89,7 @@ mp_physics                          = ${NL_MP_PHYSICS:-2},
 ra_lw_physics                       = ${NL_RA_LW_PHYSICS:-1},
 ra_sw_physics                       = ${NL_RA_SW_PHYSICS:-2},
 radt                                = ${NL_RADT:-40},
+o3input                             = ${NL_O3INPUT:-0}
 sf_sfclay_physics                   = ${NL_SF_SFCLAY_PHYSICS:-2},
 sf_surface_physics                  = ${NL_SF_SURFACE_PHYSICS:-2},
 bl_pbl_physics                      = ${NL_BL_PBL_PHYSICS:-2},

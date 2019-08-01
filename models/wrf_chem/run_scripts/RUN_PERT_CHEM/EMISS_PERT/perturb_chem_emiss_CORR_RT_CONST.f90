@@ -447,6 +447,7 @@
 ! get variables identifiers
              rc = nf_inq_varid(f_id,trim(name),v_id)
 !             print *, v_id
+             print *, trim(name)
              if(rc.ne.0) then
                 print *, 'nf_inq_varid error ', v_id
                 call abort

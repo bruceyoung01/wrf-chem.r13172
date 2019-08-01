@@ -18,14 +18,33 @@ while [[ ${MEM} -le  ${NUM_MEMBERS} ]]; do
    cp ${IC_METDIR}/${WRFINP} ./.
    cp ${BC_METDIR}/${WRFBDY} ./.
    ls set${MEM}
-   rm -f mozbc.ic.inp.set${MEM}
-   cat mozbc.ic.inp set${MEM} > mozbc.ic.inp.set${MEM}
-   rm -f mozbc.bc.inp.set${MEM}
-   cat mozbc.bc.inp set${MEM} > mozbc.bc.inp.set${MEM}
+#----------------------------------------------------------------------
+#  TRICKY PART:
+#  since the following original statement does not work on taki.rs.umbc.edu
+#  rm -f mozbc.ic.inp.set${MEM}
+#  cat mozbc.ic.inp set${MEM} > mozbc.ic.inp.set${MEM}
+#  So we add a tricky part to make a new file as below
+#  rm -f mozbc.ic.inp.set${MEM} mozbc.ic.inp.set${MEM}a
+#  cat mozbc.ic.inp set${MEM} > mozbc.ic.inp.set${MEM}a
+#  echo   > tmp.txt
+#  cat mozbc.ic.inp.set${MEM}a tmp.txt > mozbc.ic.inp.set${MEM}
+#  then it works
+#----------------------------------------------------------------------
+   rm -f mozbc.ic.inp.set${MEM} mozbc.ic.inp.set${MEM}a
+   cat mozbc.ic.inp set${MEM} > mozbc.ic.inp.set${MEM}a
+   echo   > tmp.txt
+   cat mozbc.ic.inp.set${MEM}a tmp.txt > mozbc.ic.inp.set${MEM}
+
+   rm -f mozbc.bc.inp.set${MEM} mozbc.bc.inp.set${MEM}a
+   cat mozbc.bc.inp set${MEM} > mozbc.bc.inp.set${MEM}a
+   echo   > tmp.txt
+   cat mozbc.bc.inp.set${MEM}a tmp.txt > mozbc.bc.inp.set${MEM}
+
    echo  'run mozbc'
    ./run_mozbc_rt_CR.csh type=ic mozbc_inp=mozbc.ic.inp.set${MEM} ens=${IENS}
    ./run_mozbc_rt_CR.csh type=bc mozbc_inp=mozbc.bc.inp.set${MEM} ens=${IENS}
    echo 'put files'
    echo 'OK'
+
    let MEM=MEM+1
 done

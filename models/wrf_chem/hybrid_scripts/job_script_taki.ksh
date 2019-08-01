@@ -33,7 +33,7 @@ if [[ ${TYPE} == PARALLEL ]]; then
 #SBATCH --partition high_mem
 #SBATCH --mem=max
 module load mpich/ge/gcc/64/3.2.1
-/usr/ebuild/software/OpenMPI/3.1.1-GCC-7.3.0-2.30/bin/mpirun -np \${SLURM_NTASKS} ./${EXECUTE} > index_${RANDOM}.html 2>&1
+/umbc/xfs1/zzbatmos/users/vy57456/application/gfortran/mpich-3.2.1/bin/mpirun -np \${SLURM_NTASKS} ./${EXECUTE} > index_${RANDOM}.html 2>&1
 export RC=\$?     
 if [[ -f SUCCESS ]]; then rm -rf SUCCESS; fi     
 if [[ -f FAILED ]]; then rm -rf FAILED; fi          

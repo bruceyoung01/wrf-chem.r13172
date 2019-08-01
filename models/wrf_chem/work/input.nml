@@ -116,12 +116,13 @@
                               '../../../obs_def/obs_def_gts_mod.f90',
                               '../../../obs_def/obs_def_monitor_mod.f90',
                               '../../../obs_def/obs_def_AIRNOW_OBS_mod.f90',
+                              '../../../obs_def/obs_def_TOLNET_OBS_mod.f90',
                               '../../../obs_def/obs_def_PANDA_OBS_mod.f90',
-                              '../../../obs_def/obs_def_OMI_NO2_mod.f90',
-                              '../../../obs_def/obs_def_MODIS_AOD_mod.f90',
-                              '../../../obs_def/obs_def_MOPITT_CO_mod.f90',
                               '../../../obs_def/obs_def_IASI_CO_mod.f90',
                               '../../../obs_def/obs_def_IASI_O3_mod.f90',
+                              '../../../obs_def/obs_def_OMI_NO2_mod.f90',
+                              '../../../obs_def/obs_def_MOPITT_CO_mod.f90',
+                              '../../../obs_def/obs_def_MODIS_AOD_mod.f90',
    /
 
 &obs_kind_nml
@@ -137,12 +138,13 @@
                                 'SAT_U_WIND_COMPONENT',
                                 'SAT_V_WIND_COMPONENT',
                                 'AIRNOW_O3',
-                                'PANDA_O3',
-                                'OMI_NO2_COLUMN',
-                                'MODIS_AOD_RETRIEVAL',
+                                'TOLNET_O3',
                                 'MOPITT_CO_RETRIEVAL',
                                 'IASI_CO_RETRIEVAL',
                                 'IASI_O3_RETRIEVAL',
+                                'MODIS_AOD_RETRIEVAL',
+                                'OMI_NO2_COLUMN',
+
    evaluate_these_obs_types   = 'null',
    /
 

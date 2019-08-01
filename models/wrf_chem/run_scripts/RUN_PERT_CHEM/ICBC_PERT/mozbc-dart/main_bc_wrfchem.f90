@@ -48,8 +48,8 @@
       character(len=164)     :: spc_map(specmax)
 
       namelist /control/ dir_moz, dir_wrf, init_cond_file_prefix, bdy_cond_file_prefix, fn_moz, &
-                         do_bc, do_ic, spc_map, moz_var_suffix, met_file_prefix, &
-                         met_file_suffix, met_file_separator, surf_press_name, &
+                         do_bc, do_ic, spc_map, met_file_prefix, &
+                         met_file_suffix, met_file_separator, &
                          domain, def_missing_var
 
 !-----------------------------------------------------------------
@@ -111,7 +111,12 @@
 !-----------------------------------------------------------------
       print *, 'APM: in mozbc'
       spc_map(:) = ' ' 
+      !write(*,*) 'AAA01', dir_moz
       read(*,nml=control,iostat=istat)
+      !write(*,*) 'AAA02', trim(dir_moz),trim(dir_wrf), trim(init_cond_file_prefix),trim(bdy_cond_file_prefix), trim(fn_moz)
+      !write(*,*) 'AAA03', do_bc, do_ic, trim(met_file_prefix)
+      !write(*,*) 'AAA04', trim(met_file_suffix), trim(met_file_separator), &
+      !                   domain, def_missing_var
       if( istat /= 0 ) then
         write(*,*) 'main_bc_wrfchem: failed to read namelist; error = ',istat
         stop
