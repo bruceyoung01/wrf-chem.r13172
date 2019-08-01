@@ -3,12 +3,12 @@
 ! University Corporation for Atmospheric Research
 ! Licensed under the GPL -- www.gpl.org/licenses/gpl/html
 !
-! $ID: create_tolnet_o3_obs_sequence.f90 v01 11:30 07/22/2019 exp$
+! $ID: create_tolnet_o3_obs_sequence_all.f90 v01 11:30 07/22/2019 exp$
 !
 !**********************************************************************
-! program create_tolnet_o3_obs_sequence reads TOLNET ozone lidar vertical 
-! profile data (in text format) and rewrites the data into obs_seq file 
-! which DART can read.
+! program create_tolnet_o3_obs_sequence_all reads TOLNET ozone lidar 
+! vertical profile data (in text format) and rewrites the data into 
+! obs_seq file which DART can read.
 !
 ! flow chart:
 ! =====================================================================
@@ -29,25 +29,10 @@
 ! =====================================================================
 ! (1 ) this program is based on the create_airnow_o3_sequence.f90 
 !      written by Arthur Mizzi. (Zhifeng Yang, 07/22/2019)
-! (2 ) this version will only read valid o3mr. We are not reading the 
-!      missing value/bad data, because it will reduce computing time 
-!      while running dart/filter.
-!      In this code, just change
-!      if (trim(co3mr_tmp) .ne. 'NaN')                  &
-!      read (co3mr_tmp, *) o3mr_tmp
-!      o3mr         (iline_profile) = o3mr_tmp
-!      to
-!      if (trim(co3mr_tmp) .ne. 'NaN') then
-!         read (co3mr_tmp, *) o3mr_tmp
-!         o3mr(iline_profile_count) = o3mr_tmp
-!      else
-!         continue
-!      endif
-!      (Zhifeng Yang, 08/01/2019)
-!
-!
+! (2 ) this version will read all the data including missing data/bad 
+!      data. (Zhifeng Yang, 08/01/2019)
 !**********************************************************************
-      program create_tolnet_o3_obs_sequence
+      program create_tolnet_o3_obs_sequence_all
 !
 ! <next few lines under version control, do not edit>
 ! $URL$
@@ -68,7 +53,6 @@
                                        register_module,         &
 ! initialize_utilities: open log file for writing
                                        initialize_utilities,    &
-                                       file_exist,              &
                                        open_file,               &
                                        close_file,              &
 ! find_namelist_in_file: find out specific nml name in the 
@@ -152,12 +136,10 @@
       integer,   parameter              :: num_qc      = 1
       real (r8), parameter              :: opposite_sign = -1.0
 ! Set to .true. to print debug info
-      logical, parameter                :: debug       = .false.
+      logical, parameter                :: debug       = .true.
 ! convert iyear, imonth, and iday to character
       character (len = 64 )             :: cdate
       character (len = 128)             :: tolnet_file
-      character (len = 64 )             :: cyear0, cmonth0, cday0
-      character (len = 64 )             :: chour0
       integer                           :: ierr, icopy, iunit, status
       integer                           :: iyear, imonth, iday
       integer                           :: year0, month0, day0
@@ -196,7 +178,6 @@
       integer                           :: iline_header, iline_comment
       integer                           :: iline, iline_header_profile
       integer                           :: iprofile, iline_profile
-      integer                           :: iline_profile_count
 
 ! profile date, time (ut) mean
       character (len = 64)              :: cdate_mean, ctime_mean
@@ -396,7 +377,6 @@
       print *, 'beg_year      ', beg_year
       print *, 'beg_mon       ', beg_mon
       print *, 'beg_day       ', beg_day
-      print *, 'beg_hour      ', beg_hour
       print *, 'beg_min       ', beg_min
       print *, 'beg_sec       ', beg_sec
       print *, 'end_year      ', end_year
@@ -412,13 +392,6 @@
       print *, 'lon_mn        ', lon_mn
       print *, 'lon_mx        ', lon_mx
       print *, ' '
-
-! Write year0, month0, day0, and hour0 to cyear0, cmonth0, cday0, and 
-! chour0, to build obs_seq file name
-      write(cyear0,  "(i4.4)") year0
-      write(cmonth0, "(i2.2)") month0
-      write(cday0,   "(i2.2)") day0
-      write(chour0,  "(i2.2)") hour0
 
 !======================================================================
 ! Start to read ozone lidar data in the text file format.
@@ -442,7 +415,7 @@
                tolnet_file = trim (file_prefix) // trim(cdate) //     &
                              trim (file_postfix)
 ! if no file name matched, continue to the next day
-               logic_tolnet_file = file_exist(tolnet_file)
+               logic_tolnet_file = file_exists(tolnet_file)
                if (.not. logic_tolnet_file) continue
 
 ! open input text file
@@ -579,15 +552,15 @@
 
                      if (trim(calt_tmp) .ne. 'NaN')                   &
                      read (calt_tmp, *) alt_tmp
-                     alt       (iline_profile_count) = alt_tmp
+                     alt          (iline_profile) = alt_tmp
 
                      if (trim(co3nd_tmp) .ne. 'NaN')                  &
                      read (co3nd_tmp, *) o3nd_tmp
-                     o3nd      (iline_profile_count) = o3nd_tmp
+                     o3nd         (iline_profile) = o3nd_tmp
 
                      if (trim(co3ndresol_tmp) .ne. 'NaN')             &
                      read (co3ndresol_tmp, *) o3ndresol_tmp
-                     o3ndresol (iline_profile_count) = o3ndresol_tmp
+                     o3ndresol    (iline_profile) = o3ndresol_tmp
 
                      if (trim(cqc_tmp) .ne. 'NaN')                    &
                      read (cqc_tmp, *) qc_tmp
@@ -595,62 +568,59 @@
 
                      if (trim(cchrange_tmp) .ne. 'NaN')               &
                      read (cchrange_tmp, *) chrange_tmp
-                     chrange   (iline_profile_count) = chrange_tmp
+                     chrange      (iline_profile) = chrange_tmp
 
-                     if (trim(co3mr_tmp) .ne. 'NaN') then
-                        read (co3mr_tmp, *) o3mr_tmp
-                        o3mr   (iline_profile_count) = o3mr_tmp
-                     else
-                        continue
-                     endif
+                     if (trim(co3mr_tmp) .ne. 'NaN')                  &
+                     read (co3mr_tmp, *) o3mr_tmp
+                     o3mr         (iline_profile) = o3mr_tmp
 
                      if (trim(co3mruncert_tmp) .ne. 'NaN') then
                         read (co3mruncert_tmp, *) o3mruncert_tmp
-                        o3mruncert(iline_profile_count) = o3mruncert_tmp
+                        o3mruncert (iline_profile) = o3mruncert_tmp
                      else
-                        o3mruncert(iline_profile_count) = o3mr_tmp*err_frac
+                        o3mruncert (iline_profile) = o3mr_tmp*err_frac
                      endif
 
                      if (trim(cpress_tmp) .ne. 'NaN')                 &
                      read (cpress_tmp, *) press_tmp
-                     press     (iline_profile_count) = press_tmp
+                     press        (iline_profile) = press_tmp
 
                      if (trim(cpressuncert_tmp) .ne. 'NaN')           &
                      read (cpressuncert_tmp, *) pressuncert_tmp
-                     pressuncert(iline_profile_count)= pressuncert_tmp
+                     pressuncert  (iline_profile) = pressuncert_tmp
 
                      if (trim(ctemp_tmp) .ne. 'NaN')                  &
                      read (ctemp_tmp, *) temp_tmp
-                     temp      (iline_profile_count) = temp_tmp
+                     temp         (iline_profile) = temp_tmp
 
                      if (trim(ctempuncert_tmp) .ne. 'NaN')            &
                      read (ctempuncert_tmp, *) tempuncert_tmp
-                     tempuncert(iline_profile_count) = tempuncert_tmp
+                     tempuncert   (iline_profile) = tempuncert_tmp
 
                      if (trim(cairnd_tmp) .ne. 'NaN')                 &
                      read (cairnd_tmp, *) airnd_tmp
-                     airnd     (iline_profile_count) = airnd_tmp
+                     airnd        (iline_profile) = airnd_tmp
 
                      if (trim(cairnduncert_tmp) .ne. 'NaN')           &
                      read (cairnduncert_tmp, *) airnduncert_tmp
-                     airnduncert(iline_profile_count)= airnduncert_tmp
+                     airnduncert  (iline_profile) = airnduncert_tmp
 
-                     if (debug) print '(a4, 14(e15.6, 1x))',          &
+                     if (debug) print '(a4, 14(e15.6, 1x))',           &
                                       'DA = ',                        &
-                                   alt        (iline_profile_count),  &
-                                   o3nd       (iline_profile_count),  &
-                                   o3nduncert (iline_profile_count),  &
-                                   o3ndresol  (iline_profile_count),  &
-                                   qc         (iline_profile_count),  &
-                                   chrange    (iline_profile_count),  &
-                                   o3mr       (iline_profile_count),  &
-                                   o3mruncert (iline_profile_count),  &
-                                   press      (iline_profile_count),  &
-                                   pressuncert(iline_profile_count),  &
-                                   temp       (iline_profile_count),  &
-                                   tempuncert (iline_profile_count),  &
-                                   airnd      (iline_profile_count),  &
-                                   airnduncert(iline_profile_count)
+                                   alt        (iline_profile),        &
+                                   o3nd       (iline_profile),        &
+                                   o3nduncert (iline_profile),        &
+                                   o3ndresol  (iline_profile),        &
+                                   qc         (iline_profile),        &
+                                   chrange    (iline_profile),        &
+                                   o3mr       (iline_profile),        &
+                                   o3mruncert (iline_profile),        &
+                                   press      (iline_profile),        &
+                                   pressuncert(iline_profile),        &
+                                   temp       (iline_profile),        &
+                                   tempuncert (iline_profile),        &
+                                   airnd      (iline_profile),        &
+                                   airnduncert(iline_profile)
 
 !======================================================================
 ! put data in obs_seq file
@@ -659,8 +629,8 @@
 ! increase qc_count index
                      qc_count = qc_count + 1
 ! location
-                     obs_val_out (1: num_copies) = o3mr (iline_profile_count)
-                     level                       = alt  (iline_profile_count)
+                     obs_val_out (1: num_copies) = o3mr (iline_profile)
+                     level                       = alt  (iline_profile)
                      latitude                    = lat
                      if (lon < 0.0) then
                         longitude = lon + 360.0
@@ -690,7 +660,7 @@
                      which_vert   = 3
                      obs_location = set_location (longitude, latitude,&
                                                   level, which_vert)
-                     obs_err_var  = (o3mruncert(iline_profile_count)*err_frac)**2
+                     obs_err_var  = (o3mruncert(iline_profile)*err_frac)**2
                      obs_kind     = TOLNET_O3
 
 ! call subroutines to assign data info (kind, location, time, variance, 
@@ -714,8 +684,26 @@
                      endif
                      obs_old = obs
                      
-                     iline_profile_count = iline_profile_count + 1
+
                   enddo !iline_profile
+
+!----------------------------------------------------------------------
+! Write the sequence to a file
+                  file_name = trim(file_name_pre)//trim(cyear_mean)// &
+                              trim(cmonth_mean)//trim(cday_mean)//    &
+                              trim(chour_mean)//trim(cminute_mean)//  &
+                              trim(csecond_mean)
+
+                  call write_obs_seq (seq, file_name)
+
+!----------------------------------------------------------------------
+! Clean up
+!----------------------------------------------------------------------
+
+                  call timestamp (string1 = source,                   &
+                                  string2 = revision,                 &
+                                  string3 = revdate,                  &
+                                  pos = 'end')
 
                   deallocate(alt        )
                   deallocate(o3nd       )
@@ -732,30 +720,12 @@
                   deallocate(airnd      )
                   deallocate(airnduncert)
                enddo  !iprofile
-
+               write(*, *) 'work hard!!!'
             enddo  !iday
          enddo  !imonth
       enddo  !iyear
 
-!----------------------------------------------------------------------
-! Write the sequence to a file
-      file_name = trim(file_name_pre)//trim(cyear0)// &
-                  trim(cmonth0)//trim(cday0)//trim(chour0)//".out"
-
-      call write_obs_seq (seq, file_name)
-
-!----------------------------------------------------------------------
-! Clea
-!----------------------------------------------------------------------
-
-      call timestamp (string1 = source,                   &
-                      string2 = revision,                 &
-                      string3 = revdate,                  &
-                      pos = 'end')
-
-      write(*, *) 'work hard!!!'
-
-      end program create_tolnet_o3_obs_sequence
+      end program create_tolnet_o3_obs_sequence_all
 
       integer function calc_greg_sec(year,month,day,hour,minute,sec,days_in_month)
          implicit none
