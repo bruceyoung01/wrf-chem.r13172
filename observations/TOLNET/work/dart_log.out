@@ -1148,3 +1148,328 @@
  Program preprocess
  --------------------------------------
 
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 17 39 28
+ Program preprocess
+ --------------------------------------
+
+ set_nml_output Echo NML values to log file only
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_TOLNET_OBS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 17 39 28
+ Program preprocess
+ --------------------------------------
+
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 17 42 20
+ Program preprocess
+ --------------------------------------
+
+ set_nml_output Echo NML values to log file only
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_TOLNET_OBS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 17 42 20
+ Program preprocess
+ --------------------------------------
+
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 17 54  8
+ Program preprocess
+ --------------------------------------
+
+ set_nml_output Echo NML values to log file only
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_TOLNET_OBS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 17 54  8
+ Program preprocess
+ --------------------------------------
+
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 17 54 55
+ Program preprocess
+ --------------------------------------
+
+ set_nml_output Echo NML values to log file only
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_TOLNET_OBS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 17 54 55
+ Program preprocess
+ --------------------------------------
+
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 17 57 43
+ Program preprocess
+ --------------------------------------
+
+ set_nml_output Echo NML values to log file only
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_TOLNET_OBS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 17 57 43
+ Program preprocess
+ --------------------------------------
+
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 17 59 53
+ Program preprocess
+ --------------------------------------
+
+ set_nml_output Echo NML values to log file only
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_TOLNET_OBS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 17 59 53
+ Program preprocess
+ --------------------------------------
+
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 18  4  3
+ Program preprocess
+ --------------------------------------
+
+ set_nml_output Echo NML values to log file only
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_TOLNET_OBS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 18  4  3
+ Program preprocess
+ --------------------------------------
+
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 18  6 38
+ Program preprocess
+ --------------------------------------
+
+ set_nml_output Echo NML values to log file only
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_TOLNET_OBS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 18  6 38
+ Program preprocess
+ --------------------------------------
+
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 18  9  2
+ Program preprocess
+ --------------------------------------
+
+ set_nml_output Echo NML values to log file only
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_TOLNET_OBS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 18  9  2
+ Program preprocess
+ --------------------------------------
+
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 18 10 15
+ Program preprocess
+ --------------------------------------
+
+ set_nml_output Echo NML values to log file only
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_TOLNET_OBS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 18 10 15
+ Program preprocess
+ --------------------------------------
+
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 18 14 42
+ Program preprocess
+ --------------------------------------
+
+ set_nml_output Echo NML values to log file only
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_TOLNET_OBS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 18 14 42
+ Program preprocess
+ --------------------------------------
+
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 18 17  1
+ Program preprocess
+ --------------------------------------
+
+ set_nml_output Echo NML values to log file only
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_TOLNET_OBS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 18 17  1
+ Program preprocess
+ --------------------------------------
+
+
+ --------------------------------------
+ Starting ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 19 31 54
+ Program preprocess
+ --------------------------------------
+
+ set_nml_output Echo NML values to log file only
+ Path names of default obs_def and obs_kind modules
+ ../../../obs_def/DEFAULT_obs_def_mod.F90
+ ../../../obs_kind/DEFAULT_obs_kind_mod.F90
+ Path names of output obs_def and obs_kind modules
+ ../../../obs_def/obs_def_mod.f90
+ ../../../obs_kind/obs_kind_mod.f90
+ INPUT obs_def files follow:
+ ../../../obs_def/obs_def_TOLNET_OBS_mod.f90
+ INPUT model files follow:
+ preprocess Finished successfully.
+
+ --------------------------------------
+ Finished ... at YYYY MM DD HH MM SS = 
+                 2019  8  1 19 31 54
+ Program preprocess
+ --------------------------------------
+

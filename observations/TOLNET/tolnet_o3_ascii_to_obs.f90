@@ -164,6 +164,9 @@
       integer                           :: hour0, min0, sec0
       integer                           :: calendar_type
       integer                           :: ndays_in_month
+      integer                           :: ndays_in_month_year (12) =(/&
+                                           31, 28, 31, 30, 31, 30,     &
+                                           31, 31, 30, 31, 30, 31  /)
       integer                           :: beg_year, beg_mon, beg_day
       integer                           :: beg_hour, beg_min, beg_sec
       integer                           :: end_year, end_mon, end_day
@@ -172,6 +175,7 @@
       integer                           :: anal_greg_sec
       integer                           :: beg_greg_sec
       integer                           :: end_greg_sec
+      integer                           :: mean_greg_sec
       real (r8)                         :: lat_mn, lat_mx
       real (r8)                         :: lon_mn, lon_mx
 
@@ -296,7 +300,7 @@
 !----------------------------------------------------------------------
       character (len = 128)             :: copy_meta_data
       character (len = 128)             :: qc_meta_data = 'TOLNET QC index'
-      character (len = 128)             :: file_name_pre= 'obs_seq_tolnet_o3_'
+      character (len = 128)             :: file_name_pre= 'tolnet_obs_seq'
       character (len = 128)             :: file_prefix, file_postfix
       character (len = 128)             :: file_name
 
@@ -419,6 +423,20 @@
       write(cmonth0, "(i2.2)") month0
       write(cday0,   "(i2.2)") day0
       write(chour0,  "(i2.2)") hour0
+
+! Calculate total seconds for year0, beg_year, and end_year
+      if (year0/4*4 .eq. 0) ndays_in_month_year(2) = 29
+      anal_greg_sec  = calc_greg_sec(year0, month0, day0,             &
+                                     hour0, min0,   sec0,             &
+                                     ndays_in_month_year)
+      if (beg_year/4*4 .eq. 0) ndays_in_month_year(2) = 29
+      beg_greg_sec   = calc_greg_sec(beg_year, beg_mon, beg_day,      &
+                                     beg_hour, beg_min, beg_sec,      &
+                                     ndays_in_month_year)
+      if (end_year/4*4 .eq. 0) ndays_in_month_year(2) = 29
+      end_greg_sec   = calc_greg_sec(end_year, end_mon, end_day,      &
+                                     end_hour, end_min, end_sec,      &
+                                     ndays_in_month_year)
 
 !======================================================================
 ! Start to read ozone lidar data in the text file format.
@@ -655,6 +673,29 @@
 !======================================================================
 ! put data in obs_seq file
 !======================================================================
+!----------------------------------------------------------------------
+! check whether current time mean is between beg_greg_sec and 
+! end_greg_sec. If it is out of the time range, then continue to the 
+! next profile.
+!----------------------------------------------------------------------
+
+                     if (year_mean/4*4 .eq. 0) ndays_in_month_year(2) = 29
+                     mean_greg_sec  = calc_greg_sec(year_mean, month_mean,&
+                                                    day_mean,  hour_mean, &
+                                                    minute_mean,          &
+                                                    second_mean,          &
+                                                    ndays_in_month_year)
+
+                     if (debug) print *, 'beg_greg_sec  = ', beg_greg_sec
+                     if (debug) print *, 'end_greg_sec  = ', end_greg_sec
+                     if (debug) print *, 'mean_greg_sec = ', mean_greg_sec
+
+                     if (mean_greg_sec .lt. beg_greg_sec .or.             &
+                         mean_greg_sec .gt. end_greg_sec) then
+                        if (debug) print *, 'Out of time bound!!!'
+                        cycle
+                     endif
+
 
 ! increase qc_count index
                      qc_count = qc_count + 1
@@ -739,8 +780,7 @@
 
 !----------------------------------------------------------------------
 ! Write the sequence to a file
-      file_name = trim(file_name_pre)//trim(cyear0)// &
-                  trim(cmonth0)//trim(cday0)//trim(chour0)//".out"
+      file_name = trim(file_name_pre)
 
       call write_obs_seq (seq, file_name)
 
@@ -757,15 +797,16 @@
 
       end program create_tolnet_o3_obs_sequence
 
-      integer function calc_greg_sec(year,month,day,hour,minute,sec,days_in_month)
+      integer function calc_greg_sec(year,month,day,hour,minute,sec,  &
+                                     ndays_in_month_year)
          implicit none
          integer                  :: i,j,k,year,month,day,hour,minute,sec
-         integer, dimension(12)   :: days_in_month
+         integer, dimension(12)   :: ndays_in_month_year
 !
 ! assume time goes from 00:00:00 to 23:59:59  
          calc_greg_sec=0
          do i=1,month-1
-            calc_greg_sec=calc_greg_sec+days_in_month(i)*24*60*60
+            calc_greg_sec=calc_greg_sec+ndays_in_month_year(i)*24*60*60
          enddo
          do i=1,day-1
             calc_greg_sec=calc_greg_sec+24*60*60

@@ -5,16 +5,16 @@
 #########################################################################
 #
 set -o
-export INITIAL_DATE=2015061018
-export FIRST_FILTER_DATE=2015061100
-export FIRST_DART_INFLATE_DATE=2015061100
-export FIRST_EMISS_INV_DATE=2015061100
+export INITIAL_DATE=2015061000
+export FIRST_FILTER_DATE=2015061006
+export FIRST_DART_INFLATE_DATE=2015061006
+export FIRST_EMISS_INV_DATE=2015061006
 #
 # START CYCLE DATE-TIME:
-export CYCLE_STR_DATE=2015061100
+export CYCLE_STR_DATE=2015061000
 #
 # END CYCLE DATE-TIME:
-export CYCLE_END_DATE=2015061100
+export CYCLE_END_DATE=2015061218
 #
 export CYCLE_DATE=${CYCLE_STR_DATE}
 export NL_FAC_OBS_ERROR_MOPITT=1.00
@@ -117,7 +117,7 @@ export RUN_INTERPOLATE=false
 ##########################################################################
 while [[ ${CYCLE_DATE} -le ${CYCLE_END_DATE} ]]; do
 export DATE=${CYCLE_DATE}
-export CYCLE_PERIOD=6
+export CYCLE_PERIOD=3 #6
 export HISTORY_INTERVAL_HR=1
 (( HISTORY_INTERVAL_MIN = ${HISTORY_INTERVAL_HR} * 60 ))
 export START_IASI_O3_DATA=2014060100
@@ -139,7 +139,7 @@ export INPUT_DATA_DIR=/home/vy57456/zzbatmos_user/data/dart/CAFIRE
 #
 # DEPENDENT INPUT DATA DIRECTORIES:
 export EXPERIMENT_DIR=${SCRATCH_DIR}
-export RUN_DIR=${EXPERIMENT_DIR}/real_CAFIRE_RADM2
+export RUN_DIR=${EXPERIMENT_DIR}/real_CAFIRE_RADM2_3hour
 export WPS_DIR=${MODEL_DIR}/${WPS_VER}
 export WPS_GEOG_DIR=/home/vy57456/zzbatmos_user/data/wrf_input/geog_3.7
 export WRFCHEM_DIR=${MODEL_DIR}/${WRFCHEM_VER}
@@ -238,7 +238,7 @@ export SEC_GREG=${GREG_DATA[1]}
 set -A GREG_DATA `echo $NEXT_DATE 0 -g | ${DART_DIR}/models/wrf_chem/work/advance_time`
 export NEXT_DAY_GREG=${GREG_DATA[0]}
 export NEXT_SEC_GREG=${GREG_DATA[1]}
-export ASIM_WINDOW=3
+export ASIM_WINDOW=3 #3
 export ASIM_MIN_DATE=$($BUILD_DIR/da_advance_time.exe $DATE -$ASIM_WINDOW 2>/dev/null)
 export ASIM_MIN_YYYY=$(echo $ASIM_MIN_DATE | cut -c1-4)
 export ASIM_MIN_YY=$(echo $ASIM_MIN_DATE | cut -c3-4)
@@ -260,23 +260,23 @@ export ASIM_MAX_SEC_GREG=${temp[1]}
 #
 # SELECT COMPONENT RUN OPTIONS:
 if [[ ${RUN_SPECIAL_FORECAST} = "false" ]]; then
-   export RUN_GEOGRID=false #true
-   export RUN_UNGRIB=false #true
-   export RUN_METGRID=false #true
-   export RUN_REAL=false #true
-   export RUN_PERT_WRFCHEM_MET_IC=false #true
-   export RUN_PERT_WRFCHEM_MET_BC=false #true
-   export RUN_EXO_COLDENS=false  #true
-   export RUN_SEASON_WES=false  #true
-   export RUN_WRFCHEM_BIO=false  #true
-   export RUN_WRFCHEM_FIRE=false #true
-   export RUN_WRFCHEM_CHEMI=false #true
-   export RUN_PERT_WRFCHEM_CHEM_ICBC=false  #true
-   export RUN_PERT_WRFCHEM_CHEM_EMISS=false   #true
-   export RUN_AIRNOW_O3_OBS=false 
-   export RUN_TOLNET_O3_OBS=false 
-   export RUN_MET_OBS=false  #true
-   export RUN_COMBINE_OBS=false #true
+   export RUN_GEOGRID=true  #true
+   export RUN_UNGRIB=false  #true
+   export RUN_METGRID=false  #true
+   export RUN_REAL=true  #true
+   export RUN_PERT_WRFCHEM_MET_IC=true  #true
+   export RUN_PERT_WRFCHEM_MET_BC=true  #true
+   export RUN_EXO_COLDENS=true   #true
+   export RUN_SEASON_WES=true   #true
+   export RUN_WRFCHEM_BIO=true   #true
+   export RUN_WRFCHEM_FIRE=true  #true
+   export RUN_WRFCHEM_CHEMI=true  #true
+   export RUN_PERT_WRFCHEM_CHEM_ICBC=true   #true
+   export RUN_PERT_WRFCHEM_CHEM_EMISS=true    #true
+   export RUN_AIRNOW_O3_OBS=true  
+   export RUN_TOLNET_O3_OBS=true  
+   export RUN_MET_OBS=true   #true
+   export RUN_COMBINE_OBS=true  #true
    export RUN_PREPROCESS_OBS=true  #true
 #
    if [[ ${DATE} -eq ${INITIAL_DATE}  ]]; then
@@ -374,7 +374,7 @@ fi
 #
 # FORECAST PARAMETERS:
 export USE_DART_INFL=true
-export FCST_PERIOD=6
+export FCST_PERIOD=1 #6
 (( CYCLE_PERIOD_SEC=${CYCLE_PERIOD}*60*60 ))
 export NUM_MEMBERS=10
 export MAX_DOMAINS=02
@@ -408,7 +408,7 @@ export DX_CR=27000
 export DX_FR=9000
 # TOTAL NUMBER OF gfs FORECAST HOURS
 (( LBC_END=48 ))
-export LBC_FREQ=3
+export LBC_FREQ=1
 (( INTERVAL_SECONDS=${LBC_FREQ}*60*60 ))
 export LBC_START=0
 export START_DATE=${DATE}
