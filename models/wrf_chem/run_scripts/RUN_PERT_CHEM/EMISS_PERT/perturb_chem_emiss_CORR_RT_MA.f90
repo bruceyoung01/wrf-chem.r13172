@@ -45,6 +45,7 @@
              real,allocatable,dimension(:,:,:,:)      :: chem_fac,fire_fac,biog_fac,dist
              real,allocatable,dimension(:)            :: mems,pers,pert_chem_sum
              character(len=150)                       :: pert_path_pr,pert_path_po
+             character(len=150)                       :: wrfinput
              character(len=150)                       :: wrfchemi,wrffirechemi,wrfbiochemi
              character(len=20)                        :: cmem
 
@@ -55,7 +56,7 @@
              character(len=150),allocatable,dimension(:) :: ch_biog_spc 
              logical                                  :: sw_corr_tm,sw_seed,sw_chem,sw_fire,sw_biog
              namelist /perturb_chem_emiss_corr_nml/nx,ny,nz,nz_chem,nchem_spc,nfire_spc,nbiog_spc, &
-             pert_path_pr,pert_path_po,nnum_mem,wrfchemi,wrffirechemi,wrfbiochemi,sprd_chem,sprd_fire,sprd_biog, &
+             pert_path_pr,pert_path_po,nnum_mem,wrfinput,wrfchemi,wrffirechemi,wrfbiochemi,sprd_chem,sprd_fire,sprd_biog, &
              sw_corr_tm,sw_seed,sw_chem,sw_fire,sw_biog,corr_lngth_hz,corr_lngth_vt,corr_lngth_tm,corr_tm_delt
              namelist /perturb_chem_emiss_spec_nml/ch_chem_spc,ch_fire_spc,ch_biog_spc
 !
@@ -82,6 +83,7 @@
              print *, 'pert_path_po       ',trim(pert_path_po)
              print *, 'num_mem            ',nnum_mem
              print *, 'wrfchemi           ',trim(wrfchemi)
+             print *, 'wrfinput           ',trim(wrfinput)
              print *, 'wrffirechemi       ',trim(wrffirechemi)
              print *, 'wrfbiochemi        ',trim(wrfbiochemi)
              print *, 'sprd_chem          ',sprd_chem
@@ -122,15 +124,15 @@
 !
 ! Get land mask data
              allocate(xland(nx,ny))
-             call get_WRFINPUT_land_mask(xland,nx,ny)
+             call get_WRFINPUT_land_mask(wrfinput,xland,nx,ny)
 !
 ! Get lat / lon data
              allocate(lat(nx,ny),lon(nx,ny))
-             call get_WRFINPUT_lat_lon(lat,lon,nx,ny)
+             call get_WRFINPUT_lat_lon(wrfinput,lat,lon,nx,ny)
 !
 ! Get mean geopotential height data
              allocate(geo_ht(nx,ny,nz))
-             call get_WRFINPUT_geo_ht(geo_ht,nx,ny,nz,nzp,num_mem)
+             call get_WRFINPUT_geo_ht(wrfinput,geo_ht,nx,ny,nz,nzp,num_mem)
              geo_ht(:,:,:)=geo_ht(:,:,:)/grav
 !
 ! Construct the vertical correlations transformation matrix
@@ -587,7 +589,7 @@
              get_dist=abs(coef_c*r_earth)
           end function get_dist
 !
-          subroutine get_WRFINPUT_land_mask(xland,nx,ny)
+          subroutine get_WRFINPUT_land_mask(file,xland,nx,ny)
              implicit none
              include 'netcdf.inc'
              integer, parameter                    :: maxdim=6
@@ -601,10 +603,9 @@
              real,dimension(nx,ny)                 :: xland
              character(len=150)                    :: v_nam
              character*(80)                         :: name
-             character*(80)                         :: file
+             character*(* )                         :: file
 !
 ! open netcdf file
-             file='wrfinput_d01.e001'
              name='XLAND'
              rc = nf_open(trim(file),NF_NOWRITE,f_id)
 !             print *, trim(file)
@@ -667,7 +668,7 @@
              return
           end subroutine get_WRFINPUT_land_mask   
 !
-          subroutine get_WRFINPUT_lat_lon(lat,lon,nx,ny)
+          subroutine get_WRFINPUT_lat_lon(file,lat,lon,nx,ny)
              implicit none
              include 'netcdf.inc'
              integer, parameter                    :: maxdim=6
@@ -681,10 +682,9 @@
              real,dimension(nx,ny)                 :: lat,lon
              character(len=150)                    :: v_nam
              character*(80)                         :: name
-             character*(80)                         :: file
+             character*(* )                         :: file
 !
 ! open netcdf file
-             file='wrfinput_d01.e001'
              name='XLAT'
              rc = nf_open(trim(file),NF_NOWRITE,f_id)
 !             print *, trim(file)
@@ -759,7 +759,7 @@
              return
           end subroutine get_WRFINPUT_lat_lon
 !
-          subroutine get_WRFINPUT_geo_ht(geo_ht,nx,ny,nz,nzp,nmem)
+          subroutine get_WRFINPUT_geo_ht(file,geo_ht,nx,ny,nz,nzp,nmem)
              implicit none
              include 'netcdf.inc'
              integer, parameter                    :: maxdim=6
@@ -774,7 +774,7 @@
              real,dimension(nx,ny,nz)              :: geo_ht
              character(len=150)                    :: v_nam
              character*(80)                        :: name,cmem
-             character*(80)                        :: file
+             character*(* )                        :: file
 !
 ! Loop through members to find ensemble mean geo_ht
              geo_ht(:,:,:)=0.
@@ -785,7 +785,7 @@
 !
 ! open netcdf file
 
-                file='wrfinput_d01'//trim(cmem)
+                file=trim(file)//trim(cmem)
                 rc = nf_open(trim(file),NF_NOWRITE,f_id)
                 if(rc.ne.0) then
                    print *, 'nf_open error ',trim(file)

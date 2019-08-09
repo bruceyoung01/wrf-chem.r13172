@@ -37,6 +37,7 @@
              real,allocatable,dimension(:,:,:)        :: chem_data3d
              character(len=20)                        :: cmem
              character(len=150)                       :: pert_path
+             character(len=150)                       :: wrfinput
              character(len=150)                       :: wrfchemi,wrffirechemi,wrfbiochemi
              character(len=150)                       :: wrfchem_file,wrffire_file,wrfbio_file
              character(len=150),allocatable,dimension(:) :: ch_chem_spc 
@@ -44,7 +45,7 @@
              character(len=150),allocatable,dimension(:) :: ch_bio_spc 
              logical                                  :: sw_gen,sw_chem,sw_fire,sw_biog
              namelist /perturb_chem_emiss_CORR_nml/nx,ny,nz,nz_chem,nchem_spc,nfire_spc,nbio_spc, &
-             pert_path,nnum_mem,wrfchemi,wrffirechemi,wrfbiochemi,sprd_chem,sprd_fire,sprd_biog, &
+             pert_path,nnum_mem,wrfinput,wrfchemi,wrffirechemi,wrfbiochemi,sprd_chem,sprd_fire,sprd_biog, &
              sw_gen,sw_chem,sw_fire,sw_biog
              namelist /perturb_chem_emiss_spec_nml/ch_chem_spc,ch_fire_spc,ch_bio_spc
 !
@@ -73,6 +74,7 @@
              print *, 'nbio_spc          ',nbio_spc
              print *, 'pert_path         ',trim(pert_path)
              print *, 'num_mem           ',nnum_mem
+             print *, 'wrfinput          ',trim(wrfinput)
              print *, 'wrfchemi          ',trim(wrfchemi)
              print *, 'wrffirechemi      ',trim(wrffirechemi)
              print *, 'wrfbiochemi       ',trim(wrfbiochemi)
@@ -102,7 +104,7 @@
 ! Get the land mask data
              print *, 'At read for xland'
              allocate(xland(nx,ny))
-             call get_WRFINPUT_land_mask(xland,nx,ny)
+             call get_WRFINPUT_land_mask(wrfinput,xland,nx,ny)
 !
 ! Allocate arrays
              allocate(chem_data3d(nx,ny,nz_chem),chem_data2d(nx,ny))
@@ -340,7 +342,7 @@
              close(unita)
           end program main
 !
-          subroutine get_WRFINPUT_land_mask(xland,nx,ny)
+          subroutine get_WRFINPUT_land_mask(file,xland,nx,ny)
              implicit none
              include 'netcdf.inc'
              integer, parameter                    :: maxdim=6
@@ -354,10 +356,9 @@
              real,dimension(nx,ny)                 :: xland
              character(len=150)                    :: v_nam
              character*(80)                         :: name
-             character*(80)                         :: file
+             character*(* )                         :: file
 !
 ! open netcdf file
-             file='wrfinput_d01'
              name='XLAND'
              rc = nf_open(trim(file),NF_NOWRITE,f_id)
 !             print *, trim(file)
@@ -447,7 +448,6 @@
 ! get variables identifiers
              rc = nf_inq_varid(f_id,trim(name),v_id)
 !             print *, v_id
-             print *, trim(name)
              if(rc.ne.0) then
                 print *, 'nf_inq_varid error ', v_id
                 call abort
