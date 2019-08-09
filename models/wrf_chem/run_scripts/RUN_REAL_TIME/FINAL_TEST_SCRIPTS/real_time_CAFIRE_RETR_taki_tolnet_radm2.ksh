@@ -5,13 +5,13 @@
 #########################################################################
 #
 set -o
-export INITIAL_DATE=2015061000
-export FIRST_FILTER_DATE=2015061006
-export FIRST_DART_INFLATE_DATE=2015061006
-export FIRST_EMISS_INV_DATE=2015061006
+export INITIAL_DATE=2015061018
+export FIRST_FILTER_DATE=2015061100
+export FIRST_DART_INFLATE_DATE=2015061100
+export FIRST_EMISS_INV_DATE=2015061100
 #
 # START CYCLE DATE-TIME:
-export CYCLE_STR_DATE=2015061000
+export CYCLE_STR_DATE=2015061100
 #
 # END CYCLE DATE-TIME:
 export CYCLE_END_DATE=2015061218
@@ -117,7 +117,7 @@ export RUN_INTERPOLATE=false
 ##########################################################################
 while [[ ${CYCLE_DATE} -le ${CYCLE_END_DATE} ]]; do
 export DATE=${CYCLE_DATE}
-export CYCLE_PERIOD=3 #6
+export CYCLE_PERIOD=6 #6
 export HISTORY_INTERVAL_HR=1
 (( HISTORY_INTERVAL_MIN = ${HISTORY_INTERVAL_HR} * 60 ))
 export START_IASI_O3_DATA=2014060100
@@ -125,11 +125,11 @@ export END_IASI_O3_DATA=2014073118
 export NL_DEBUG_LEVEL=200
 #
 # CODE VERSIONS:
-export WPS_VER=wrfchem3_6_1_m_debug/WPS
+export WPS_VER=wrfchem3_9_ma/WPS
 export WPS_GEOG_VER=GEOG_DATA
-export WRFDA_VER=wrfchem3_6_1_m_debug/WRFDA
-export WRF_VER=wrf3_6_1_m_debug/WRFV3
-export WRFCHEM_VER=wrfchem3_6_1_ma/WRFV3
+export WRFDA_VER=wrfchem3_9_ma/WRFDA
+export WRF_VER=wrfchem3_9_ma/WRFV3
+export WRFCHEM_VER=wrfchem3_9_ma/WRFV3
 export DART_VER=wrf-chem.r13172
 #
 # ROOT DIRECTORIES:
@@ -139,9 +139,9 @@ export INPUT_DATA_DIR=/home/vy57456/zzbatmos_user/data/dart/CAFIRE
 #
 # DEPENDENT INPUT DATA DIRECTORIES:
 export EXPERIMENT_DIR=${SCRATCH_DIR}
-export RUN_DIR=${EXPERIMENT_DIR}/real_CAFIRE_RADM2_3hour
+export RUN_DIR=${EXPERIMENT_DIR}/real_CAFIRE_RADM2_6hour
 export WPS_DIR=${MODEL_DIR}/${WPS_VER}
-export WPS_GEOG_DIR=/home/vy57456/zzbatmos_user/data/wrf_input/geog_3.7
+export WPS_GEOG_DIR=/home/vy57456/zzbatmos_user/data/wrf_input/geog_3.9
 export WRFCHEM_DIR=${MODEL_DIR}/${WRFCHEM_VER}
 export WRFDA_DIR=${MODEL_DIR}/${WRFDA_VER}
 export DART_DIR=/home/vy57456/zzbatmos_user/model/DART/mizzi/DART_13172/tags/${DART_VER}
@@ -261,8 +261,8 @@ export ASIM_MAX_SEC_GREG=${temp[1]}
 # SELECT COMPONENT RUN OPTIONS:
 if [[ ${RUN_SPECIAL_FORECAST} = "false" ]]; then
    export RUN_GEOGRID=true  #true
-   export RUN_UNGRIB=false  #true
-   export RUN_METGRID=false  #true
+   export RUN_UNGRIB=true   #true
+   export RUN_METGRID=true   #true
    export RUN_REAL=true  #true
    export RUN_PERT_WRFCHEM_MET_IC=true  #true
    export RUN_PERT_WRFCHEM_MET_BC=true  #true
@@ -374,7 +374,7 @@ fi
 #
 # FORECAST PARAMETERS:
 export USE_DART_INFL=true
-export FCST_PERIOD=1 #6
+export FCST_PERIOD=6 #6
 (( CYCLE_PERIOD_SEC=${CYCLE_PERIOD}*60*60 ))
 export NUM_MEMBERS=10
 export MAX_DOMAINS=02
@@ -408,7 +408,7 @@ export DX_CR=27000
 export DX_FR=9000
 # TOTAL NUMBER OF gfs FORECAST HOURS
 (( LBC_END=48 ))
-export LBC_FREQ=1
+export LBC_FREQ=3
 (( INTERVAL_SECONDS=${LBC_FREQ}*60*60 ))
 export LBC_START=0
 export START_DATE=${DATE}
@@ -611,7 +611,7 @@ export NL_INPUTOUT_INTERVAL=360
 export NL_INPUT_OUTNAME=\'wrfapm_d\<domain\>_\<date\>\'
 #
 # DOMAINS NAMELIST:
-export NL_TIME_STEP=120
+export NL_TIME_STEP=30
 export NNL_TIME_STEP=${NL_TIME_STEP}
 export NL_TIME_STEP_FRACT_NUM=0
 export NL_TIME_STEP_FRACT_DEN=1
@@ -674,7 +674,7 @@ export NL_SURFACE_INPUT_SOURCE=1
 export NL_NUM_SOIL_LAYERS=4
 export NL_MP_ZERO_OUT=2
 #WRFCHEM3.6.1=24; WRFCHEM3.9.1=21
-export NL_NUM_LAND_CAT=24 #21
+export NL_NUM_LAND_CAT=21 #21
 export NL_SF_URBAN_PHYSICS=1,1
 export NL_MAXIENS=1
 export NL_MAXENS=3
@@ -2101,8 +2101,8 @@ if ${RUN_WRFCHEM_BIO}; then
       export FILE_FR=wrfinput_d${FR_DOMAIN}
       rm -rf ${FILE_CR}
       rm -rf ${FILE_FR}
-      cp ${REAL_DIR}/${FILE_CR}_${L_FILE_DATE} ${FILE_CR}   
-      cp ${REAL_DIR}/${FILE_FR}_${L_FILE_DATE} ${FILE_FR}   
+      ln -sf ${REAL_DIR}/${FILE_CR}_${L_FILE_DATE} ${FILE_CR}   
+      ln -sf ${REAL_DIR}/${FILE_FR}_${L_FILE_DATE} ${FILE_FR}   
       export FILE_CR=wrfbiochemi_d${CR_DOMAIN}
       export FILE_FR=wrfbiochemi_d${FR_DOMAIN}
       if [[ ${L_DATE} -eq ${DATE} ]]; then
@@ -2117,7 +2117,7 @@ if ${RUN_WRFCHEM_BIO}; then
       rm -rf ntr*.nc
       rm -rf shr*.nc
       rm -rf TAS*.nc
-      cp ${EXPERIMENT_WRFBIOCHEMI_DIR}/MEGAN-DATA/*.nc ./.
+      ln -sf ${EXPERIMENT_WRFBIOCHEMI_DIR}/MEGAN-DATA/*.nc ./.
       export FILE=megan_bio_emiss.exe
       rm -rf ${FILE}
       cp ${MEGAN_BIO_DIR}/work/${FILE} ${FILE}
@@ -2149,7 +2149,7 @@ EOF
          mv ${FILE_CR} ${FILE_CR}_${L_FILE_DATE}
          mv ${FILE_FR} ${FILE_FR}_${L_FILE_DATE}
       fi
-      export L_DATE=$(${BUILD_DIR}/da_advance_time.exe ${L_DATE} 6 2>/dev/null)
+      export L_DATE=$(${BUILD_DIR}/da_advance_time.exe ${L_DATE} ${FCST_PERIOD} 2>/dev/null)
    done
 fi
 #

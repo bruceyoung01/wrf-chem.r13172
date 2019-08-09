@@ -63,68 +63,68 @@
       use        types_mod,     only : r8
 
 ! timestamp: record version control
-      use        utilities_mod, only : timestamp,               &
+      use        utilities_mod, only : timestamp,                     &
 ! register_module: write version info into log file
-                                       register_module,         &
+                                       register_module,               &
 ! initialize_utilities: open log file for writing
-                                       initialize_utilities,    &
-                                       file_exist,              &
-                                       open_file,               &
-                                       close_file,              &
+                                       initialize_utilities,          &
+                                       file_exist,                    &
+                                       open_file,                     &
+                                       close_file,                    &
 ! find_namelist_in_file: find out specific nml name in the 
 !                        namelist file
-                                       find_namelist_in_file,   &
+                                       find_namelist_in_file,         &
 ! check_namelist_read: confirm namelist read successfully
-                                       check_namelist_read,     &
+                                       check_namelist_read,           &
 ! error_handler: print error messages
-                                       error_handler,           &
+                                       error_handler,                 &
 ! E_ERR: 2 (represent error message)
-                                       E_ERR,                   &
+                                       E_ERR,                         &
 ! E_WARN: 1 (represent warning message)
-                                       E_WARN,                  &
+                                       E_WARN,                        &
 ! E_MSG: 0 (represent other message)
-                                       E_MSG,                   &
+                                       E_MSG,                         &
 ! E_DBG: -1 (represent debug message)
                                        E_DBG
 
-      use obs_sequence_mod, only : obs_sequence_type,           &
-                                   interactive_obs,             &
-                                   write_obs_seq,               &
-                                   interactive_obs_sequence,    &
-                                   static_init_obs_sequence,    &
-                                   init_obs_sequence,           &
-                                   init_obs,                    &
-                                   set_obs_values,              &
-                                   set_obs_def,                 &
-                                   set_qc,                      &
-                                   set_qc_meta_data,            &
-                                   set_copy_meta_data,          &
-                                   insert_obs_in_seq,           &
+      use obs_sequence_mod, only : obs_sequence_type,                 &
+                                   interactive_obs,                   &
+                                   write_obs_seq,                     &
+                                   interactive_obs_sequence,          &
+                                   static_init_obs_sequence,          &
+                                   init_obs_sequence,                 &
+                                   init_obs,                          &
+                                   set_obs_values,                    &
+                                   set_obs_def,                       &
+                                   set_qc,                            &
+                                   set_qc_meta_data,                  &
+                                   set_copy_meta_data,                &
+                                   insert_obs_in_seq,                 &
                                    obs_type
 
-      use obs_def_mod,     only :  set_obs_def_kind,            &
-                                   set_obs_def_location,        &
-                                   set_obs_def_time,            &
-                                   set_obs_def_key,             &
-                                   set_obs_def_error_variance,  &
-                                   obs_def_type,                &
-                                   init_obs_def,                &
+      use obs_def_mod,     only :  set_obs_def_kind,                  &
+                                   set_obs_def_location,              &
+                                   set_obs_def_time,                  &
+                                   set_obs_def_key,                   &
+                                   set_obs_def_error_variance,        &
+                                   obs_def_type,                      &
+                                   init_obs_def,                      &
                                    get_obs_kind
 
       use assim_model_mod, only :  static_init_assim_model
-      use location_mod,    only :  location_type,               &
+      use location_mod,    only :  location_type,                     &
                                    set_location
-      use time_manager_mod,only :  set_date,                    &
-                                   set_calendar_type,           &
-                                   time_type,                   &
-                                   get_time,                    &
+      use time_manager_mod,only :  set_date,                          &
+                                   set_calendar_type,                 &
+                                   time_type,                         &
+                                   get_time,                          &
                                    days_in_month
 
-      use obs_kind_mod,    only :  TOLNET_O3,                   &
+      use obs_kind_mod,    only :  TOLNET_O3,                         &
                                    get_kind_from_menu
 
-      use random_seq_mod,  only :  random_seq_type,             &
-                                   init_random_seq,             &
+      use random_seq_mod,  only :  random_seq_type,                   &
+                                   init_random_seq,                   &
                                    random_uniform
 
       use sort_mod,        only :  index_sort
@@ -133,9 +133,9 @@
 
 ! version controlled file description for error handling, do not edit
 
-      character (len = 128), parameter  ::                      &
-      source    = "$URL$",                                      &
-      revision  = "$Revision$",                                 &
+      character (len = 128), parameter  ::                            &
+      source    = "$URL$",                                            &
+      revision  = "$Revision$",                                       &
       revdate   = "$Date$"
 
       type (obs_sequence_type)          :: seq
