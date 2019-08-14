@@ -238,6 +238,11 @@ export SEC_GREG=${GREG_DATA[1]}
 set -A GREG_DATA `echo $NEXT_DATE 0 -g | ${DART_DIR}/models/wrf_chem/work/advance_time`
 export NEXT_DAY_GREG=${GREG_DATA[0]}
 export NEXT_SEC_GREG=${GREG_DATA[1]}
+# ASIM_WINDOW should be smaller or equal to FCST_PERIOD/2
+#In terms of the format of ASIM_WINDOW, please refer to WRFDA
+#WRFDA/var/build/da_advance_time.f90
+#NOTE: It can not be decimal, e.g., 0.5
+#30m: 30 minutes
 export ASIM_WINDOW=3
 export ASIM_MIN_DATE=$($BUILD_DIR/da_advance_time.exe $DATE -$ASIM_WINDOW 2>/dev/null)
 export ASIM_MIN_YYYY=$(echo $ASIM_MIN_DATE | cut -c1-4)

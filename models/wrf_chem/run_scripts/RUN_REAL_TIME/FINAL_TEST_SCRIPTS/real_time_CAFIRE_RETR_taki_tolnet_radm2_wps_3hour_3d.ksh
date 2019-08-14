@@ -5,13 +5,13 @@
 #########################################################################
 #
 set -o
-export INITIAL_DATE=2015061000
-export FIRST_FILTER_DATE=2015061003
-export FIRST_DART_INFLATE_DATE=2015061003
-export FIRST_EMISS_INV_DATE=2015061003
+export INITIAL_DATE=2015061009
+export FIRST_FILTER_DATE=2015061012
+export FIRST_DART_INFLATE_DATE=2015061012
+export FIRST_EMISS_INV_DATE=2015061012
 #
 # START CYCLE DATE-TIME:
-export CYCLE_STR_DATE=2015061003
+export CYCLE_STR_DATE=2015061009
 #
 # END CYCLE DATE-TIME:
 export CYCLE_END_DATE=2015061300
@@ -126,6 +126,11 @@ export RUN_INTERPOLATE=false
 #
 export CYCLE_PERIOD=3 #6
 export FCST_PERIOD=3 #6
+# ASIM_WINDOW should be smaller or equal to FCST_PERIOD/2
+#In terms of the format of ASIM_WINDOW, please refer to WRFDA
+#WRFDA/var/build/da_advance_time.f90
+#NOTE: It can not be decimal, e.g., 0.5
+#30m: 30 minutes
 export ASIM_WINDOW=1 #3
 export MET_INTERVAL_HR=1
 export INTERVAL_SECONDS=$((${MET_INTERVAL_HR}*60*60))
@@ -545,23 +550,23 @@ export ASIM_MAX_SEC_GREG=${temp[1]}
 # SELECT COMPONENT RUN OPTIONS:
 if [[ ${RUN_SPECIAL_FORECAST} = "false" ]]; then
    export RUN_REAL=true    #true
-   export RUN_PERT_WRFCHEM_MET_IC=true    #true
-   export RUN_PERT_WRFCHEM_MET_BC=true    #true
-   export RUN_EXO_COLDENS=true    #true
-   export RUN_SEASON_WES=true    #true
+   export RUN_PERT_WRFCHEM_MET_IC=false   #true
+   export RUN_PERT_WRFCHEM_MET_BC=false   #true
+   export RUN_EXO_COLDENS=false   #true
+   export RUN_SEASON_WES=false   #true
    export RUN_WRFCHEM_BIO=true    #true
    export RUN_WRFCHEM_FIRE=true  #true
-   export RUN_WRFCHEM_CHEMI=true  #true
-   export RUN_PERT_WRFCHEM_CHEM_ICBC=true     #true
-   export RUN_PERT_WRFCHEM_CHEM_EMISS=true    #true
-   export RUN_AIRNOW_O3_OBS=true   
-   export RUN_TOLNET_O3_OBS=true   
-   export RUN_MET_OBS=true   #true
-   export RUN_COMBINE_OBS=true  #true
-   export RUN_PREPROCESS_OBS=true  #true
+   export RUN_WRFCHEM_CHEMI=false #true
+   export RUN_PERT_WRFCHEM_CHEM_ICBC=false    #true
+   export RUN_PERT_WRFCHEM_CHEM_EMISS=false   #true
+   export RUN_AIRNOW_O3_OBS=false  
+   export RUN_TOLNET_O3_OBS=false  
+   export RUN_MET_OBS=false  #true
+   export RUN_COMBINE_OBS=false #true
+   export RUN_PREPROCESS_OBS=false #true
 #
    if [[ ${DATE} -eq ${INITIAL_DATE}  ]]; then
-      export RUN_WRFCHEM_INITIAL=true  #true
+      export RUN_WRFCHEM_INITIAL=false #true
       export RUN_DART_FILTER=false
       export RUN_UPDATE_BC=false
       export RUN_ENSEMBLE_MEAN_INPUT=true  #true
@@ -572,14 +577,14 @@ if [[ ${RUN_SPECIAL_FORECAST} = "false" ]]; then
       export RUN_ENSEMBLE_MEAN_OUTPUT=true  #true
    else
       export RUN_WRFCHEM_INITIAL=false
-      export RUN_DART_FILTER=true  #true
-      export RUN_UPDATE_BC=true  #true
-      export RUN_ENSEMBLE_MEAN_INPUT=true  #true
-      export RUN_WRFCHEM_CYCLE_CR=true  #true
+      export RUN_DART_FILTER=false #true
+      export RUN_UPDATE_BC=false #true
+      export RUN_ENSEMBLE_MEAN_INPUT=false #true
+      export RUN_WRFCHEM_CYCLE_CR=false #true
       export RUN_BAND_DEPTH=false
-      export RUN_WRFCHEM_CYCLE_MR=true
-      export RUN_ENSMEAN_CYCLE_MR=true
-      export RUN_ENSEMBLE_MEAN_OUTPUT=true  #true
+      export RUN_WRFCHEM_CYCLE_MR=false #true
+      export RUN_ENSMEAN_CYCLE_MR=false #true
+      export RUN_ENSEMBLE_MEAN_OUTPUT=false  #true
    fi
 else
    export RUN_REAL=false
@@ -757,7 +762,7 @@ export NL_AUXINPUT6_INNAME=\'wrfbiochemi_d\<domain\>_\<date\>\'
 export NL_AUXINPUT7_INNAME=\'wrffirechemi_d\<domain\>_\<date\>\'
 export NL_AUXINPUT2_INTERVAL_M=60480,60480,60480
 export NL_AUXINPUT5_INTERVAL_M=60,60,60
-export NL_AUXINPUT6_INTERVAL_M=60480,60480,60480
+export NL_AUXINPUT6_INTERVAL_M=60,60,60
 export NL_AUXINPUT7_INTERVAL_M=60,60,60
 export NL_FRAMES_PER_AUXINPUT2=1,1,1
 export NL_FRAMES_PER_AUXINPUT5=1,1,1
@@ -2418,7 +2423,7 @@ met_file_prefix    = 'met_em'
 met_file_suffix    = '.nc'
 met_file_separator = '.'
 EOF
-   cp ${METGRID_DIR}/met_em.d${CR_DOMAIN}.*:00:00.nc ./.
+   ln -sf ${METGRID_DIR}/met_em.d${CR_DOMAIN}.*:00:00.nc ./.
    if [[ -f job.ksh ]]; then rm -rf job.ksh; fi
    touch job.ksh
    RANDOM=$$
@@ -2480,7 +2485,7 @@ met_file_prefix    = 'met_em'
 met_file_suffix    = '.nc'
 met_file_separator = '.'
 EOF
-   cp ${METGRID_DIR}/met_em.d${MR_DOMAIN}.*:00:00.nc ./.
+   ln -sf ${METGRID_DIR}/met_em.d${MR_DOMAIN}.*:00:00.nc ./.
    if [[ -f job.ksh ]]; then rm -rf job.ksh; fi
    touch job.ksh
    RANDOM=$$
@@ -2542,7 +2547,7 @@ met_file_prefix    = 'met_em'
 met_file_suffix    = '.nc'
 met_file_separator = '.'
 EOF
-   cp ${METGRID_DIR}/met_em.d${FR_DOMAIN}.*:00:00.nc ./.
+   ln -sf ${METGRID_DIR}/met_em.d${FR_DOMAIN}.*:00:00.nc ./.
    if [[ -f job.ksh ]]; then rm -rf job.ksh; fi
    touch job.ksh
    RANDOM=$$

@@ -2,7 +2,7 @@
 ! provided by UCAR, "as is", without charge, subject to all terms of use at
 ! http://www.image.ucar.edu/DAReS/DART/DART_download
 !
-! $Id: filter.f90 7387 2015-01-16 22:44:50Z mizzi $
+! $Id$
 
 program filter
 
@@ -58,9 +58,9 @@ implicit none
 
 ! version controlled file description for error handling, do not edit
 character(len=256), parameter :: source   = &
-   "$URL: https://proxy.subversion.ucar.edu/DAReS/DART/branches/mizzi/filter/filter.f90 $"
-character(len=32 ), parameter :: revision = "$Revision: 7387 $"
-character(len=128), parameter :: revdate  = "$Date: 2015-01-16 15:44:50 -0700 (Fri, 16 Jan 2015) $"
+   "$URL$"
+character(len=32 ), parameter :: revision = "$Revision$"
+character(len=128), parameter :: revdate  = "$Date$"
 
 ! Some convenient global storage items
 character(len=129)      :: msgstring
@@ -99,10 +99,6 @@ integer  :: output_interval     = 1
 integer  :: num_groups          = 1
 real(r8) :: outlier_threshold   = -1.0_r8
 logical  :: enable_special_outlier_code = .false.
-!
-! APM: +++
-real(r8) :: special_outlier_threshold   = -1.0_r8
-! APM: ---
 real(r8) :: input_qc_threshold  = 3.0_r8
 logical  :: output_forward_op_errors = .false.
 logical  :: output_timestamps        = .false.
@@ -148,10 +144,6 @@ namelist /filter_nml/ async, adv_ens_command, ens_size, tasks_per_model_advance,
    inf_out_file_name, inf_diag_file_name, inf_initial, inf_sd_initial,              &
    inf_lower_bound, inf_upper_bound, inf_sd_lower_bound, output_inflation,          &
    silence
-!
-! APM: +++
-namelist /filter_apm_nml/ special_outlier_threshold
-! APM: ---
 
 
 !----------------------------------------------------------------
@@ -201,19 +193,6 @@ call filter_initialize_modules_used()
 call find_namelist_in_file("input.nml", "filter_nml", iunit)
 read(iunit, nml = filter_nml, iostat = io)
 call check_namelist_read(iunit, io, "filter_nml")
-
-!
-! APM: +++
-! Read special outlier threshold from filter_apm_nml
-if (enable_special_outlier_code) then
-   open(unit=210,file='filter_apm.nml',form='formatted', &
-   status='old',action='read')
-   read(210,filter_apm_nml)
-   write(msgstring, *) 'APM: special_outlier_threshold=', special_outlier_threshold
-   call error_handler(E_MSG,'filter_main', msgstring, source, revision, revdate)
-   close(210)
-endif
-! APM: ---
 
 ! Record the namelist values used for the run ...
 if (do_nml_file()) write(nmlfileunit, nml=filter_nml)
@@ -1245,7 +1224,7 @@ if (do_output()) then
          'Reading in initial condition/restart data for all ensemble members from file(s)')
    else
       call error_handler(E_MSG,'filter_read_restart:', &
-         'Reading in a single ensemble and perturbing data for the other ensemble members')
+         'Reading in a single member and perturbing data for the other ensemble members')
    endif
 endif
 
@@ -1579,23 +1558,13 @@ do j = 1, obs_ens_handle%my_num_vars
          ! obs type for this obs.
          ! the function should return .true. if this is an outlier, .false. if it is ok.
          if (enable_special_outlier_code) then
-! APM: +++ (modified to add special_outlier_threshold)
-            failed = failed_outlier(ratio, outlier_threshold, special_outlier_threshold, &
-                                    obs_ens_handle, OBS_KEY_COPY, j, seq)
-! APM: ---
+            failed = failed_outlier(ratio, outlier_threshold, obs_ens_handle, &
+                                    OBS_KEY_COPY, j, seq)
          else 
             failed = (ratio > outlier_threshold)
          endif
 
          if (failed) obs_ens_handle%copies(OBS_GLOBAL_QC_COPY, j) = 7 
-!
-! APM: +++ (modified to reject when obs_value is negative
-!         if (enable_special_outlier_code) then
-!            if(obs_val .lt. 0.) failed=.TRUE.
-!            if (failed) obs_ens_handle%copies(OBS_GLOBAL_QC_COPY, j) = 17 
-!         endif
-! APM: ---
-!
       endif
 
    else
@@ -1894,86 +1863,10 @@ if (do_output()) then
 endif
 
 end subroutine print_obs_time
-!
+
 !-------------------------------------------------------------------------
-! APM: +++ (modified to check for negative chemistry obs)
-!
-function negative_chem_obs(obs_val, obs_ens_handle, OBS_KEY_COPY, j, seq)
-!
-! return true if the observation value is negative
-!
-use obs_def_mod, only : get_obs_kind
-use obs_kind_mod         ! this allows you to use all the types available
-!
-real(r8),                intent(in) :: obs_val
-type(ensemble_type),     intent(in) :: obs_ens_handle
-integer,                 intent(in) :: OBS_KEY_COPY
-integer,                 intent(in) :: j
-type(obs_sequence_type), intent(in) :: seq
-logical                             :: negative_chem_obs
-integer                             :: this_obs_key, this_obs_type
-type(obs_def_type)                  :: obs_def
-type(obs_type)                      :: observation
-logical                             :: first_time = .true.
-!
-if (first_time) then
-   call init_obs(observation, 0, 0)
-   first_time = .false.
-endif
 
-call prepare_to_read_from_copies(obs_ens_handle)
-
-! if you want to do something different based on the observation specific type:
-
-this_obs_key = obs_ens_handle%copies(OBS_KEY_COPY, j)
-call get_obs_from_key(seq, this_obs_key, observation)
-call get_obs_def(observation, obs_def)
-this_obs_type = get_obs_kind(obs_def)
-
-select case(this_obs_type) 
-!   case (MOPITT_CO_RETRIEVAL)
-!      if (obs_val < 0.) then
-!         negative_chem_obs = .true.
-!      else
-!         negative_chem_obs = .false.
-!      endif
-!
-!   case (IASI_CO_RETRIEVAL)
-!      if (obs_val < 0.) then
-!         negative_chem_obs = .true.
-!      else
-!         negative_chem_obs = .false.
-!      endif
-!
-!   case (IASI_O3_RETRIEVAL)
-!      if (obs_val < 0.) then
-!         negative_chem_obs = .true.
-!      else
-!         negative_chem_obs = .false.
-!      endif
-!
-!   case (OMI_NO2_COLUMN)
-!      if (obs_val < 0.) then
-!         negative_chem_obs = .true.
-!      else
-!         negative_chem_obs = .false.
-!      endif
-
-   case default
-      if (obs_val < 0.) then
-         negative_chem_obs = .false.
-      else
-         negative_chem_obs = .false.
-      endif
-end select
-end function negative_chem_obs
-! APM: ---
-!
-!-------------------------------------------------------------------------
-! APM: +++ (modified to add special_outlier_threshold)
-function failed_outlier(ratio, outlier_threshold, special_outlier_threshold, &
-                        obs_ens_handle, OBS_KEY_COPY, j, seq)
-! APM: ---
+function failed_outlier(ratio, outlier_threshold, obs_ens_handle, OBS_KEY_COPY, j, seq)
 
 ! return true if the observation value is too far away from the ensemble mean
 ! and should be rejected and not assimilated.
@@ -1984,9 +1877,6 @@ use obs_kind_mod         ! this allows you to use all the types available
 
 real(r8),                intent(in) :: ratio
 real(r8),                intent(in) :: outlier_threshold
-! APM: +++
-real(r8),                intent(in) :: special_outlier_threshold
-! APM: ---
 type(ensemble_type),     intent(in) :: obs_ens_handle
 integer,                 intent(in) :: OBS_KEY_COPY
 integer,                 intent(in) :: j
@@ -2029,32 +1919,8 @@ this_obs_type = get_obs_kind(obs_def)
 ! to make decisions.  you have the observation so any other part (e.g. the
 ! time, the value, the error) is available to you as well.
 
-select case(this_obs_type) 
-   case (MOPITT_CO_RETRIEVAL)
-      if (ratio > special_outlier_threshold) then
-         failed_outlier = .true.
-      else
-         failed_outlier = .false.
-      endif
-   case (IASI_CO_RETRIEVAL)
-      if (ratio > special_outlier_threshold) then
-         failed_outlier = .true.
-      else
-         failed_outlier = .false.
-      endif
-   case (IASI_O3_RETRIEVAL)
-      if (ratio > special_outlier_threshold) then
-         failed_outlier = .true.
-      else
-         failed_outlier = .false.
-      endif
-   case (OMI_NO2_COLUMN)
-      if (ratio > special_outlier_threshold) then
-         failed_outlier = .true.
-      else
-         failed_outlier = .false.
-      endif
-!
+select case (this_obs_type)
+
 ! example of specifying a different threshold value for one obs type:
 !   case (RADIOSONDE_TEMPERATURE)
 !      if (ratio > some_other_value) then
@@ -2062,7 +1928,7 @@ select case(this_obs_type)
 !      else
 !         failed_outlier = .false.
 !      endif
-!
+
 ! accept all values of this observation type no matter how far
 ! from the ensemble mean:
 !   case (AIRCRAFT_U_WIND_COMPONENT, AIRCRAFT_V_WIND_COMPONENT)
@@ -2074,6 +1940,7 @@ select case(this_obs_type)
       else
          failed_outlier = .false.
       endif
+
 end select
 
 end function failed_outlier
@@ -2083,7 +1950,7 @@ end function failed_outlier
 end program filter
 
 ! <next few lines under version control, do not edit>
-! $URL: https://proxy.subversion.ucar.edu/DAReS/DART/branches/mizzi/filter/filter.f90 $
-! $Id: filter.f90 7387 2015-01-16 22:44:50Z mizzi $
-! $Revision: 7387 $
-! $Date: 2015-01-16 15:44:50 -0700 (Fri, 16 Jan 2015) $
+! $URL$
+! $Id$
+! $Revision$
+! $Date$

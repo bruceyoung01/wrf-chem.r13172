@@ -2,7 +2,7 @@
 #SBATCH --job-name=CAFIRE_radm2_1hour                          # job name
 #SBATCH --output=CAFIRE_radm2_1hour.out                      # output filename
 #SBATCH --error=CAFIRE_radm2_1hour.err                      # error filename
-#SBATCH --partition=high_mem
+#SBATCH --partition=batch
 #SBATCH --qos=long+
 #SBATCH --time=120:00:00                              # wallclock time (minutes)
 ##SBATCH --constraint=hpcf2013

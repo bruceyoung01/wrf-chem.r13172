@@ -459,7 +459,7 @@ any_missing : &
 !     local variables
 !------------------------------------------------------------------
       logical :: lexist
-      character(len=132) :: filenm
+      character(len=280) :: filenm
       character(len=19)  :: tstring
 
       call mz2wrf_time( tstring, date, secs )
@@ -872,7 +872,7 @@ is_trend : &
       integer :: status
       integer :: varid
       integer :: ncid_bc
-      character(len=132) :: filenm
+      character(len=280) :: filenm
       character(len=19)  :: tstring
 
       call mz2wrf_time( tstring, date, datesec )

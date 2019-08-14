@@ -126,6 +126,11 @@ export RUN_INTERPOLATE=false
 #
 export CYCLE_PERIOD=3 #6
 export FCST_PERIOD=3 #6
+# ASIM_WINDOW should be smaller or equal to FCST_PERIOD/2
+#In terms of the format of ASIM_WINDOW, please refer to WRFDA
+#WRFDA/var/build/da_advance_time.f90
+#NOTE: It can not be decimal, e.g., 0.5
+#30m: 30 minutes
 export ASIM_WINDOW=1 #3
 export MET_INTERVAL_HR=1
 export INTERVAL_SECONDS=$((${MET_INTERVAL_HR}*60*60))
@@ -2321,7 +2326,7 @@ met_file_prefix    = 'met_em'
 met_file_suffix    = '.nc'
 met_file_separator = '.'
 EOF
-   cp ${METGRID_DIR}/met_em.d${CR_DOMAIN}.*:00:00.nc ./.
+   ln -sf ${METGRID_DIR}/met_em.d${CR_DOMAIN}.*:00:00.nc ./.
    if [[ -f job.ksh ]]; then rm -rf job.ksh; fi
    touch job.ksh
    RANDOM=$$

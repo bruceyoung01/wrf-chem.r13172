@@ -22,7 +22,7 @@ do
          export IENS=${i}
       fi
    fi
-   export WRFINP=wrfinput_d02_${YEAR}-${MONTH}-${DAY}_${HOUR}:00:00.e${IENS}
+   export WRFINP=wrfinput_d03_${YEAR}-${MONTH}-${DAY}_${HOUR}:00:00.e${IENS}
    echo 'get inp'
    cp ${IC_METDIR}/${WRFINP} ./.
    ls set${i}

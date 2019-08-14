@@ -28,7 +28,7 @@
 !     parameters
 !-----------------------------------------------------------------
       integer, parameter :: specmax = 500
-      integer, parameter :: maxsize = 180
+      integer, parameter :: maxsize = 280
       integer, parameter :: kin = 15
 
 !-----------------------------------------------------------------
@@ -113,7 +113,7 @@
       spc_map(:) = ' ' 
       !write(*,*) 'AAA01', dir_moz
       read(*,nml=control,iostat=istat)
-      !write(*,*) 'AAA02', trim(dir_moz),trim(dir_wrf), trim(init_cond_file_prefix),trim(bdy_cond_file_prefix), trim(fn_moz)
+       write(*,*) 'AAA02', trim(dir_moz),trim(dir_wrf), trim(init_cond_file_prefix),trim(bdy_cond_file_prefix), trim(fn_moz)
       !write(*,*) 'AAA03', do_bc, do_ic, trim(met_file_prefix)
       !write(*,*) 'AAA04', trim(met_file_suffix), trim(met_file_separator), &
       !                   domain, def_missing_var

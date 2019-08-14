@@ -196,7 +196,20 @@ call error_handler(E_MSG,'real_obs_sequence',msgstring1)
 ! open NCEP observation data file
 
 write(obsdate, '(i4.4,i2.2,i2.2)') year, month, day
-obsfile   = trim(adjustl(ObsBase))//obsdate//hourt
+if (hourt .eq. '03' .or. hourt .eq. '04' .or. hourt .eq. '05' .or. &
+    hourt .eq. '06' .or. hourt .eq. '07' .or. hourt .eq. '08') then
+   obsfile   = trim(adjustl(ObsBase))//obsdate//'06'
+elseif (hourt .eq. '09' .or. hourt .eq. '10' .or. hourt .eq. '11' .or. &
+        hourt .eq. '12' .or. hourt .eq. '13' .or. hourt .eq. '14') then
+   obsfile   = trim(adjustl(ObsBase))//obsdate//'12'
+elseif (hourt .eq. '15' .or. hourt .eq. '16' .or. hourt .eq. '17' .or. &
+        hourt .eq. '18' .or. hourt .eq. '19' .or. hourt .eq. '20') then
+   obsfile   = trim(adjustl(ObsBase))//obsdate//'18'
+elseif (hourt .eq. '21' .or. hourt .eq. '22' .or. hourt .eq. '23' .or. &
+        hourt .eq. '24' .or. hourt .eq. '01' .or. hourt .eq. '02') then
+   obsfile   = trim(adjustl(ObsBase))//obsdate//'24'
+endif
+
 obs_unit  = get_unit()
 open(unit = obs_unit, file = obsfile, form='formatted', status='old')
 write(msgstring1,*) 'input file opened= '//trim(obsfile)
@@ -218,6 +231,7 @@ obsloop:  do
 
    read(obs_unit,880,end=200,iostat=io) obs_err, lon, lat, lev, zob, zob2, rcount, time, &
                               obstype, iqc, subset, pc
+
    if (io /= 0) then
       write(msgstring1,*)'read error was ',io,' for line ',read_counter
       call error_handler(E_ERR,'real_obs_sequence', msgstring1, source, revision, revdate)

@@ -138,7 +138,7 @@ else
 endif
 
 if( $bnd_typ == IC || $bnd_typ == BOTH ) then
-  set filestem = wrfinput_d02
+  set filestem = wrfinput_d03
 else
   set filestem = wrfbdy
 endif
@@ -202,18 +202,18 @@ endif
 #---------------------------------------
 foreach file ($files)
   if( $bnd_typ == BC ) then
-    ls -1 wrfinput_d02_* >& tmp.$$
+    ls -1 wrfinput_d03_* >& tmp.$$
     set line1 = `head -1 tmp.$$`
     rm -f tmp.$$
     if( "$line1" == "No match." ) then
-      echo "Can not find any wrfinput_d02_* files; $prog terminating"
+      echo "Can not find any wrfinput_d03_* files; $prog terminating"
       exit -1
     endif
   else if( $bnd_typ == BOTH ) then
     set date  = `echo $file | cut -d_ -f3`
     set secs  = `echo $file | cut -d_ -f4`
     set ensno = `echo $file | cut -d_ -f5`
-    set bdy_file = "wrfbdy_d02_${date}_${secs}.e${ensno}"
+    set bdy_file = "wrfbdy_d03_${date}_${secs}.e${ensno}"
     if( ! -e $bdy_file ) then
       echo "File $bdy_file not found; $prog terminating"
       exit -1
@@ -221,22 +221,22 @@ foreach file ($files)
   endif
 end
 
-if( -e wrfinput_d02 ) then
-  rm -f wrfinput_d02
+if( -e wrfinput_d03 ) then
+  rm -f wrfinput_d03
 endif
 
 if( $bnd_typ == BC ) then
-  set inp_file = `ls wrfinput_d02_*`
+  set inp_file = `ls wrfinput_d03_*`
   echo $inp_file
-  ln -s $inp_file[1] wrfinput_d02
+  ln -s $inp_file[1] wrfinput_d03
   if( $status ) then
-    echo "Failed to link $inp_file to wrfinput_d02"
+    echo "Failed to link $inp_file to wrfinput_d03"
     exit -1
   endif
 endif
 
-if( -e wrfbdy_d02 ) then
-  rm -f wrfbdy_d02
+if( -e wrfbdy_d03 ) then
+  rm -f wrfbdy_d03
 endif
 #---------------------------------------
 #  loop over files
@@ -247,19 +247,19 @@ foreach file ($files)
 #---------------------------------------
 #  IC file or BOTH
 #---------------------------------------
-    ln -s $file wrfinput_d02 >& /dev/null
+    ln -s $file wrfinput_d03 >& /dev/null
     if( $status ) then
-      echo "Failed to link $file to wrfinput_d02"
+      echo "Failed to link $file to wrfinput_d03"
       exit -1
     endif
     if( $bnd_typ == BOTH ) then
       set date  = `echo $file | cut -d_ -f3`
       set secs  = `echo $file | cut -d_ -f4`
       set ensno = `echo $file | cut -d_ -f5`
-      set bdy_file = "wrfbdy_d02_${date}_${secs}.e${ensno}"
-      ln -s $bdy_file wrfbdy_d02 >& /dev/null
+      set bdy_file = "wrfbdy_d03_${date}_${secs}.e${ensno}"
+      ln -s $bdy_file wrfbdy_d03 >& /dev/null
       if( $status ) then
-        echo "Failed to link $bdy_file to wrfbdy_d02"
+        echo "Failed to link $bdy_file to wrfbdy_d03"
         exit -1
       endif
     endif
@@ -267,9 +267,9 @@ foreach file ($files)
 #---------------------------------------
 #  BC file
 #---------------------------------------
-    ln -s $file wrfbdy_d02
+    ln -s $file wrfbdy_d03
     if( $status ) then
-      echo "Failed to link $file to wrfdby_d02"
+      echo "Failed to link $file to wrfdby_d03"
       exit -1
     endif
     set bdy_file = $file
@@ -302,31 +302,31 @@ foreach file ($files)
 #---------------------------------------
   if( ! -e run_mozbc_done ) then
     echo "There was an error running mozbc.exe, check file $outfile; $prog terminating"
-    rm -f wrfbdy_d02
-    rm -f wrfinput_d02
+    rm -f wrfbdy_d03
+    rm -f wrfinput_d03
     exit -1
   endif
 #---------------------------------------
 #  clean up
 #---------------------------------------
   if( $bnd_typ == BC || $bnd_typ == BOTH ) then
-    rm -f wrfbdy_d02
+    rm -f wrfbdy_d03
     if( $status ) then
-      echo "Failed to rm wrfbdy_d02"
+      echo "Failed to rm wrfbdy_d03"
       exit -1
     endif
   endif
   if( $bnd_typ == IC ) then
-    rm -f wrfinput_d02
+    rm -f wrfinput_d03
     if( $status ) then
-      echo "Failed to rm wrfinput_d02"
+      echo "Failed to rm wrfinput_d03"
       exit -1
     endif
   endif
 end
 
 if( $bnd_typ == BC ) then
-  rm -f wrfinput_d02 >& /dev/null
+  rm -f wrfinput_d03 >& /dev/null
 endif
 if( -e run_mozbc_done ) then
   rm -f run_mozbc_done
